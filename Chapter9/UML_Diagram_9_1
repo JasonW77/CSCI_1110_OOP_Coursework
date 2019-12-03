@@ -1,0 +1,13 @@
+Rectangle
+______________________________________________
+
+width: double = 1
+height: double = 1
+______________________________________________
+
++ Rectangle()
++ Rectangle(newWidth: double, newHeight: double)
+
++ getArea(): double
++ getPerimeter(): double
+______________________________________________
