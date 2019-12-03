@@ -1,8 +1,8 @@
 Rectangle
 ______________________________________________
 
-width: double = 1
-height: double = 1
++ width: double = 1
++ height: double = 1
 ______________________________________________
 
 + Rectangle()
