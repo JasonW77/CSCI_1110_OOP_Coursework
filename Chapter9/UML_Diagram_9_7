@@ -16,5 +16,5 @@ ______________________________________
 + getDateCreated() : void
 + getMonthlyIntrestRate() : void
 + getMounthlyIntrest() : void
-+ withdraw(): void
-+ deposit(): void
++ withdraw(double newbalance): void
++ deposit(double newbalance): void
