@@ -1,0 +1,20 @@
+Account
+______________________________________
+- id: int = 0
+- balance: double = 0
+- annualIntrestRate: double = 0
+- dateCreated: date
+______________________________________
++ Account()
++ Account(int id, int balance)
++ setId(newId: int): void
++ getId(): void
++ setBalance(newBalance: int): void
++ getBalance(): void
++ setAnnualIntrestRate(newAnnualIntrestRate: int) : void
++ getAnnualIntrestRate() : void
++ getDateCreated() : void
++ getMonthlyIntrestRate() : void
++ getMounthlyIntrest() : void
++ withdraw(): void
++ deposit(): void
