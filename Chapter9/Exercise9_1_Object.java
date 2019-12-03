@@ -1,18 +1,24 @@
-public class RectangleObject {
+// Author Jason Waters
+// Date 12/3/2019
+// CSCI_1110_Assignment_9_1
+
+
+//RectangleObject class
+public class Exercise9_1_Object {
 	
 	public static void main(String args[]) {
-		
+		//Default Constructor
 		Rectangle def;
 		def = new Rectangle();
-		
+		// Spec1 or 4 x 40 constructor
 		Rectangle spec1;
 		spec1 = new Rectangle(4, 40);
-		
+		// Spec2 or 3.5 x 35.9 constructor
 		Rectangle spec2;
 		spec2 = new Rectangle(3.5, 35.9);
 		
 		
-		
+		// Print out for the 3 Rectangles
 		System.out.println("\nDefault Rectangle");
 		System.out.println("The Width of the default rectangle is: " + def.getWidth());
 		System.out.println("The Heigth of the default rectangle is: " + def.getHeight());
@@ -30,13 +36,3 @@ public class RectangleObject {
 		System.out.println("The Perimeter of the 3.5 x 35.9 rectangle is: " + spec2.getPerimeter());
 	}
 }
-
-
-/*
-A no-arg constructor that creates a default rectangle.
-A constructor that creates a rectangle with the specified width and height.
-A method named getArea() that returns the area of this rectangle.
-A method named getPerimeter() that returns the perimeter.
-Create the Rectangle object class. 
-Write a test program that creates two Rectangle objects—one with width 4 and height 40 and the other with width 3.5 and height 35.9. 
-Display the width, height, area, and perimeter of each rectangle in this order. */
