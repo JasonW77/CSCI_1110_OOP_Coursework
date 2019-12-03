@@ -3,8 +3,8 @@
 // CSCI_1110_Assignment_9_1
 
 
-
-public class Rectangle{
+//Rectangle class
+public class Exercise9_1{
 	
 	double width;
 	double height;
