@@ -1,10 +1,10 @@
 // Author Jason Waters
 // Date 12/3/2019
-// CSCI_1110_Assignment_9_1
+// CSCI_1110_Exercise_9_1
 
 
 //RectangleObject class
-public class Exercise9_1_Object {
+public class RectangleObject {
 	
 	public static void main(String args[]) {
 		//Default Constructor
