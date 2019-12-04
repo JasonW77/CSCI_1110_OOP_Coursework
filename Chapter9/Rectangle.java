@@ -1,10 +1,10 @@
 // Author Jason Waters
 // Date 12/3/2019
-// CSCI_1110_Assignment_9_1
+// CSCI_1110_Exercise_9_1
 
 
 //Rectangle class
-public class Exercise9_1{
+public class Rectangle{
 	
 	double width;
 	double height;
