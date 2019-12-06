@@ -4,8 +4,9 @@ public class MyIntegerObject {
 	public static void main(String args[]) {
 		
 		//Constructor
-		MyInteger def;
-		def = new MyInteger();
+		MyInteger def = new MyInteger(5);
+		
+		int testing = 100;
 		
 		//getter method
 		def.getMyInteger();
@@ -20,13 +21,13 @@ public class MyIntegerObject {
 		def.isOdd();
 		
 		//isEven(int) method static
-		MyInteger.isIntEven(def);
+		MyInteger.isIntEven(testing);
 		
 		//isPrime(int) method static
-		MyInteger.isIntPrime(def);
+		MyInteger.isIntPrime(89);
 		
 		//isOdd(int) method static
-		MyInteger.isIntOdd(def);
+		MyInteger.isIntOdd(53);
 		
 		//isEven(MyInteger) method static
 		MyInteger.isMyEven(def);
