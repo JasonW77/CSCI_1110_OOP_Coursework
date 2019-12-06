@@ -7,10 +7,9 @@ public class MyInteger {
 	
 	private static int value = 0;
 	
-	public MyInteger() {
+	public MyInteger(int value) {
 		this.value = value;
 	}
-	
 	public int getMyInteger() {
 		System.out.println(value);
 		return value;
@@ -127,12 +126,12 @@ public class MyInteger {
 		return equalsMy;
 	}
 	
-	//public static void parseIntC(char[]) {
+	public static void parseIntC(char[]  c ) {
 		
-	//}
+	}
 	
-	//public static void parseIntS() {
+	public static void parseIntS() {
 		
-	//}
+	}
 
 }
