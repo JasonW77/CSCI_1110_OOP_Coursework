@@ -1,4 +1,3 @@
-
 public class MyIntegerObject {
 	
 	public static void main(String args[]) {
@@ -6,46 +5,53 @@ public class MyIntegerObject {
 		//Constructor
 		MyInteger def = new MyInteger(5);
 		
-		int testing = 100;
+		int testing = 5;
 		
 		//getter method
-		def.getMyInteger();
+		System.out.println("getMyInteger: " + def.getMyInteger());
 		
 		//isEven() method
-		def.isEven();
-		
-		//isPrime() method
-		def.isPrime();
+		System.out.println("isEven: " + def.isEven());
 		
 		//isOdd() method
-		def.isOdd();
+		System.out.println("isOdd: " + def.isOdd());
+				
+		//isPrime() method
+		System.out.println("isPrime: " + def.isPrime());
 		
 		//isEven(int) method static
-		MyInteger.isIntEven(testing);
-		
-		//isPrime(int) method static
-		MyInteger.isIntPrime(89);
+		System.out.println("isEven("+ testing + "): " + MyInteger.isIntEven(testing));
 		
 		//isOdd(int) method static
-		MyInteger.isIntOdd(53);
+		System.out.println("isOdd("+ testing + "): " + MyInteger.isIntOdd(testing));
 		
+		//isPrime(int) method static
+		System.out.println("isPrime("+ testing + "): " + MyInteger.isIntPrime(testing));
+		
+
 		//isEven(MyInteger) method static
-		MyInteger.isMyEven(def);
-		
-		//isPrime(MyInteger) method static
-		MyInteger.isMyPrime(def);
+		System.out.println("isEven(MyInteger): " + MyInteger.isMyEven(def));
 		
 		//isOdd(MyInteger) method static
-		MyInteger.isMyOdd(def);
+		System.out.println("isOdd(MyInteger): " + MyInteger.isMyOdd(def));
+		
+		//isPrime(MyInteger) method static
+		System.out.println("isPrime(MyInteger): " + MyInteger.isMyPrime(def));
 		
 		//equals(int) method
+		System.out.println("equals("+ testing + "): "  + def.equals(testing));
 		
 		//equals(MyInteger) method
+		System.out.println("equals(MyInteger): " + def.equalsMy(testing));
 		
 		//parseInt(char[]) method
+		String[] s = {"1","2","3"};
+		
+		System.out.println(parseInt[s]);
+	
 		
 		//parseInt(String) method
-		
+		//System.out.println("parseInt(String): " + MyInteger.parseInt(def));
 		
 	}
 }
