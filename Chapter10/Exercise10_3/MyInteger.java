@@ -11,127 +11,87 @@ public class MyInteger {
 		this.value = value;
 	}
 	public int getMyInteger() {
-		System.out.println(value);
 		return value;
 	}
 	
 	public boolean isEven() {
-		boolean iseven = true;
 		if (value % 2 == 0) {
-			iseven = true;
-		}
-		else if (value % 2 != 0) {
-			iseven = false;
-		}
-		return iseven;
+			return true;
+		}	
+		return false;
 	}
-	
 	public boolean isOdd() {
-		boolean isodd = true;
-		if (value % 2 == 0) {
-			isodd = false;
-		}
-		else if (value % 2 != 0) {
-			isodd = true;
-		}
-		return isodd;
+		if (value % 2 != 0) {
+			return true;
+		}	
+		return false;
 	}
-	
 	public boolean isPrime() {
-		boolean isprime = true;
-		if (value % 2 == 0) {
-			isprime = false;
-		}
-		else if (value % 2 != 0) {
-			isprime = true;
-		}
-		return isprime;
+		for (int divisor = 2; divisor<= value / 2; divisor++) {
+			if (value % divisor == 0 ) {
+				return false;
+			}
+		}	
+		return true;
 	}
-	
 	public static boolean isIntEven(int value) {
-		boolean iseven = true;
 		if (value % 2 == 0) {
-			iseven = true;
+			return true;
 		}
-		else if (value % 2 != 0) {
-			iseven = false;
-		}
-		return iseven;
+		return false;
 	}
-	
 	public static boolean isIntOdd(int value) {
-		boolean isodd = true;
-		if (value % 2 == 0) {
-			isodd = false;
-		}
-		else if (value % 2 != 0) {
-			isodd = true;
-		}
-		return isodd;
+		if (value % 2 != 0) {
+			return true;
+		}	
+		return false;
 	}
-	
 	public static boolean isIntPrime(int value) {
-		boolean isprime = true;
-		if (value % 2 == 0) {
-			isprime = false;
+		for (int divisor = 2; divisor<= value / 2; divisor++) {
+			if (value % divisor == 0 ) {
+				return false;
+			}
 		}
-		else if (value % 2 != 0) {
-			isprime = true;
-		}
-		return isprime;
+		return true;
 	}
-	
 	public static boolean isMyEven(MyInteger value) {
-		boolean iseven = true;
 		if (MyInteger.value % 2 == 0) {
-			iseven = true;
+			return true;
 		}
-		else if (MyInteger.value % 2 != 0) {
-			iseven = false;
-		}
-		return iseven;
+		return false;
 	}
-	
 	public static boolean isMyOdd(MyInteger value) {
-		boolean isodd = true;
-		if (MyInteger.value % 2 == 0) {
-			isodd = false;
+		if (MyInteger.value % 2 != 0) {
+			return true;
 		}
-		else if (MyInteger.value % 2 != 0) {
-			isodd = true;
-		}
-		return isodd;
+		return false;
 	}
-	
 	public static boolean isMyPrime(MyInteger value) {
-		boolean isprime = true;
-		if (MyInteger.value % 2 == 0) {
-			isprime = false;
+		for (int divisor = 2; divisor<= MyInteger.value / 2; divisor++) {
+			if (MyInteger.value % divisor == 0 ) {
+				return true;
+			}
 		}
-		else if (MyInteger.value % 2 != 0) {
-			isprime = true;
-		}
-		return isprime;
+		return false;
 	}
-	
 	public boolean equals(int value) {
-		boolean equals = true;
-		
-		return equals;
+		if (MyInteger.value == value) {
+			return true;
+		}
+		return false;
 	}
-	
 	public boolean equalsMy(int MyInteger) {
-		boolean equalsMy = true;
-		
-		return equalsMy;
-	}
-	
-	public static void parseIntC(char[]  c ) {
-		
-	}
-	
-	public static void parseIntS() {
-		
+		if (MyInteger == value) {
+			return true;
+		}
+		return false;
 	}
 
+	public static String parseInt(char []s) {
+	
+		return
+	}
+	/*public static void parseIntS() {
+		
+	}*/
 }
