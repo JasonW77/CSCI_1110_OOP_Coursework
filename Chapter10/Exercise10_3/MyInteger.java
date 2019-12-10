@@ -1,6 +1,8 @@
-// Author Jason Waters
-// Date 12/5/2019
-// CSCI_1110_Assignment_10_3
+package chapter10;
+
+//Author Jason Waters
+//Date 12/5/2019
+//CSCI_1110_Assignment_10_3
 
 
 public class MyInteger {
@@ -34,19 +36,19 @@ public class MyInteger {
 		}	
 		return true;
 	}
-	public static boolean isIntEven(int value) {
+	public static boolean isEven(int value) {
 		if (value % 2 == 0) {
 			return true;
 		}
 		return false;
 	}
-	public static boolean isIntOdd(int value) {
+	public static boolean isOdd(int value) {
 		if (value % 2 != 0) {
 			return true;
 		}	
 		return false;
 	}
-	public static boolean isIntPrime(int value) {
+	public static boolean isPrime(int value) {
 		for (int divisor = 2; divisor<= value / 2; divisor++) {
 			if (value % divisor == 0 ) {
 				return false;
@@ -54,19 +56,19 @@ public class MyInteger {
 		}
 		return true;
 	}
-	public static boolean isMyEven(MyInteger value) {
+	public static boolean isEven(MyInteger value) {
 		if (MyInteger.value % 2 == 0) {
 			return true;
 		}
 		return false;
 	}
-	public static boolean isMyOdd(MyInteger value) {
+	public static boolean isOdd(MyInteger value) {
 		if (MyInteger.value % 2 != 0) {
 			return true;
 		}
 		return false;
 	}
-	public static boolean isMyPrime(MyInteger value) {
+	public static boolean isPrime(MyInteger value) {
 		for (int divisor = 2; divisor<= MyInteger.value / 2; divisor++) {
 			if (MyInteger.value % divisor == 0 ) {
 				return true;
@@ -74,13 +76,13 @@ public class MyInteger {
 		}
 		return false;
 	}
-	public boolean equals(int value) {
-		if (MyInteger.value == value) {
+	public boolean equals() {
+		if ( this.value == MyInteger.value) {
 			return true;
 		}
 		return false;
 	}
-	public boolean equalsMy(int MyInteger) {
+	public static boolean equals(int MyInteger) {
 		if (MyInteger == value) {
 			return true;
 		}
@@ -93,7 +95,7 @@ public class MyInteger {
 	    }
 	    return ret;
 	}
-	public static int parseIntS(String hex) {
+	public static int parseInt(String hex) {
 		int ret = 0;
 		for(int i = 0; i < hex.length(); i++) {
 	          ret = ret * 10 + (hex.charAt(i) - '0');
