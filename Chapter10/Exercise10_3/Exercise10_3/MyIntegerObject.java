@@ -1,3 +1,7 @@
+// Author Jason Waters
+// Date 12/5/2019
+// CSCI_1110_Assignment_10_3
+
 public class MyIntegerObject {
 	
 	public static void main(String args[]) {
