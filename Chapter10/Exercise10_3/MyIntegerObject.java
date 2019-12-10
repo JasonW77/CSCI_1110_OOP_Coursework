@@ -1,6 +1,8 @@
-// Author Jason Waters
-// Date 12/5/2019
-// CSCI_1110_Assignment_10_3
+package chapter10;
+
+//Author Jason Waters
+//Date 12/5/2019
+//CSCI_1110_Assignment_10_3
 
 public class MyIntegerObject {
 	
@@ -24,29 +26,29 @@ public class MyIntegerObject {
 		System.out.println("isPrime: " + def.isPrime());
 		
 		//isEven(int) method static
-		System.out.println("isEven("+ testing + "): " + MyInteger.isIntEven(testing));
+		System.out.println("isEven("+ testing + "): " + MyInteger.isEven(testing));
 		
 		//isOdd(int) method static
-		System.out.println("isOdd("+ testing + "): " + MyInteger.isIntOdd(testing));
+		System.out.println("isOdd("+ testing + "): " + MyInteger.isOdd(testing));
 		
 		//isPrime(int) method static
-		System.out.println("isPrime("+ testing + "): " + MyInteger.isIntPrime(testing));
+		System.out.println("isPrime("+ testing + "): " + MyInteger.isPrime(testing));
 		
 
 		//isEven(MyInteger) method static
-		System.out.println("isEven(MyInteger): " + MyInteger.isMyEven(def));
+		System.out.println("isEven(MyInteger): " + MyInteger.isEven(def));
 		
 		//isOdd(MyInteger) method static
-		System.out.println("isOdd(MyInteger): " + MyInteger.isMyOdd(def));
+		System.out.println("isOdd(MyInteger): " + MyInteger.isOdd(def));
 		
 		//isPrime(MyInteger) method static
-		System.out.println("isPrime(MyInteger): " + MyInteger.isMyPrime(def));
+		System.out.println("isPrime(MyInteger): " + MyInteger.isPrime(def));
 		
 		//equals(int) method
 		System.out.println("equals("+ testing + "): "  + def.equals(testing));
 		
 		//equals(MyInteger) method
-		System.out.println("equals(MyInteger): " + def.equalsMy(testing));
+		System.out.println("equals(MyInteger): " + def.equals(testing));
 		
 		//parseInt(char[]) method
 		char[] charArray = {'1','2','3'};
@@ -55,7 +57,7 @@ public class MyIntegerObject {
 		System.out.println("parseInt(Char[]): " + MyInteger.parseInt(charArray));
 		
 		//parseInt(String) method
-		System.out.println("parseInt(String): " + MyInteger.parseIntS("123"));
+		System.out.println("parseInt(String): " + MyInteger.parseInt("123"));
 		
 	}
 }
