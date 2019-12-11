@@ -1,5 +1,3 @@
-package chapter10;
-
 //Author Jason Waters
 //Date 12/10/2019
 //CSCI_1110_Exercise_10_7
@@ -11,42 +9,49 @@ public class AccountObject {
 	
 	public static void main(String args[]) {
 		
-		double[] id = {100,100,100,100,100,100,100,100,100,100};
-		
-		Scanner input = new Scanner(System.in);
-		int i = 0;
-		do {
-			System.out.println("Enter Account id#: ");
-			int answer = input.nextInt();
-			if (answer <  0) {
-				System.out.println("Invalid entry!");
-				i++;
-			}
-			else if (answer > 9)  (answer <  0) {
-				System.out.println("Invalid entry!");
-				i++;
-			}
-		}while 	(i <= 0);
-		
 		//Default Constructor
 		Account def;
 		def = new Account();
 		
-		//Constructor for creating account with given id, balance, and interest rate.
-		Account spec1;
-		spec1 = new Account(1122, 20000, 4.5);
+		Scanner input = new Scanner(System.in);
 		
-		//calling method for withdraw
-		spec1.withdrawl(2500);
+		System.out.println("Enter id: ");
+		int i = input.nextInt();
 		
-		//calling method for deposit
-		spec1.deposit(3000);
-		
-		//print out of account #1122
-		System.out.println("\nAccount #1122");
-		System.out.println("Balance: " + spec1.getBalance());
-		System.out.println("monthly interest: " + spec1.getMonthlyInterest());
-		System.out.println("Account Created on Date: " + spec1.getDate());
-		
+		while(i > 9 || i < 0){
+			System.out.print("Enter a valid id (0,thru 9): ");
+			i = input.nextInt();
+		}
+		System.out.println("Main menu");
+		System.out.println("1: check balance");
+		System.out.println("2: withdraw");
+		System.out.println("3: deposit");
+		System.out.println("4: exit");
+		int m = input.nextInt();
+
+		while(m > 4 || m < 0){
+			System.out.print("Enter a valid id (0,thru 4): ");
+			m = input.nextInt();
+			
+		}
+		if (m == 1){
+			def.getBalance();
+			
+		}
+		else if (m == 2){
+			System.out.println("Enter withdraw ammount: ");
+			double w = input.nextInt();
+			def.withdrawl(w);
+			def.getBalance();
+		}
+		else if (m == 3){
+			System.out.println("Enter deposit ammount: ");
+			double d = input.nextInt();
+			def.deposit(d);
+			def.getBalance();
+		}
+		else if (m == 4){
+			System.out.println("Exit");
+		}			
 	}
 }
