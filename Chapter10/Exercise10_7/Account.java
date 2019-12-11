@@ -1,4 +1,3 @@
-package chapter10;
 
 //Author Jason Waters
 //Date 12/10/2019
@@ -7,27 +6,22 @@ package chapter10;
 //Account class
 public class Account{
 	
-	private int id = 0;
+	private int aid = 0;
 	private double balance = 0;
 	private double annualInterestRate = 0;
 	private java.util.Date date = new java.util.Date();
+	double[] id = {100,100,100,100,100,100,100,100,100,100};
 	
 	//default settings
 	public Account(){
-		this.id = 0;
+		this.aid = 0;
 		this.balance = 0;
 		this.annualInterestRate = 0;
 		this.date = new java.util.Date();
 	}
-	//specified settings
-	public Account(int id, double balance, double annualInterestRate){
-		this.id = id;
-		this.balance = balance;
-		this.annualInterestRate = annualInterestRate;
-		this.date = new java.util.Date();
-	}
 	//method for balance
 	public double getBalance(){
+		System.out.println("The balance is " + this.balance);
 		return this.balance;
 	}
 	//method for monthly interest
