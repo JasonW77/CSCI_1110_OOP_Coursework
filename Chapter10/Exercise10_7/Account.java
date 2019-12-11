@@ -1,6 +1,8 @@
-// Author Jason Waters
-// Date 12/10/2019
-// CSCI_1110_Exercise_10_7
+package chapter10;
+
+//Author Jason Waters
+//Date 12/10/2019
+//CSCI_1110_Exercise_10_7
 
 //Account class
 public class Account{
@@ -17,7 +19,6 @@ public class Account{
 		this.annualInterestRate = 0;
 		this.date = new java.util.Date();
 	}
-	
 	//specified settings
 	public Account(int id, double balance, double annualInterestRate){
 		this.id = id;
@@ -45,5 +46,4 @@ public class Account{
 	public void deposit(double newbalance){
 		this.balance = (balance + newbalance);
 	}
-	
 }
