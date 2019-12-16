@@ -1,4 +1,3 @@
-
 //Author Jason Waters
 //Date 12/10/2019
 //CSCI_1110_Exercise_10_7
@@ -10,12 +9,12 @@ public class Account{
 	private double balance = 0;
 	private double annualInterestRate = 0;
 	private java.util.Date date = new java.util.Date();
-	double[] id = {100,100,100,100,100,100,100,100,100,100};
+	int id;
 	
 	//default settings
 	public Account(){
 		this.aid = 0;
-		this.balance = 0;
+		this.balance = 100;
 		this.annualInterestRate = 0;
 		this.date = new java.util.Date();
 	}
