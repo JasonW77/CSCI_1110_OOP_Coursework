@@ -13,7 +13,7 @@ public class Account{
 	
 	//default settings
 	public Account(){
-		this.aid = 0;
+		
 		this.balance = 100;
 		this.annualInterestRate = 0;
 		this.date = new java.util.Date();
