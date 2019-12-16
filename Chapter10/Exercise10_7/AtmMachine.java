@@ -31,7 +31,7 @@ public class AtmMachine {
 			System.out.println("2: withdraw");
 			System.out.println("3: deposit");
 			System.out.println("4: exit");
-			int m = input.nextInt();
+			int m = 0;
 	
 			while(m > 4 || m < 0){
 				System.out.print("Enter a choice (0,thru 4): ");
