@@ -5,7 +5,7 @@
 import java.util.Scanner ;
 
 //AccountObject class
-public class AccountObject {
+public class AtmMachine {
 	
 	public static void main(String args[]) {
 		
