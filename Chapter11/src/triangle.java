@@ -26,7 +26,7 @@ public class triangle extends GeometricObject{
 		double area = 0;
 		double s;
 		s = (side1 + side2 + side3)/2;
-		area = s*(s-side1)*(s-side2)*(s-side3);
+		area = Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
 		return area;
 	}
 	public double getPerimeter() {
