@@ -19,9 +19,9 @@ public class TriangleTest{
 		double side3 = input.nextDouble();
 		System.out.println("Enter a color: ");
 		String color = input.next();
-		System.out.println("Is the Triangle Filled?: (Y/N)");
+		System.out.println("Is the Triangle Filled?: (true/false)");
 			
-			if (input.next().charAt(0) == 'y') {
+			if (input.next().charAt(0) == 't') {
 				filled = true;
 			}
 		triangle tri = new triangle(side1, side2, side3);
