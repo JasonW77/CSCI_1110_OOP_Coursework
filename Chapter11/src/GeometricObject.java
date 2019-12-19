@@ -1,3 +1,8 @@
+//Author Jason Waters
+//Date 12/19/2019
+//CSCI_1110_Exercise_11_1 
+
+
 
 public class GeometricObject {
 	private String color = "white";
