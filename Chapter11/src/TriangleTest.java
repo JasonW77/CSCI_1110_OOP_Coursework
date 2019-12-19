@@ -1,10 +1,14 @@
+//Author Jason Waters
+//Date 12/19/2019
+//CSCI_1110_Exercise_11_1 
+
 import java.util.Scanner;
 public class TriangleTest{
 	public static void main(String args[]) {
 		
 		Scanner input= new Scanner(System.in);
 		
-		triangle tri = new triangle();
+		//triangle tri = new triangle();
 		boolean filled = false;
 		
 		System.out.println("Enter three sides of the triangle: Side 1: ");
@@ -20,7 +24,7 @@ public class TriangleTest{
 			if (input.next().charAt(0) == 'y') {
 				filled = true;
 			}
-		tri.triangle(side1, side2, side3);
+		triangle tri = new triangle(side1, side2, side3);
 		tri.setColor(color);
 		tri.setFilled(filled);
 		
@@ -33,10 +37,3 @@ public class TriangleTest{
 		
 	}
 }
-
-/* 
- * The program should create a Triangle object with these sides and set the color and 
- * filled properties using the input. 
- * The program should display the area, perimeter, color, date created, 
- * and true or false to indicate whether it is filled or not.
- */
