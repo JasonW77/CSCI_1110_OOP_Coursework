@@ -5,9 +5,9 @@
 //Account class
 public class Account{
 	
-	private int id = 0;
-	private double balance = 0;
-	private double annualInterestRate = 0;
+	private int id;
+	private double balance;
+	private double annualInterestRate;
 	private java.util.Date date = new java.util.Date();
 	
 	//default settings
@@ -45,4 +45,5 @@ public class Account{
 	public void deposit(double newbalance){
 		this.balance = (balance + newbalance);
 	}
+	
 }
