@@ -2,116 +2,47 @@
 // Date 12/19/2019
 // CSCI_1110_Exercise11_3
 
-import java.util.Scanner;
-
 public class TestRun {
 	public static void main(String args[]) {
 
-		Scanner input = new Scanner(System.in);
-		
-		//Constructor
-		Account Checking;
-		Checking = new Account(1, 20000, 4.5);
-		Account Savings;
-		Savings = new Account(2, 20000, 4.5);
-		
-		for (int run = 0; run < 10; run++) {
-			System.out.println("Enter id: (1 for checking/2 for savings)");
-			int i = input.nextInt();
-			
-			while(i > 2 || i < 0){
-				System.out.print("Enter a valid id (1, or 2): ");
-				i = input.nextInt();
-			}
-			if (i == 1) {
-			
-			System.out.println("Main menu");
-			System.out.println("1: check balance");
-			System.out.println("2: withdraw");
-			System.out.println("3: deposit");
-			System.out.println("4: exit");
-			int m = 0;
-		
-			while(m > 4 || m < 0){
-				System.out.print("Enter a choice (0,thru 4): ");
-				m = input.nextInt();
-			}
-			while(m !=4  || m < 0){
-				System.out.print("Enter a choice (0,thru 4): ");
-				m = input.nextInt();
+				//Constructor for checking account
+				CheckingAccount Checking;
+				Checking = new CheckingAccount(1, 100, 4.5);
+				System.out.println("Checking account at creation 			" + Checking.toString());
 				
-				if (m == 1){
-					Checking.getBalance();
-				}
-				else if (m == 2){
-					System.out.println("Enter withdraw ammount: ");
-					double w = input.nextInt();
-					Checking.withdrawl(w);
-					Checking.getBalance();
-				}
-				else if (m == 3){
-					System.out.println("Enter deposit ammount: ");
-					double d = input.nextInt();
-					Checking.deposit(d);
-					Checking.getBalance();
-				}
-				else if (m == 4){
-					System.out.println("Exit");
-				}
-				run--;
+				//checking withdrawl for 100
+				Checking.withdrawl(101);
+				System.out.println("Checking account after 101 withdrawl 		" + Checking.toString());
 				
-				//print out of account #1122
-				System.out.println("\nAccount #1");
-				System.out.println("Balance: " + Checking.getBalance());
-				System.out.println("monthly interest: " + Checking.getMonthlyInterest());
-				System.out.println("Account Created on Date: " + Checking.getDate());
-			}
-			
-			}
-			if (i == 2) {
+				//checking withdrawl for 1 after already at 0
+				Checking.withdrawl(100);
+				System.out.println("Checking account after 100 withdrawl attempt 	" + Checking.toString());
 				
-				System.out.println("Main menu");
-				System.out.println("1: check balance");
-				System.out.println("2: withdraw");
-				System.out.println("3: deposit");
-				System.out.println("4: exit");
-				int m = 0;
-			
-				while(m > 4 || m < 0){
-					System.out.print("Enter a choice (0,thru 4): ");
-					m = input.nextInt();
-				}
-				while(m !=4  || m < 0){
-					System.out.print("Enter a choice (0,thru 4): ");
-					m = input.nextInt();
-					if (m == 1){
-						Savings.getBalance();
-					}
-					else if (m == 2){
-						System.out.println("Enter withdraw ammount: ");
-						double w = input.nextInt();
-						Savings.withdrawl(w);
-						Savings.getBalance();
-					}
-					else if (m == 3){
-						System.out.println("Enter deposit ammount: ");
-						double d = input.nextInt();
-						Savings.deposit(d);
-						Savings.getBalance();
-					}
-					else if (m == 4){
-						System.out.println("Exit");
-					}
-					run--;
+				//checking deposit of 100
+				Checking.deposit(100);
+				System.out.println("Checking account after 100 deposit	 	" + Checking.toString());
 				
-					//print out of account #1122
-					System.out.println("\nAccount #2");
-					System.out.println("Balance: " + Savings.getBalance());
-					System.out.println("monthly interest: " + Savings.getMonthlyInterest());
-					System.out.println("Account Created on Date: " + Savings.getDate());
-				}
-			}
-			
-		}
+				//Final checking output
+				System.out.println();
+				System.out.println("Final Checking					" + Checking.toString());
+				System.out.println();
+				
+				//Constructor for savings account
+				SavingsAccount Savings;
+				Savings = new SavingsAccount(2, 100, 4.5);
+				System.out.println("Savings account at creation 			" + Savings.toString());
+				
+				//savings withdrawl for 100
+				Savings.withdrawl(100);
+				System.out.println("Savings account after 100 withdrawl 		" + Savings.toString());
+				
+				//savings withdrawl after already at 0
+				Savings.withdrawl(1);
+				System.out.println("Savings account after 1 withdrawl attempt	" + Savings.toString());
+				
+				//final savings output
+				System.out.println();
+				System.out.println("Final Savings 					" +Savings.toString());
+				
 	}
 }
