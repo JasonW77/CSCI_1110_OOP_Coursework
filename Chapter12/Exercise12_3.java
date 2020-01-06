@@ -7,32 +7,33 @@ import java.util.Scanner;
 
 class Untitled {
 	public static void main(String[] args) {
-	
-		double[] arrayIndex = new double[100];
 		
+		//create the array
+		int[] arrayIndex = new int[100];
+		
+		//populate the array with random integers
 		for (int i = 0; i < arrayIndex.length; i++){
-			arrayIndex[i] = Math.random() * 100;
+			arrayIndex[i] = (int)(Math.random() * 100);
 		}
-		
+		/*
+		//print the array, used for checking the array population.
 		for (int ii = 0; ii < arrayIndex.length; ii++) {
 			System.out.print(arrayIndex[ii] + " ");
-		}
+		}*/
+		
 		Scanner input = new Scanner(System.in);
 		
-		for (int l = 0; l < 10; l++){
-			System.out.println();
-			System.out.println("Enter id 0-99: ");
-			int id = input.nextInt();
-			location(id);
-			System.out.println(arrayIndex[id] + " ");
-			
-		}
+		System.out.println("Enter id 0-99: ");
+		int id = input.nextInt();
+		location(id);
+		System.out.println(arrayIndex[id] + " ");
 	
 	}
+	//method for checking the id validity
 	public static int location(int id){
 		if (id >= 100)  {
 			System.out.println("Out of Bounds!");
 			System.exit(1);
 		}	return id;
-		}
+	}
 }
