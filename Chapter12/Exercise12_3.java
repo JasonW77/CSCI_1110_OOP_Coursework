@@ -22,11 +22,9 @@ public class Exercise12_3 {
 		int id = input.nextInt();
 		
 		try {
-			if (id >= 100)  {
-				throw new ArrayIndexOutOfBoundsException("Value out of bounds");
-			}
 			System.out.println(arrayIndex[id] + " ");
 		}
+		
 		catch (ArrayIndexOutOfBoundsException ex){
 			System.out.println("Value out of Bounds");
 		}
