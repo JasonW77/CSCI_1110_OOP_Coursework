@@ -1,6 +1,6 @@
 //Author Jason Waters
-//Date 1/7/2020
-//CSCI_1110_Exercise_12_3
+//Date 1/8/2020
+//CSCI_1110_Exercise_12_15
 
 import java.util.Scanner;
 import java.io.*;
@@ -11,8 +11,6 @@ public class Exercise12_15 {
 		
 		//file creation
 		java.io.File file = new java.io.File("Exercise12_15.txt");
-		
-		
 				
 		try { 
 			if (file.exists() == true) {
@@ -39,9 +37,9 @@ public class Exercise12_15 {
 		
 		//file read
 		while (input.hasNext()) {
-			
-			list.add(Integer.parseInt(input.next()));
+			list.add(input.nextInt());
 		}
+		
 		input.close();
 		
 		java.util.Collections.sort(list);
