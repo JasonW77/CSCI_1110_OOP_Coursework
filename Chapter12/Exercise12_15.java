@@ -16,12 +16,7 @@ public class Exercise12_15 {
 			if (file.exists() == true) {
 				throw new IOException();
 			}
-		}
-		
-		catch (IOException ex){
-			System.out.println("File exists!");
-		}
-		
+			
 		//file write
 		java.io.PrintWriter output = new java.io.PrintWriter("Exercise12_15.txt");
 		
@@ -45,5 +40,9 @@ public class Exercise12_15 {
 		java.util.Collections.sort(list);
 		
 		System.out.println(list);
+		}
+		catch (IOException ex){
+			System.out.println("File exists!");
+		}
 	}
 }
