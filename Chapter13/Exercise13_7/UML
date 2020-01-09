@@ -1,0 +1,44 @@
+<<GeometricObject>>
+______________________________________
+-color: String
+-Filled: boolean
+-dateCreated: java.util.Date
+______________________________________
+#GeometricObject()
+#GeometricObject(color: String, Filled: boolean)
++getColor(): String
++setColor(color: String): Void
++isFilled(): boolean
++setFilled(filled: boolean): Void
++getDateCreated(): java.util.Date
++toString(): String
+<<+getArea(): double>>
+<<+getPerimeter(): double>>
+______________________________________
+
+ 
+
+Triangle (extends GeometricObject)
+______________________________________
+-Side1: double
+-Side2: double
+-Side3: double
+______________________________________
++Triangle()
++Triangle(side1: double, side2: double, side3: double)
++getSide1(): double
++setSide1(side1: double): void
++getSide2(): double
++setSide2(side2: double): void
++getSide3(): double
++setSide3(side3: double): void
++toString(): String
+______________________________________
+
+
+<<Interface>>
+  Colorable
+______________________________________
++howToColor(): void
+
+
