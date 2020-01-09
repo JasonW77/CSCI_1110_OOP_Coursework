@@ -27,7 +27,7 @@ public class triangle extends GeometricObject{
 	public double getSide3() {
 		return side3;
 	}
-	public double getArea() {
+	/*public double getArea() {
 		double area = 0;
 		double s;
 		s = (side1 + side2 + side3)/2;
@@ -38,7 +38,22 @@ public class triangle extends GeometricObject{
 		double perimeter = 0;
 		perimeter = (side1 + side2 + side3);
 		return perimeter;
-	}
+	}*/
+	@Override
+  	public double getArea() {
+    		double area = 0;
+		double s;
+		s = (side1 + side2 + side3)/2;
+		area = Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
+		return area;
+ 	}
+
+  	@Override
+  	public double getPerimeter() {
+   	 	double perimeter = 0;
+		perimeter = (side1 + side2 + side3);
+		return perimeter;
+	}	
 	public String toString() {
 		return "Triangle: side1 = " + side1 + " side2 = " + side2 + " side3 = " + side3;
 	}
