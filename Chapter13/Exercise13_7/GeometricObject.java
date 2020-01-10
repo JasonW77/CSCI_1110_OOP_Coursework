@@ -4,7 +4,7 @@
 
 
 
-public abstract class GeometricObject implements colorable{
+public abstract class GeometricObject{
 	private String color = "white";
 	private boolean filled;
 	private java.util.Date dateCreated;
@@ -16,9 +16,6 @@ public abstract class GeometricObject implements colorable{
 		dateCreated = new java.util.Date();
 		this.color = color;
 		this.filled = filled;
-	}
-	public String howToColor(){
-		return "Color all three sides";
 	}
 	public String getColor() {
 		return color;
