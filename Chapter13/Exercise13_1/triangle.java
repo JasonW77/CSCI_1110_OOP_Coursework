@@ -3,7 +3,7 @@
 //CSCI_1110_Exercise_13_1
 
 
-public class triangle extends GeometricObject implements colorable{
+public class triangle extends GeometricObject{
 	private double side1 = 1.0;
 	private double side2 = 1.0;
 	private double side3 = 1.0;
@@ -17,9 +17,6 @@ public class triangle extends GeometricObject implements colorable{
 		this.side1 = side1;
 		this.side2 = side2;
 		this.side3 = side3;
-	}
-	public String howToColor(){
-		return "Color all three sides";
 	}
 	public double getSide1() {
 		return side1;
