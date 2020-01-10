@@ -1,6 +1,6 @@
 //Author Jason Waters
-//Date 12/19/2019
-//CSCI_1110_Exercise_11_1 
+//Date 1/8/2020
+//CSCI_1110_Exercise_13_7
 
 import java.util.Scanner;
 public class TriangleTest{
