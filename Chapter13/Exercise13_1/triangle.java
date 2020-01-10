@@ -3,7 +3,7 @@
 //CSCI_1110_Exercise_13_1
 
 
-public class triangle extends GeometricObject{
+public class triangle extends GeometricObject implements colorable{
 	private double side1 = 1.0;
 	private double side2 = 1.0;
 	private double side3 = 1.0;
@@ -17,6 +17,9 @@ public class triangle extends GeometricObject{
 		this.side1 = side1;
 		this.side2 = side2;
 		this.side3 = side3;
+	}
+	public String howToColor(){
+		return "Color all three sides";
 	}
 	public double getSide1() {
 		return side1;
@@ -35,7 +38,6 @@ public class triangle extends GeometricObject{
 		area = Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
 		return area;
  	}
-
   	@Override
   	public double getPerimeter() {
    	 	double perimeter = 0;
