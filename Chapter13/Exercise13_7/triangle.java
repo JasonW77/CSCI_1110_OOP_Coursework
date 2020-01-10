@@ -1,44 +1,50 @@
 //Author Jason Waters
 //Date 1/8/2020
-//CSCI_1110_Exercise_13_7
+//CSCI_1110_Exercise_13_1
 
-import java.util.Scanner;
-public class TriangleTest{
-	public static void main(String args[]) {
-		
-		Scanner input= new Scanner(System.in);
-		
-		//triangle tri = new triangle();
-		boolean filled = false;
-		
-		System.out.println("Enter three sides of the triangle: Side 1: ");
-		double side1 = input.nextDouble(); 
-		System.out.println("Enter Side 2: ");
-		double side2 = input.nextDouble();
-		System.out.println("Enter Side 3: ");
-		double side3 = input.nextDouble();
-		System.out.println("Enter a color: ");
-		String color = input.next();
-		System.out.println("Is the Triangle Filled?: (true/false)");
-		String fill = input.next();
-		
-		
-			if (fill.equalsIgnoreCase("true")) {
-				filled = true;
-			}
-			else if (fill.equalsIgnoreCase("false")) {
-				filled = false;
-			}
-		triangle tri = new triangle(side1, side2, side3);
-		tri.setColor(color);
-		tri.setFilled(filled);
-		
-		System.out.println("Area of the triangle is: " + tri.getArea());
-		System.out.println("Perimeter of the triangle is: " + tri.getPerimeter());
-		System.out.println("Color of Triangle is: " +tri.getColor());
-		System.out.println("Date Created: " + tri.getDateCreated());
-		System.out.println("Trinangle filled: " + tri.isFilled());
-		System.out.println(tri.toString());
-		
+
+public class triangle extends GeometricObject implements colorable{
+	private double side1 = 1.0;
+	private double side2 = 1.0;
+	private double side3 = 1.0;
+	
+	public triangle(){
+		this.side1 = 1.0;
+		this.side2 = 1.0;
+		this.side3 = 1.0;
+	}
+	public triangle(double side1, double side2, double side3) {
+		this.side1 = side1;
+		this.side2 = side2;
+		this.side3 = side3;
+	}
+	public double getSide1() {
+		return side1;
+	}
+	public double getSide2() {
+		return side2;
+	}
+	public double getSide3() {
+		return side3;
+	}
+	publice String howToColor(){
+		return "Color all three sides";
+	}
+	@Override
+  	public double getArea() {
+    		double area = 0;
+		double s;
+		s = (side1 + side2 + side3)/2;
+		area = Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
+		return area;
+ 	}
+  	@Override
+  	public double getPerimeter() {
+   	 	double perimeter = 0;
+		perimeter = (side1 + side2 + side3);
+		return perimeter;
+	}	
+	public String toString() {
+		return "Triangle: side1 = " + side1 + " side2 = " + side2 + " side3 = " + side3;
 	}
 }
