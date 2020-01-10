@@ -1,4 +1,4 @@
-<<GeometricObject>>
+GeometricObject
 ______________________________________
 -color: String
 -Filled: boolean
@@ -12,8 +12,7 @@ ______________________________________
 +setFilled(filled: boolean): Void
 +getDateCreated(): java.util.Date
 +toString(): String
-<<+getArea(): double>>
-<<+getPerimeter(): double>>
+
 ______________________________________
 
  
@@ -47,6 +46,8 @@ ______________________________________
 +setSide7(side1: double): void
 +getSide8(): double
 +setSide8(side2: double): void
++getArea(): double
++getPerimeter(): double
 +toString(): String
 ______________________________________
 
