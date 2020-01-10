@@ -3,7 +3,7 @@
 //CSCI_1110_Exercise_13_11
 
 
-public class octagon extends GeometricObject implements cloneable cloneable{
+public class octagon extends GeometricObject implements cloneable comparable{
 	private double side1 = 1.0;
 	private double side2 = 1.0;
 	private double side3 = 1.0;
