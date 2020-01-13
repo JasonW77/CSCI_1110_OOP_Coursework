@@ -1,14 +1,27 @@
+package exercise13_7;
+
 //Author Jason Waters
-//Date 1/8/2020
+//Date 1/13/2020
 //CSCI_1110_Exercise_13_7
 
-import java.util.Scanner;
 public class TriangleTest{
 	public static void main(String args[]) {
+
 		
-		Scanner input= new Scanner(System.in);
+		//triangle tri = new triangle();
 		
-//Write a test program that creates an array of five GeometricObjects. 
-//For each object in the array, display its area and invoke its howToColor method if it is colorable.
+		Triangle[] objarray = new Triangle[5]; 
+		
+		for (int i = 0; i < objarray.length; i++) {
+			objarray[i] = new Triangle((Math.random() *10), (Math.random() *10), (Math.random() *10));
+		}
+		for (int i = 0; i < objarray.length; i++) {
 	
-	
+			System.out.println("Area of object # "+ i + " is: " + objarray[i].getArea());
+			System.out.println(objarray[i].howToColor());
+			System.out.println(objarray[i].toString());
+		
+		}
+		
+	}
+}
