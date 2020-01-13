@@ -1,5 +1,7 @@
+package exercise13_1;
+
 //Author Jason Waters
-//Date 1/8/2020
+//Date 1/13/2020
 //CSCI_1110_Exercise_13_1
 
 
@@ -28,16 +30,16 @@ public class triangle extends GeometricObject{
 		return side3;
 	}
 	@Override
-  	public double getArea() {
-    		double area = 0;
+	public double getArea() {
+  		double area = 0;
 		double s;
 		s = (side1 + side2 + side3)/2;
 		area = Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
 		return area;
- 	}
-  	@Override
-  	public double getPerimeter() {
-   	 	double perimeter = 0;
+	}
+	@Override
+	public double getPerimeter() {
+ 	 	double perimeter = 0;
 		perimeter = (side1 + side2 + side3);
 		return perimeter;
 	}	
