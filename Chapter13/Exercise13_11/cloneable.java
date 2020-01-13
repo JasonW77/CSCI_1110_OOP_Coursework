@@ -4,6 +4,6 @@
 //CSCI_1110_Exercise_13_11
 
 
-public interface cloneable{
+public interface Cloneable{
   public abstract String clone();
   }
