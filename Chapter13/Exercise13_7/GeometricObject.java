@@ -1,5 +1,5 @@
 //Author Jason Waters
-//Date 1/8/2020
+//Date 1/13/2020
 //CSCI_1110_Exercise_13_7
 
 
@@ -35,10 +35,6 @@ public abstract class GeometricObject{
 	public String toString() {
 		return "created on " + dateCreated + "\ncolor: " + color + " and filled: " + filled;
 	}
-	public abstract double getArea() {
-		return area;
-	}
-	public abstract double getPerimeter() {
-		return perimeter;
-	}
+	public abstract double getArea() 
+	public abstract double getPerimeter()
 }
