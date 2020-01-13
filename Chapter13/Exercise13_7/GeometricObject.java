@@ -1,10 +1,10 @@
+package exercise13_7;
+
 //Author Jason Waters
 //Date 1/13/2020
 //CSCI_1110_Exercise_13_7
 
-
-
-public abstract class GeometricObject{
+public abstract class GeometricObject {
 	private String color = "white";
 	private boolean filled;
 	private java.util.Date dateCreated;
@@ -35,6 +35,6 @@ public abstract class GeometricObject{
 	public String toString() {
 		return "created on " + dateCreated + "\ncolor: " + color + " and filled: " + filled;
 	}
-	public abstract double getArea() 
-	public abstract double getPerimeter()
+	public abstract double getArea();
+	public abstract double getPerimeter();
 }
