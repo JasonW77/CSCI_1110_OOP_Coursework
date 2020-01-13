@@ -1,19 +1,21 @@
+package exercise13_7;
+
 //Author Jason Waters
 //Date 1/13/2020
 //CSCI_1110_Exercise_13_7
 
 
-public class triangle extends GeometricObject implements colorable{
+public class Triangle extends GeometricObject implements Colorable{
 	private double side1 = 1.0;
 	private double side2 = 1.0;
 	private double side3 = 1.0;
 	
-	public triangle(){
+	public Triangle(){
 		this.side1 = 1.0;
 		this.side2 = 1.0;
 		this.side3 = 1.0;
 	}
-	public triangle(double side1, double side2, double side3) {
+	public Triangle(double side1, double side2, double side3) {
 		this.side1 = side1;
 		this.side2 = side2;
 		this.side3 = side3;
@@ -27,20 +29,20 @@ public class triangle extends GeometricObject implements colorable{
 	public double getSide3() {
 		return side3;
 	}
-	publice String howToColor(){
+	public String howToColor(){
 		return "Color all three sides";
 	}
 	@Override
-  	public double getArea() {
-    		double area = 0;
+	public double getArea() {
+  		double area = 0;
 		double s;
 		s = (side1 + side2 + side3)/2;
 		area = Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
 		return area;
- 	}
-  	@Override
-  	public double getPerimeter() {
-   	 	double perimeter = 0;
+	}
+	@Override
+	public double getPerimeter() {
+ 	 	double perimeter = 0;
 		perimeter = (side1 + side2 + side3);
 		return perimeter;
 	}	
