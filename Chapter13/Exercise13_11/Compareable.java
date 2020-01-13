@@ -4,6 +4,6 @@
 //CSCI_1110_Exercise_13_11
 
 
-public interface compareable{
+public interface Compareable{
   public abstract String compare();
   }
