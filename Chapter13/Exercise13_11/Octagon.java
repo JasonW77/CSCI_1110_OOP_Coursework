@@ -1,10 +1,10 @@
 //Author Jason Waters
-//Date 1/8/2020
+//Date 1/14/2020
 //CSCI_1110_Exercise_13_11
 
 package exercise13_11;
 
-public class Octagon extends GeometricObject implements Comparable{
+public class Octagon extends GeometricObject implements Cloneable, Comparable<Object>{
 	private double side1 = 1.0;
 	private double side2 = 1.0;
 	private double side3 = 1.0;
@@ -28,11 +28,11 @@ public class Octagon extends GeometricObject implements Comparable{
 		this.side1 = side1;
 		this.side2 = side2;
 		this.side3 = side3;
-		this.side1 = side4;
-		this.side2 = side5;
-		this.side3 = side6;
-		this.side2 = side7;
-		this.side3 = side8;
+		this.side4 = side4;
+		this.side5 = side5;
+		this.side6 = side6;
+		this.side7 = side7;
+		this.side8 = side8;
 	}
 	public double getSide1() {
 		return side1;
@@ -44,31 +44,39 @@ public class Octagon extends GeometricObject implements Comparable{
 		return side3;
 	}
 	public double getSide4() {
-		return side1;
+		return side4;
 	}
 	public double getSide5() {
-		return side2;
+		return side5;
 	}
 	public double getSide6() {
-		return side3;
+		return side6;
 	}
 	public double getSide7() {
-		return side1;
+		return side7;
 	}
 	public double getSide8() {
-		return side2;
+		return side8;
 	}
 	@Override
-	public int compare() {
-		int compr = 0;	
-		return compr;
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();	
+	}
+	@Override
+	public int compareTo(Object o) {
+		if (getArea() > ((Octagon) o).getArea())
+			return 1;
+		else if (getArea() < ((Octagon) o).getArea())
+			return -1;
+		else 
+			return 0;
 	}
 	@Override
 	public double getArea() {
   		double area = 0;
 		double s;
-		s = (side1 + side2 + side3)/2;
-		area = Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
+		s = side1;
+		area = (2+(4/Math.sqrt(2)))*s*s;
 		return area;
 	}
 	@Override
