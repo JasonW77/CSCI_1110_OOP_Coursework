@@ -19,12 +19,12 @@ ______________________________________
 
 Octagon (extends GeometricObject)
 ______________________________________
--Side: double
+-Side1: double
 ______________________________________
 +Octagon()
-+Octagon(side: double)
++Octagon(side1: double)
 +getSide(): double
-+setSide(side: double): void
++setSide(side1: double): void
 
 +Clone(): Object
 +CompareTo(): int
