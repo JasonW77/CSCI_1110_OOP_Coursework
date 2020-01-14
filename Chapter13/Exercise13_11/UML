@@ -19,33 +19,13 @@ ______________________________________
 
 Octagon (extends GeometricObject)
 ______________________________________
--Side1: double
--Side2: double
--Side3: double
--Side4: double
--Side5: double
--Side6: double
--Side7: double
--Side8: double
+-Side: double
 ______________________________________
 +Octagon()
-+Octagon(side1: double, side2: double, side3: double, side4: double, side5: double, side6: double, side7: double, side8: double)
-+getSide1(): double
-+setSide1(side1: double): void
-+getSide2(): double
-+setSide2(side2: double): void
-+getSide3(): double
-+setSide3(side3: double): void
-+getSide4(): double
-+setSide4(side1: double): void
-+getSide5(): double
-+setSide5(side2: double): void
-+getSide6(): double
-+setSide6(side3: double): void
-+getSide7(): double
-+setSide7(side1: double): void
-+getSide8(): double
-+setSide8(side2: double): void
++Octagon(side: double)
++getSide(): double
++setSide(side: double): void
+
 +Clone(): Object
 +CompareTo(): int
 +getArea():double
