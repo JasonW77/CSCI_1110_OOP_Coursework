@@ -9,7 +9,7 @@ public class OctagonTest {
 		
 		//Octagon oct = new Octagon();
 		
-		Octagon oct1 = new Octagon(2,2,2,2,2,2,2,2);
+		Octagon oct1 = new Octagon(2);
 		
 		Octagon oct2 = (Octagon)oct1.clone() ;
 		
