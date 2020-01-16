@@ -1,0 +1,33 @@
+  
+ClockPane
+______________________________________
+-hour: int
+-minute: int
+-second: int
+-width: double
+-height: double
+-hourHandVisible(): boolean
+-minuteHandVisible(): boolean
+-secondHandVisible(): boolean
+______________________________________
++ClockPane()
++ClockPane(hour: int, minute: int, second: int)
++getHour(): int
++setHour(): int
++getMinute(): int
++setMinute(): int
++getSecond():int
++setSecond():int
++setCurrentTime(): void
++getHeigth(): double
++setHeigth(): double
++getWidth(): double
++setWidth(): double
++paintClock():void
++getHourHandVisible(): boolean
++setHourHandVisible(): boolean
++getMinuteHandVisible(): boolean
++setMinuteHandVisible(): boolean
++getSecondHandVisible(): boolean
++setSecondHandVisible(): boolean
+______________________________________
