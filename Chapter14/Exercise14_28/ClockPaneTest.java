@@ -12,6 +12,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class ClockPaneTest extends Application {
+		public static void main(String[] args) {
+			Application.launch(args);
+		}
+public class ClockPaneTest extends Application {
 	
 
 		@Override // Override the start method in the Application class
