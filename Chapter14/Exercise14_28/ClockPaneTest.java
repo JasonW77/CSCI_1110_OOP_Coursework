@@ -1,5 +1,5 @@
 //Author Jason Waters
-//Date 1/16/2020
+//Date 1/17/2020
 //CSCI_1110_Exercise_14_28
 
 package exercise14_28;
@@ -15,15 +15,19 @@ public class ClockPaneTest extends Application {
 		public static void main(String[] args) {
 			Application.launch(args);
 		}
-public class ClockPaneTest extends Application {
-	
 
 		@Override // Override the start method in the Application class
 		public void start(Stage primaryStage) {
 			
 			// Create a clock and a label
-			ClockPane clock = new ClockPane((int)(Math.random() * 11),(int)(Math.random() * 30),0, false);
-		
+			ClockPane clock = new ClockPane((int)(Math.random() * 11),(int)(Math.random() * 30),0);
+			
+			clock.setSecondHandVis(false);
+			
+			clock.setMinuteHandVis(true);
+			
+			clock.setHourHandVis(true);
+			
 			String timeString = clock.getHour() + ":" + clock.getMinute() + ":" + clock.getSecond();
 			Label lblCurrentTime = new Label(timeString);
 
