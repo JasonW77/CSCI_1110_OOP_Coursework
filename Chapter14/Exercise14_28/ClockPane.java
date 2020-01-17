@@ -1,5 +1,5 @@
 //Author Jason Waters
-//Date 1/16/2020
+//Date 1/17/2020
 //CSCI_1110_Exercise_14_28
 
 package exercise14_28;
@@ -17,6 +17,9 @@ public class ClockPane extends Pane {
 	private int minute;
 	private int second;
 	private boolean secondHandVis;
+	private boolean minuteHandVis;
+	private boolean hourHandVis;
+	
 	// Clock pane width and height.
 	private double w = 250, h = 250;
 	
@@ -26,11 +29,11 @@ public class ClockPane extends Pane {
 	}
 	
 	//Construct a clock with specified hour, minute, and second
-	public ClockPane(int hour, int minute, int second, boolean secondHandVis){
+	public ClockPane(int hour, int minute, int second){
 		this.hour = hour;
 		this.minute = minute;
 		this.second = second;
-		this.secondHandVis = secondHandVis;
+		
 		paintClock();
 	}
 	
@@ -43,6 +46,15 @@ public class ClockPane extends Pane {
 		this.hour = hour;
 		paintClock();
 	}
+	//hour visible
+	public boolean getHourVis() {
+		return hourHandVis;
+	}
+	//hour set visible
+	public void setHourHandVis(boolean hourHandVis) {
+		this.hourHandVis = hourHandVis;
+		paintClock();
+	}
 	
 	/**return minute				*/
 	public int getMinute(){
@@ -51,6 +63,15 @@ public class ClockPane extends Pane {
 	//set minute
 	public void setMinute(int minute){
 		this.minute = minute;
+		paintClock();
+	}
+	//minute visible
+	public boolean getMinuteVis() {
+		return minuteHandVis;
+	}
+	//minute set visible
+	public void setMinuteHandVis(boolean minuteHandVis) {
+		this.minuteHandVis = minuteHandVis;
 		paintClock();
 	}
 	
@@ -63,6 +84,16 @@ public class ClockPane extends Pane {
 		this.second = second;
 		paintClock();
 	}
+	//second visible
+	public boolean getSecondHandVis() {
+		return secondHandVis;
+	}
+	//second set visible
+	public void setSecondHandVis(boolean secondHandVis) {
+		this.secondHandVis = secondHandVis;
+		paintClock();
+	}
+	
 	/**return clock pane width		*/
 	public double getW(){
 		return w;
@@ -103,7 +134,7 @@ public class ClockPane extends Pane {
 		double clockRadius = Math.min(w,h) * 0.8 * 0.5;
 		double centerX = w / 2;
 		double centerY = h / 2;
-		
+	
 		//Draw the circle
 		Circle circle = new Circle(centerX, centerY, clockRadius);
 		circle.setFill(Color.WHITE);
@@ -114,30 +145,41 @@ public class ClockPane extends Pane {
 		Text t4 = new Text(centerX - 3, centerY + clockRadius - 3, "6");
 		
 		//Draw the second hand
+		
 		double sLength = clockRadius * 0.8;
 		double secondX = centerX + sLength * Math.sin(second * (2 * Math.PI / 60));
 		double secondY = centerY - sLength * Math.cos(second * (2 * Math.PI / 60));
 		
 		Line sLine = new Line(centerX, centerY, secondX, secondY);
-		if (secondHandVis = true) {
+		if (this.secondHandVis == true) {
 			sLine.setStroke(Color.RED);
 		}
-		else if (secondHandVis = false)
+		else if (this.secondHandVis == false) {
 			sLine.setStroke(Color.WHITE);
-		
+		}
 		//Draw minute hand
 		double mLength = clockRadius * 0.65;
 		double minuteX = centerX + mLength * Math.sin(minute * (2 * Math.PI / 60));
 		double minuteY = centerY - mLength * Math.cos(minute * (2 * Math.PI / 60));
 		Line mLine = new Line(centerX, centerY, minuteX , minuteY);
-		mLine.setStroke(Color.BLUE);
+		if (this.minuteHandVis == true) {
+			mLine.setStroke(Color.BLUE);
+		}
+		else if (this.minuteHandVis == false) {
+			mLine.setStroke(Color.WHITE);
+		}
 		
 		//Draw the hour hand
 		double hLength = clockRadius * 0.5;
 		double hourX = centerX + hLength * Math.sin((hour % 12 + minute / 60.0) * (2 * Math.PI / 12));
 		double hourY = centerY - hLength * Math.cos((hour % 12 + minute / 60.0) * (2 * Math.PI / 12));
 		Line hLine = new Line(centerX, centerY, hourX, hourY);
-		hLine.setStroke(Color.GREEN);
+		if (this.hourHandVis == true) {
+			hLine.setStroke(Color.GREEN);
+		}
+		else if (this.hourHandVis == false) {
+			hLine.setStroke(Color.WHITE);
+		}
 		
 		getChildren().clear();
 		getChildren().addAll(circle, t1, t2, t3, t4, sLine, mLine, hLine);
