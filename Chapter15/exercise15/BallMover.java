@@ -16,6 +16,9 @@ import javafx.stage.Stage;
 import javafx.scene.shape.Circle;
 
 public class BallMover extends Application {
+	public static void main(String[] args) {
+		launch(args);
+	}
 	Circle c1;
 	@Override
 	public void start(Stage primaryStage) {
