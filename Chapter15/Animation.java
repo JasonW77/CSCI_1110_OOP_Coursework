@@ -1,5 +1,5 @@
 //Author Jason Waters
-//Date 1/21/2020
+//Date 1/27/2020
 //CSI_1110_Exercise_15
 
 import javafx.animation.PathTransition;
