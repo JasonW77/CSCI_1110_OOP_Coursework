@@ -77,7 +77,7 @@ public class Animation extends Application {
 			ft.setAutoReverse(true);
 			ft.play();
 			
-			polygon.setOnMousePressed(e -> {
+			this.setOnMousePressed(e -> {
 				if (e.getButton() == MouseButton.PRIMARY) {
 					pt.pause();
 					ft.pause();
@@ -87,9 +87,7 @@ public class Animation extends Application {
 					ft.play();
 				}
 			});
-				
-			
-			
+	
 		}
 	
 		@Override
