@@ -3,28 +3,33 @@
 //CSI_1110_Exercise_16_21
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 
 
 public class Countdown extends Application{
+	private static final String MEDIA_URL = 
+		"https://liveexample.pearsoncmg.com/common/audio/anthem/anthem0.mp3";
+		
 	public static void main(String[] args) {
 	    launch(args);
 	}
 	
-	double time = 0;
-	
 	public void start(Stage primaryStage) {
-		
+
 		// Create a scene and place it in the stage
-		Scene scene = new Scene(getPane(), 450, 200);
+		Scene scene = new Scene(getPane(), 450, 50);
 		primaryStage.setTitle("Exercise16_21"); // Set the stage title
 		primaryStage.setScene(scene); // Place the scene in the stage
 		primaryStage.show(); // Display the stage
@@ -32,44 +37,50 @@ public class Countdown extends Application{
 	}
 	
 	protected BorderPane getPane() {
-	
-		//create the pane to display everything on
-		BorderPane pane = new BorderPane();
 		
-		//create the text field
+		Media media = new Media(MEDIA_URL);
+		MediaPlayer mediaPlayer = new MediaPlayer(media);
+		
 		TextField tf = new TextField();
-		
-		//create the display 
+		//create the pane to display the count down label and text field
+		BorderPane pane = new BorderPane();
+		//create the display
 		BorderPane Display = new BorderPane();
-		
-		//create the time counter
-		Pane Time = new Pane();
 		
 		//alignment and style sets
 		Display.setPadding(new Insets(5,5,5,5));
-		Display.setStyle("-fx-border-color: blue");
 		Display.setLeft(new Label("Enter Countdown Time: "));
 		Display.setCenter(tf);
 		pane.setTop(Display);
-		pane.setBottom(Time);
+		
 		tf.setAlignment(Pos.TOP_RIGHT);
 		
+		tf.setOnKeyPressed(new EventHandler<KeyEvent>(){
+			@Override
+			public void handle(KeyEvent event) {
+
+				if(event.getCode().equals(KeyCode.ENTER))
+	              {	int a = Integer.parseInt(tf.getText());
+	                while(a > 0) {
+	                	try {
+							Thread.sleep(500);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+	                	a--;
+	                	tf.setText(" "+ a);
+	                	System.out.println(a);
+	                	
+	                }					
+					System.out.println("Playing Media");
+					mediaPlayer.play();
+	            }
+				
+			}
+			
+		});
 		
-		
-		/*
-		tf.setOnAction(e -> cntDwn(Double.parseDouble(tf.getText())));
-		*/
 		return pane;
 	}
-	// method for time count down
-	public double cntDwn(double time) {
-		
-		while (time >= 1);{
-			System.out.println(this.time);
-			 time --; 
-		
-	}
-		return time;
 	
-	}
 }
