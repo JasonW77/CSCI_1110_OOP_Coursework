@@ -27,7 +27,14 @@ public class Countdown extends Application{
 	}
 	
 	public void start(Stage primaryStage) {
-
+		
+		
+		/* working on it right here....... 15.16 - 15.21 
+		EventHandler<ActionEvent> eventHandler = e -> {
+		
+		*/
+		
+		
 		// Create a scene and place it in the stage
 		Scene scene = new Scene(getPane(), 450, 50);
 		primaryStage.setTitle("Exercise16_21"); // Set the stage title
