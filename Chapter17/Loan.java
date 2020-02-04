@@ -5,9 +5,9 @@
 
 import java.io.*;
 import java.math.*;
+import java.io.Serializable;
 
-
-	public class Loan {  
+	public class Loan implements Serializable{  
 		private double annualInterestRate;  
 		private int numberOfYears;  
 		private double loanAmount;  
@@ -18,8 +18,10 @@ import java.math.*;
 			this(2.5, 1, 1000);  
 			}  
 		
-		/** Construct a loan with specified annual interest rate,      number of years and loan amount     */  
-		public Loan(double annualInterestRate, int numberOfYears,      double loanAmount) {    
+		/** Construct a loan with specified annual interest rate,
+		 *       number of years and loan amount     */  
+		public Loan(double annualInterestRate, int numberOfYears,
+				double loanAmount) {    
 			this.annualInterestRate = annualInterestRate;    
 			this.numberOfYears = numberOfYears;    
 			this.loanAmount = loanAmount;    
@@ -59,7 +61,8 @@ import java.math.*;
 		/** Find monthly payment */  
 		public double getMonthlyPayment() {    
 			double monthlyInterestRate = annualInterestRate / 1200;    
-			double monthlyPayment = loanAmount * monthlyInterestRate / (1 -      (Math.pow(1 / (1 + monthlyInterestRate), numberOfYears * 12)));    
+			double monthlyPayment = loanAmount * monthlyInterestRate / (1 -
+					(Math.pow(1 / (1 + monthlyInterestRate), numberOfYears * 12)));    
 			return monthlyPayment;      
 			}
 	
@@ -74,6 +77,8 @@ import java.math.*;
 	public java.util.Date getLoanDate() {    
 		return loanDate;
 		}
+	public String toString() {
+		return "Loan Amount: " + loanAmount + " Date Created: " + loanDate;
+		
 	}
-
-
+}
