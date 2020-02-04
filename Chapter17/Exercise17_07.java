@@ -1,7 +1,7 @@
-/* * To change this license header, choose License Headers in Project Properties. 
- * * To change this template file, choose Tools | Templates 
- * * and open the template in the editor. *
- * //** * * @author rmazorow */
+//Author Jason Waters
+//Date 2/3/2020
+//CSCI_1110_Exercise_17_7
+
 import java.io.*;
 
 public class Exercise17_07 {    
