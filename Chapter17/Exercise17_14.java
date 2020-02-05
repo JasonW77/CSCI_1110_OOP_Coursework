@@ -3,11 +3,6 @@
 //CSCI_1110_Exercise_17_14 & 15
 
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -65,13 +60,6 @@ public class Exercise17_14 {
 			System.out.print("File not found");
 		}
 		
-		//this is here just to check what was written to the to file.
-		try (FileInputStream input = new FileInputStream(to)){
-			System.out.println("What is in the " + to + " file: ");
-			while ((value = input.read()) != -1)
-				System.out.print(value +" ");
-			
-		}
 	}
 	
 }
