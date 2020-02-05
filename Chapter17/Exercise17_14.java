@@ -1,6 +1,6 @@
 //Author Jason Waters
-//Date 2/3/2020
-//CSCI_1110_Exercise_17_14
+//Date 2/5/2020
+//CSCI_1110_Exercise_17_14 & 15
 
 
 import java.io.BufferedInputStream;
@@ -12,54 +12,59 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner ;
 
 public class Exercise17_14 {
 	
 	public static void main(String args[]) throws IOException {
-		
-		call();
-		
-		send();
-	}
-	public static void call() throws FileNotFoundException, EOFException, IOException {
-		Scanner scan = new Scanner(System.in);
+		int value;
+		ArrayList<Integer> list = new ArrayList<>();
+		//get input from user.
+		String from = " ";
+		String to = " ";
 		System.out.print("Enter a File name to encrypt from: ");
-		String from = scan.next();
-		
-		try (DataOutputStream output = new DataOutputStream(
-				new BufferedOutputStream(new FileOutputStream(from)))){
-			while (true)
-				System.out.println(input.readDouble());
-		}
-		catch (EOFException e) {
-			System.out.println("End of file reached");
-		}
-		catch (IOException e) {
-			System.out.println("File not found");
-		}
-		finally {System.out.println("Done");
-		
-		}
-	}
-	public static void send() throws FileNotFoundException, EOFException, IOException{
 		Scanner scan = new Scanner(System.in);
-		System.out.print("Enter a File name to encrypt to: ");
-		String to = scan.next();
+		from = scan.next();
+		System.out.print("Enter a File name to decrypt to: ");
+		to = scan.next();
 		
-		try (DataInputStream input = new DataInputStream(
-				  new BufferedInputStream(new FileInputStream(to)))) {
-			while (true)
-				System.out.println(input.readDouble());
+		// write non-encrypted from file
+		try (FileOutputStream output = new FileOutputStream(from)){
+			for (int i = 1; i <= 10; i++)
+				output.write(i);
 		}
-		catch (EOFException e) {
-			System.out.println("End of file reached");
-		}
-		catch (IOException e) {
-			System.out.println("File not found");
-		}
-		finally {System.out.println("Done");
 		
+		//read file to the array list and encode by adding 5
+		try	(FileInputStream input = new FileInputStream(from)){
+			while ((value = input.read()) != -1)
+				list.add(value + 5);
+			/*	
+			 //this is here just to show what is printed to the array list.
+			for (int i2 = 0; i2 < list.size(); i2++)
+				System.out.print(list.get(i2) + " ");
+			*/
+		}
+		// read the array list and encrypt to new file
+		try (FileOutputStream output = new FileOutputStream(from)){
+			for (int i = 0; i < list.size(); i++)
+				output.write(list.get(i));
+			
+		}
+		
+		// read and undo-encryption from file, write to file
+		try (FileOutputStream output = new FileOutputStream(to)){
+			for (int i3 = 0; i3 < list.size(); i3++)
+				output.write(list.get(i3) - 5);
+			
+		}
+		
+		//this is here just to check what was written to the to file.
+		try (FileInputStream input = new FileInputStream(to)){
+			System.out.println("What is in the " + to + " file: ");
+			while ((value = input.read()) != -1)
+				System.out.print(value +" ");
+			
 		}
 	}
 	
