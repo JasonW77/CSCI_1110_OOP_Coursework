@@ -53,10 +53,16 @@ public class Exercise17_14 {
 		}
 		
 		// read and undo-encryption from file, write to file
-		try (FileOutputStream output = new FileOutputStream(to)){
-			for (int i3 = 0; i3 < list.size(); i3++)
-				output.write(list.get(i3) - 5);
+		try {
+			FileOutputStream output = new FileOutputStream(to);
+			FileInputStream input = new FileInputStream(from);
 			
+			while ((value = input.read()) != -1)
+				output.write(value - 5);
+			
+		}
+		catch (FileNotFoundException ex) {
+			System.out.print("File not found");
 		}
 		
 		//this is here just to check what was written to the to file.
