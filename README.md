@@ -8,5 +8,5 @@ _this repository contains my coursework for CSCI 1110 - Object Oriented Programm
 
 *(Bio Goes Here)*
 
-_I am taking this program because I have always had an aptitude and keen interest in programing and thought that it was about time I did something about it. 
+_I am taking this program because I have always had an aptitude and a keen interest in programing I thought that it was about time that I did something about it. 
 I would love to work as a programmer or at the least be able to create my own programs._
