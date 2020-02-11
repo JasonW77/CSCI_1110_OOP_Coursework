@@ -2,7 +2,7 @@
 //Date 2/11/2020
 //CSCI_1110_Exercise_18_3
 
-package exercise18_3;
+
 
 import java.util.Scanner;
 
