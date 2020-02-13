@@ -5,7 +5,7 @@ This is a game of Battleship, it is a two player game where the first player pic
 and places them in a grid. after which the second player tries to sink the ships.
 
 ## Motivation
-This is a program for the Introduction to programming class final project. I created it for my final project in that class.
+This is a program for the Object Oriented Programming CSCI-1110-OOP class at Southwest Tech. I created this program for my final project in that class.
 
 ## How to Play
 This game is played using java.
@@ -14,7 +14,7 @@ The game is played by the first player (the player owning the ships) picks the n
 and places them in a 5x5 grid, choosing first an "x" axis and then a "y" axis.(0-4 respectively)
 
 The second player will choose the placement of the bombs or mines to try and sink the ships.
-they have 5 more bombs than ships placed to try and sink player ones ships.
+they have 5 more bombs than ships placed to try and sink player one's ships.
 
 [Caption of Image](Battleshipscreenshot.png)
 
