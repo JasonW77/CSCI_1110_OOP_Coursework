@@ -1,3 +1,4 @@
+  
 //Author Jason Waters
 //Date 2/13/2020
 //CSCI_1110_Final_Project
@@ -10,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -22,32 +24,25 @@ import javafx.scene.paint.Color;
 import javafx.geometry.Insets;
 
 /*   			~~~ NOTES!! ~~~
- * 
  * a great resource is http://tutorials.jenkov.com/javafx/vbox.html 
  * 
  * TO DO!
- * Set the radio buttons to non interact able after the confirm button has been pressed
- * Set the radio buttons to invisible after the confirm button is pressed
- * Set the Decline button to non interact able after confirm button is pressed
- * turn radio button visible when hit or missed
- * 
+ * add method for naming players, 
+ 	add method for changing turns, 
+ 	add method for making the object
+ 	add method for getting the score.
  * add TextFields for the player names. this will help keep score
- * add a Status pane to the side for keeping track of  the score. (Can this be my object? Yes it can!)
+ * 
+ * finish the Status pane labels to the side for keeping track of  the score. 
  * make each score board an object and have a second pane for keeping track of the score.
- * I can keep score per quarter or per game or both.
- *
- * 
- * disable the decline button after the game starts	
- * 
- * Update confirm method to set radio buttons to invisible	
- * need to set selections for the radio buttons.
- *
- * update the buttons with If statements for hit/miss status
  * 
  */
 
 public class Interface extends Application {
-	
+		
+		private String PLayer1 = " ";
+		private String Player2 = " ";
+		
 		private RadioButton rb1_1 = new RadioButton("");
 		private RadioButton rb1_2 = new RadioButton("");
 		private RadioButton rb1_3 = new RadioButton("");
@@ -108,12 +103,46 @@ public class Interface extends Application {
 		private Button bo5_4 = new Button("");
 		private Button bo5_5 = new Button("");
 		
+		Button btLeft = new Button("Confirm");
+		Button btRight = new Button("Decline");
+		Button btReStart = new Button("ReStart");
+		
 		public static void main(String[] args) {
 			launch(args);
 		}
 
 		@Override // Override the start method in the Application class
 		public void start(Stage primaryStage) {
+
+			bo1_1.setDisable(true);
+			bo1_2.setDisable(true);
+			bo1_3.setDisable(true);
+			bo1_4.setDisable(true);
+			bo1_5.setDisable(true);
+			
+			bo2_1.setDisable(true);
+			bo2_2.setDisable(true);
+			bo2_3.setDisable(true);
+			bo2_4.setDisable(true);
+			bo2_5.setDisable(true);
+			
+			bo3_1.setDisable(true);
+			bo3_2.setDisable(true);
+			bo3_3.setDisable(true);
+			bo3_4.setDisable(true);
+			bo3_5.setDisable(true);
+			
+			bo4_1.setDisable(true);
+			bo4_2.setDisable(true);
+			bo4_3.setDisable(true);
+			bo4_4.setDisable(true);
+			bo4_5.setDisable(true);
+			
+			bo5_1.setDisable(true);
+			bo5_2.setDisable(true);
+			bo5_3.setDisable(true);
+			bo5_4.setDisable(true);
+			bo5_5.setDisable(true);
 			
 			// Create a scene and place it in the stage
 			Scene scene = new Scene(actPane(), 500, 500);
@@ -123,23 +152,31 @@ public class Interface extends Application {
 			
 		}
 		
-
-/*NEED TO DO!!!
-* update the buttons with If statements for hit/miss status
-*/
 		//Create the actPane, this pane is the pane for bomb drops and result of hit/miss
 		protected BorderPane actPane() {
 		
 			//create panes and buttons for the actPane
 			BorderPane pane = new BorderPane();
+			HBox scorepane = new HBox(20);
+			HBox totalscorepane = new HBox(20);
 			GridPane actpane = new GridPane();
 			GridPane boatpane = new GridPane();
 			HBox paneForButtons = new HBox(20);
-			Button btLeft = new Button("Confirm");
-			Button btRight = new Button("Decline");
+			Label score = new Label("Score");
+			Label tscore = new Label("W/L");
+			Label name = new Label("Name");
+			Label p1score = new Label("Hits");
+			Label p2score = new Label("Miss");
+			Label p1tscore = new Label("P1 W/L");
+			Label p2tscore = new Label("P2 W/L");
+			Label p1name = new Label("P1 name");
+			Label p2name = new Label("P2 name");
+			
+			
 			
 			btLeft.setOnAction(e -> confirm());
 			btRight.setOnAction(e -> decline());
+			btReStart.setOnAction(e -> restart());
 			
 			//set actPane attributes
 			actpane.setStyle("-fx-border-color: black");
@@ -148,313 +185,378 @@ public class Interface extends Application {
 			actpane.setHgap(5);
 			actpane.setVgap(5);
 			
-			actpane.add(bo1_1,1,1);
-			actpane.add(bo1_2,2,1);
-			actpane.add(bo1_3,3,1);
-			actpane.add(bo1_4,4,1);
-			actpane.add(bo1_5,5,1);
+			//boat pane labels
+			boatpane.add(scorepane,0,0);
+			boatpane.add(score,0,1);
+			boatpane.add(tscore,0,2);
+	/*		
+			actpane.add(p1name,0,1);
+			actpane.add(p2name,0,2);
 			
-			actpane.add(bo2_1,1,2);
-			actpane.add(bo2_2,2,2);
-			actpane.add(bo2_3,3,2);
-			actpane.add(bo2_4,4,2);
-			actpane.add(bo2_5,5,2);
+			actpane.add(p1score,3,1);
+			actpane.add(p2score,3,2);
 			
-			actpane.add(bo3_1,1,3);
-			actpane.add(bo3_2,2,3);
-			actpane.add(bo3_3,3,3);
-			actpane.add(bo3_4,4,3);
-			actpane.add(bo3_5,5,3);
+			actpane.add(p1tscore,6,1);
+			actpane.add(p2tscore,6,2);
+
+			*/
+			actpane.add(bo1_1,1,11);
+			actpane.add(bo1_2,2,11);
+			actpane.add(bo1_3,3,11);
+			actpane.add(bo1_4,4,11);
+			actpane.add(bo1_5,5,11);
 			
-			actpane.add(bo4_1,1,4);
-			actpane.add(bo4_2,2,4);
-			actpane.add(bo4_3,3,4);
-			actpane.add(bo4_4,4,4);
-			actpane.add(bo4_5,5,4);
+			actpane.add(bo2_1,1,12);
+			actpane.add(bo2_2,2,12);
+			actpane.add(bo2_3,3,12);
+			actpane.add(bo2_4,4,12);
+			actpane.add(bo2_5,5,12);
 			
-			actpane.add(bo5_1,1,5);
-			actpane.add(bo5_2,2,5);
-			actpane.add(bo5_3,3,5);
-			actpane.add(bo5_4,4,5);
-			actpane.add(bo5_5,5,5);
+			actpane.add(bo3_1,1,13);
+			actpane.add(bo3_2,2,13);
+			actpane.add(bo3_3,3,13);
+			actpane.add(bo3_4,4,13);
+			actpane.add(bo3_5,5,13);
+			
+			actpane.add(bo4_1,1,14);
+			actpane.add(bo4_2,2,14);
+			actpane.add(bo4_3,3,14);
+			actpane.add(bo4_4,4,14);
+			actpane.add(bo4_5,5,14);
+			
+			actpane.add(bo5_1,1,15);
+			actpane.add(bo5_2,2,15);
+			actpane.add(bo5_3,3,15);
+			actpane.add(bo5_4,4,15);
+			actpane.add(bo5_5,5,15);
 			
 			bo1_1.setOnAction(e -> {
 				if (rb1_1.isSelected()) {
-					bo1_1.setStyle("-fx-background-color: RED");
+					//bo1_1.setStyle("-fx-background-color: RED");
 					rb1_1.setStyle("-fx-color: RED");
+					rb1_1.setVisible(true);
 				}
 				else {
-					bo1_1.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo1_1.setStyle("-fx-background-color: LIGHTBLUE");
 					rb1_1.setStyle("-fx-color: LIGHTBLUE");
+					rb1_1.setVisible(true);
 				}
 			});
 			
 			bo1_2.setOnAction(e -> {
 				if (rb1_2.isSelected()) {
-					bo1_2.setStyle("-fx-background-color: RED");
+					//bo1_2.setStyle("-fx-background-color: RED");
 					rb1_2.setStyle("-fx-color: RED");
+					rb1_2.setVisible(true);
 				}
 				else {
-					bo1_2.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo1_2.setStyle("-fx-background-color: LIGHTBLUE");
 					rb1_2.setStyle("-fx-color: LIGHTBLUE");
+					rb1_2.setVisible(true);
 				}
 			});
 			
 			bo1_3.setOnAction(e -> {
 				if (rb1_3.isSelected()) {
-					bo1_3.setStyle("-fx-background-color: RED");
+					//bo1_3.setStyle("-fx-background-color: RED");
 					rb1_3.setStyle("-fx-color: RED");
+					rb1_3.setVisible(true);
 				}
 				else {
-					bo1_3.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo1_3.setStyle("-fx-background-color: LIGHTBLUE");
 					rb1_3.setStyle("-fx-color: LIGHTBLUE");
+					rb1_3.setVisible(true);
 				}
 			});
 			
 			bo1_4.setOnAction(e -> {
 				if (rb1_4.isSelected()) {
-					bo1_4.setStyle("-fx-background-color: RED");
+					//bo1_4.setStyle("-fx-background-color: RED");
 					rb1_4.setStyle("-fx-color: RED");
+					rb1_4.setVisible(true);
 				}
 				else {
-					bo1_4.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo1_4.setStyle("-fx-background-color: LIGHTBLUE");
 					rb1_4.setStyle("-fx-color: LIGHTBLUE");
+					rb1_4.setVisible(true);
 				}
 			});
 			
 			bo1_5.setOnAction(e -> {
 				if (rb1_5.isSelected()) {
-					bo1_5.setStyle("-fx-background-color: RED");
+					//bo1_5.setStyle("-fx-background-color: RED");
 					rb1_5.setStyle("-fx-color: RED");
+					rb1_5.setVisible(true);
 				}
 				else {
-					bo1_5.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo1_5.setStyle("-fx-background-color: LIGHTBLUE");
 					rb1_5.setStyle("-fx-color: LIGHTBLUE");
+					rb1_5.setVisible(true);
 				}
 			});
 		      
 			bo2_1.setOnAction(e -> {
 				if (rb2_1.isSelected()) {
-					bo2_1.setStyle("-fx-background-color: RED");
+					//bo2_1.setStyle("-fx-background-color: RED");
 					rb2_1.setStyle("-fx-color: RED");
+					rb2_1.setVisible(true);
 				}
 				else {
-					bo2_1.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo2_1.setStyle("-fx-background-color: LIGHTBLUE");
 					rb2_1.setStyle("-fx-color: LIGHTBLUE");
+					rb2_1.setVisible(true);
 				}
 			});
 			
 			bo2_2.setOnAction(e -> {
 				if (rb2_2.isSelected()) {
-					bo2_2.setStyle("-fx-background-color: RED");
+					//bo2_2.setStyle("-fx-background-color: RED");
 					rb2_2.setStyle("-fx-color: RED");
+					rb2_2.setVisible(true);
 				}
 				else {
-					bo2_2.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo2_2.setStyle("-fx-background-color: LIGHTBLUE");
 					rb2_2.setStyle("-fx-color: LIGHTBLUE");
+					rb2_2.setVisible(true);
 				}
 			});
 			
 			bo2_3.setOnAction(e -> {
 				if (rb2_3.isSelected()) {
-					bo2_3.setStyle("-fx-background-color: RED");
+					//bo2_3.setStyle("-fx-background-color: RED");
 					rb2_3.setStyle("-fx-color: RED");
+					rb2_3.setVisible(true);
 				}
 				else {
-					bo2_3.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo2_3.setStyle("-fx-background-color: LIGHTBLUE");
 					rb2_3.setStyle("-fx-color: LIGHTBLUE");
+					rb2_3.setVisible(true);
 				}
 			});
 			
 			bo2_4.setOnAction(e -> {
 				if (rb2_4.isSelected()) {
-					bo2_4.setStyle("-fx-background-color: RED");
+					//bo2_4.setStyle("-fx-background-color: RED");
 					rb2_4.setStyle("-fx-color: RED");
+					rb2_4.setVisible(true);
 				}
 				else {
-					bo2_4.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo2_4.setStyle("-fx-background-color: LIGHTBLUE");
 					rb2_4.setStyle("-fx-color: LIGHTBLUE");
+					rb2_4.setVisible(true);
 				}
 			});
 			
 			bo2_5.setOnAction(e -> {
 				if (rb2_5.isSelected()) {
-					bo2_5.setStyle("-fx-background-color: RED");
+					//bo2_5.setStyle("-fx-background-color: RED");
 					rb2_5.setStyle("-fx-color: RED");
+					rb2_5.setVisible(true);
 				}
 				else {
-					bo2_5.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo2_5.setStyle("-fx-background-color: LIGHTBLUE");
 					rb2_5.setStyle("-fx-color: LIGHTBLUE");
+					rb2_5.setVisible(true);
 				}
 			});
 		    
 			bo3_1.setOnAction(e -> {
 				if (rb3_1.isSelected()) {
-					bo3_1.setStyle("-fx-background-color: RED");
+					//bo3_1.setStyle("-fx-background-color: RED");
 					rb3_1.setStyle("-fx-color: RED");
+					rb3_1.setVisible(true);
 				}
 				else {
-					bo3_1.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo3_1.setStyle("-fx-background-color: LIGHTBLUE");
 					rb3_1.setStyle("-fx-color: LIGHTBLUE");
+					rb3_1.setVisible(true);
 				}
 			});
 			
 			bo3_2.setOnAction(e -> {
 				if (rb3_2.isSelected()) {
-					bo3_2.setStyle("-fx-background-color: RED");
+					//bo3_2.setStyle("-fx-background-color: RED");
 					rb3_2.setStyle("-fx-color: RED");
+					rb3_2.setVisible(true);
 				}
 				else {
-					bo3_2.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo3_2.setStyle("-fx-background-color: LIGHTBLUE");
 					rb3_2.setStyle("-fx-color: LIGHTBLUE");
+					rb3_2.setVisible(true);
 				}
 			});
 			
 			bo3_3.setOnAction(e -> { 
 				if (rb3_3.isSelected()) {
-					bo3_3.setStyle("-fx-background-color: RED");
+					//bo3_3.setStyle("-fx-background-color: RED");
 					rb3_3.setStyle("-fx-color: RED");
+					rb3_3.setVisible(true);
 				}
 				else {
-					bo3_3.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo3_3.setStyle("-fx-background-color: LIGHTBLUE");
 					rb3_3.setStyle("-fx-color: LIGHTBLUE");
+					rb3_3.setVisible(true);
 				}
 			});
 			
 			bo3_4.setOnAction(e -> { 
 				if (rb3_4.isSelected()) {
-					bo3_4.setStyle("-fx-background-color: RED");
+					//bo3_4.setStyle("-fx-background-color: RED");
 					rb3_4.setStyle("-fx-color: RED");
+					rb3_4.setVisible(true);
 				}
 				else {
-					bo3_4.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo3_4.setStyle("-fx-background-color: LIGHTBLUE");
 					rb3_4.setStyle("-fx-color: LIGHTBLUE");
+					rb3_4.setVisible(true);
 				}
 			});
 			
 			bo3_5.setOnAction(e -> { 
 				if (rb3_5.isSelected()) {
-					bo3_5.setStyle("-fx-background-color: RED");
+					//bo3_5.setStyle("-fx-background-color: RED");
 					rb3_5.setStyle("-fx-color: RED");
+					rb3_5.setVisible(true);
 				}
 				else {
-					bo3_5.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo3_5.setStyle("-fx-background-color: LIGHTBLUE");
 					rb3_5.setStyle("-fx-color: LIGHTBLUE");
+					rb3_5.setVisible(true);
 				}
 			});
 			
 			bo4_1.setOnAction(e -> { 
 				if (rb4_1.isSelected()) {
-					bo4_1.setStyle("-fx-background-color: RED");
+					//bo4_1.setStyle("-fx-background-color: RED");
 					rb4_1.setStyle("-fx-color: RED");
+					rb4_1.setVisible(true);
 				}
 				else {
-					bo4_1.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo4_1.setStyle("-fx-background-color: LIGHTBLUE");
 					rb4_1.setStyle("-fx-color: LIGHTBLUE");
+					rb4_1.setVisible(true);
 				}
 			});
 			
 			bo4_2.setOnAction(e -> {
 				if (rb4_2.isSelected()) {
-					bo4_2.setStyle("-fx-background-color: RED");
+					//bo4_2.setStyle("-fx-background-color: RED");
 					rb4_2.setStyle("-fx-color: RED");
+					rb4_2.setVisible(true);
 				}
 				else {
-					bo4_2.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo4_2.setStyle("-fx-background-color: LIGHTBLUE");
 					rb4_2.setStyle("-fx-color: LIGHTBLUE");
+					rb4_2.setVisible(true);
 				}
 			});
 			
 			bo4_3.setOnAction(e -> { 
 				if (rb4_3.isSelected()) {
-					bo4_3.setStyle("-fx-background-color: RED");
+					//bo4_3.setStyle("-fx-background-color: RED");
 					rb4_3.setStyle("-fx-color: RED");
+					rb4_3.setVisible(true);
 				}
 				else {
-					bo4_3.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo4_3.setStyle("-fx-background-color: LIGHTBLUE");
 					rb4_3.setStyle("-fx-color: LIGHTBLUE");
+					rb4_3.setVisible(true);
 				}
 			});
 			
 			bo4_4.setOnAction(e -> { 
 				if (rb4_4.isSelected()) {
-					bo4_4.setStyle("-fx-background-color: RED");
+					//bo4_4.setStyle("-fx-background-color: RED");
 					rb4_4.setStyle("-fx-color: RED");
+					rb4_4.setVisible(true);
 				}
 				else {
-					bo4_4.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo4_4.setStyle("-fx-background-color: LIGHTBLUE");
 					rb4_4.setStyle("-fx-color: LIGHTBLUE");
+					rb4_4.setVisible(true);
 				}
 			});
 			
 			bo4_5.setOnAction(e -> {
 				if (rb4_5.isSelected()) {
-					bo4_5.setStyle("-fx-background-color: RED");
+					//bo4_5.setStyle("-fx-background-color: RED");
 					rb4_5.setStyle("-fx-color: RED");
+					rb4_5.setVisible(true);
 				}
 				else {
-					bo4_5.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo4_5.setStyle("-fx-background-color: LIGHTBLUE");
 					rb4_5.setStyle("-fx-color: LIGHTBLUE");
+					rb4_5.setVisible(true);
 				}
 			});
 			
 			bo5_1.setOnAction(e -> { 
 				if (rb5_1.isSelected()) {
-					bo5_1.setStyle("-fx-background-color: RED");
+					//bo5_1.setStyle("-fx-background-color: RED");
 					rb5_1.setStyle("-fx-color: RED");
+					rb5_1.setVisible(true);
 				}
 				else {
-					bo5_1.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo5_1.setStyle("-fx-background-color: LIGHTBLUE");
 					rb5_1.setStyle("-fx-color: LIGHTBLUE");
+					rb5_1.setVisible(true);
 				}
 			});
 			
 			bo5_2.setOnAction(e -> { 
 				if (rb5_2.isSelected()) {
-					bo5_2.setStyle("-fx-background-color: RED");
+					//bo5_2.setStyle("-fx-background-color: RED");
 					rb5_2.setStyle("-fx-color: RED");
+					rb5_2.setVisible(true);
 				}
 				else {
-					bo5_2.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo5_2.setStyle("-fx-background-color: LIGHTBLUE");
 					rb5_2.setStyle("-fx-color: LIGHTBLUE");
+					rb5_2.setVisible(true);
 				}
 			});
 			
 			bo5_3.setOnAction(e -> { 
 				if (rb5_3.isSelected()) {
-					bo5_3.setStyle("-fx-background-color: RED");
+					//bo5_3.setStyle("-fx-background-color: RED");
 					rb5_3.setStyle("-fx-color: RED");
+					rb5_3.setVisible(true);
 				}
 				else {
-					bo5_3.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo5_3.setStyle("-fx-background-color: LIGHTBLUE");
 					rb5_3.setStyle("-fx-color: LIGHTBLUE");
+					rb5_3.setVisible(true);
 				}
 			});
 			
 			bo5_4.setOnAction(e -> { 
 				if (rb5_4.isSelected()) {
-					bo5_4.setStyle("-fx-background-color: RED");
+					//bo5_4.setStyle("-fx-background-color: RED");
 					rb5_4.setStyle("-fx-color: RED");
+					rb5_4.setVisible(true);
 				}
 				else {
-					bo5_4.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo5_4.setStyle("-fx-background-color: LIGHTBLUE");
 					rb5_4.setStyle("-fx-color: LIGHTBLUE");
+					rb5_4.setVisible(true);
 				}
 			});
 			
 			bo5_5.setOnAction(e -> { 
 				if (rb5_5.isSelected()) {
-					bo5_5.setStyle("-fx-background-color: RED");
+					//bo5_5.setStyle("-fx-background-color: RED");
 					rb5_5.setStyle("-fx-color: RED");
+					rb5_5.setVisible(true);
 				}
 				else {
-					bo5_5.setStyle("-fx-background-color: LIGHTBLUE");
+					//bo5_5.setStyle("-fx-background-color: LIGHTBLUE");
 					rb5_5.setStyle("-fx-color: LIGHTBLUE");
+					rb5_5.setVisible(true);
 				}
 			});
 			
 			//set boatpane attributes
-			boatpane.setStyle("-fx-background-color: ROYALBLUE")
+			boatpane.setStyle("-fx-background-color: ROYALBLUE");
 			boatpane.setAlignment(Pos.TOP_CENTER);
 			boatpane.setPadding(new Insets(5, 5, 5, 5));
 			boatpane.setHgap(30);
@@ -491,21 +593,22 @@ public class Interface extends Application {
 			boatpane.add(rb5_5,5,5);
 		
 			//set paneForButtons attributes
-			paneForButtons.getChildren().addAll(btLeft, btRight); 
+			paneForButtons.getChildren().addAll(btLeft, btRight, btReStart); 
 			paneForButtons.setAlignment(Pos.CENTER);
 			paneForButtons.setStyle("-fx-border-color: black");
 				   
+			scorepane.setStyle("-fx-border-color: black");
+			totalscorepane.setStyle("-fx-border-color: black");
 			//set pane attributes
 			pane.setTop(boatpane);
 			pane.setBottom(paneForButtons); 
 			pane.setCenter(actpane);
+
 				     
 			return pane; 
 		}
 
-/*NEED TO DO!!!
- * disable the decline button after the game starts		
- */
+
 		//Resets the radio buttons
 		public void decline() {
 			System.out.println("Pick again!");
@@ -540,14 +643,279 @@ public class Interface extends Application {
 			rb5_4.setSelected(false);
 			rb5_5.setSelected(false);
 			
-		}
-		
-/*NEED TO DO!!!
- * Update confirm method to set radio buttons to invisible		
- */
-		public void confirm() {
-			System.out.println("Lets get to it then!");
-		
+			
 			
 		}
+		
+		public void confirm() {
+			System.out.println("Lets get to it then!");
+			
+			bo1_1.setDisable(false);
+			bo1_2.setDisable(false);
+			bo1_3.setDisable(false);
+			bo1_4.setDisable(false);
+			bo1_5.setDisable(false);
+			
+			bo2_1.setDisable(false);
+			bo2_2.setDisable(false);
+			bo2_3.setDisable(false);
+			bo2_4.setDisable(false);
+			bo2_5.setDisable(false);
+
+			bo3_1.setDisable(false);
+			bo3_2.setDisable(false);
+			bo3_3.setDisable(false);
+			bo3_4.setDisable(false);
+			bo3_5.setDisable(false);
+			
+			bo4_1.setDisable(false);
+			bo4_2.setDisable(false);
+			bo4_3.setDisable(false);
+			bo4_4.setDisable(false);
+			bo4_5.setDisable(false);
+			
+			bo5_1.setDisable(false);
+			bo5_2.setDisable(false);
+			bo5_3.setDisable(false);
+			bo5_4.setDisable(false);
+			bo5_5.setDisable(false);
+
+			
+			rb1_1.setVisible(false);
+			rb1_1.setDisable(true);
+			bo1_1.setDisable(false);
+			rb1_2.setVisible(false);
+			rb1_2.setDisable(true);
+			bo1_2.setDisable(false);
+			rb1_3.setVisible(false);
+			rb1_3.setDisable(true);
+			bo1_3.setDisable(false);
+			rb1_4.setVisible(false);
+			rb1_4.setDisable(true);
+			bo1_4.setDisable(false);
+			rb1_5.setVisible(false);
+			rb1_5.setDisable(true);
+			bo1_5.setDisable(false);
+			
+			rb2_1.setVisible(false);
+			rb2_1.setDisable(true);
+			rb2_2.setVisible(false);
+			rb2_2.setDisable(true);
+			rb2_3.setVisible(false);
+			rb2_3.setDisable(true);
+			rb2_4.setVisible(false);
+			rb2_4.setDisable(true);
+			rb2_5.setVisible(false);
+			rb2_5.setDisable(true);
+			
+			rb3_1.setVisible(false);
+			rb3_1.setDisable(true);
+			rb3_2.setVisible(false);
+			rb3_2.setDisable(true);
+			rb3_3.setVisible(false);
+			rb3_3.setDisable(true);
+			rb3_4.setVisible(false);
+			rb3_4.setDisable(true);
+			rb3_5.setVisible(false);
+			rb3_5.setDisable(true);
+			
+			rb4_1.setVisible(false);
+			rb4_1.setDisable(true);
+			rb4_2.setVisible(false);
+			rb4_2.setDisable(true);
+			rb4_3.setVisible(false);
+			rb4_3.setDisable(true);
+			rb4_4.setVisible(false);
+			rb4_4.setDisable(true);
+			rb4_5.setVisible(false);
+			rb4_5.setDisable(true);
+			
+			rb5_1.setVisible(false);
+			rb5_1.setDisable(true);
+			rb5_2.setVisible(false);
+			rb5_2.setDisable(true);
+			rb5_3.setVisible(false);
+			rb5_3.setDisable(true);
+			rb5_4.setVisible(false);
+			rb5_4.setDisable(true);
+			rb5_5.setVisible(false);
+			rb5_5.setDisable(true);
+			
+			btRight.setVisible(false);
+			btRight.setDisable(true);
+			btLeft.setVisible(false);
+			btLeft.setDisable(true);
+
+			
+		}
+		
+		public void restart() {
+			
+			bo1_1.setDisable(true);
+			bo1_2.setDisable(true);
+			bo1_3.setDisable(true);
+			bo1_4.setDisable(true);
+			bo1_5.setDisable(true);
+			
+			bo2_1.setDisable(true);
+			bo2_2.setDisable(true);
+			bo2_3.setDisable(true);
+			bo2_4.setDisable(true);
+			bo2_5.setDisable(true);
+			
+			bo3_1.setDisable(true);
+			bo3_2.setDisable(true);
+			bo3_3.setDisable(true);
+			bo3_4.setDisable(true);
+			bo3_5.setDisable(true);
+			
+			bo4_1.setDisable(true);
+			bo4_2.setDisable(true);
+			bo4_3.setDisable(true);
+			bo4_4.setDisable(true);
+			bo4_5.setDisable(true);
+			
+			bo5_1.setDisable(true);
+			bo5_2.setDisable(true);
+			bo5_3.setDisable(true);
+			bo5_4.setDisable(true);
+			bo5_5.setDisable(true);
+			
+			rb1_1.setVisible(true);
+			rb1_1.setDisable(false);
+			rb1_1.setSelected(false);
+		//	bo1_1.setStyle("-fx-background-color: GREY");
+			rb1_1.setStyle("-fx-color: WHITE");
+			rb1_2.setVisible(true);
+			rb1_2.setDisable(false);
+			rb1_2.setSelected(false);
+		//	bo1_2.setStyle("-fx-background-color: WHITE");
+			rb1_2.setStyle("-fx-color: WHITE");
+			rb1_3.setVisible(true);
+			rb1_3.setDisable(false);
+			rb1_3.setSelected(false);
+		//	bo1_3.setStyle("-fx-background-color: WHITE");
+			rb1_3.setStyle("-fx-color: WHITE");
+			rb1_4.setVisible(true);
+			rb1_4.setDisable(false);
+			rb1_4.setSelected(false);
+			//bo1_4.setStyle("-fx-background-color: WHITE");
+			rb1_4.setStyle("-fx-color: WHITE");
+			rb1_5.setVisible(true);
+			rb1_5.setDisable(false);
+			rb1_5.setSelected(false);
+			//bo1_5.setStyle("-fx-background-color: WHITE");
+			rb1_5.setStyle("-fx-color: WHITE");
+			
+			rb2_1.setVisible(true);
+			rb2_1.setDisable(false);
+			rb2_1.setSelected(false);
+			//bo2_1.setStyle("-fx-background-color: WHITE");
+			rb2_1.setStyle("-fx-color: WHITE");
+			rb2_2.setVisible(true);
+			rb2_2.setDisable(false);
+			rb2_2.setSelected(false);
+			//bo2_2.setStyle("-fx-background-color: WHITE");
+			rb2_2.setStyle("-fx-color: WHITE");
+			rb2_3.setVisible(true);
+			rb2_3.setDisable(false);
+			rb2_3.setSelected(false);
+			//bo2_3.setStyle("-fx-background-color: WHITE");
+			rb2_3.setStyle("-fx-color: WHITE");
+			rb2_4.setVisible(true);
+			rb2_4.setDisable(false);
+			rb2_4.setSelected(false);
+			//bo2_4.setStyle("-fx-background-color: WHITE");
+			rb2_4.setStyle("-fx-color: WHITE");
+			rb2_5.setVisible(true);
+			rb2_5.setDisable(false);
+			rb2_5.setSelected(false);
+			//bo2_5.setStyle("-fx-background-color: WHITE");
+			rb2_5.setStyle("-fx-color: WHITE");
+			
+			rb3_1.setVisible(true);
+			rb3_1.setDisable(false);
+			rb3_1.setSelected(false);
+			//bo3_1.setStyle("-fx-background-color: WHITE");
+			rb3_1.setStyle("-fx-color: WHITE");
+			rb3_2.setVisible(true);
+			rb3_2.setDisable(false);
+			rb3_2.setSelected(false);
+			//bo3_2.setStyle("-fx-background-color: WHITE");
+			rb3_2.setStyle("-fx-color: WHITE");
+			rb3_3.setVisible(true);
+			rb3_3.setDisable(false);
+			rb3_3.setSelected(false);
+			//bo3_3.setStyle("-fx-background-color: WHITE");
+			rb3_3.setStyle("-fx-color: WHITE");
+			rb3_4.setVisible(true);
+			rb3_4.setDisable(false);
+			rb3_4.setSelected(false);
+			//bo3_4.setStyle("-fx-background-color: WHITE");
+			rb3_4.setStyle("-fx-color: WHITE");
+			rb3_5.setVisible(true);
+			rb3_5.setDisable(false);
+			rb3_5.setSelected(false);
+			//bo3_5.setStyle("-fx-background-color: WHITE");
+			rb3_5.setStyle("-fx-color: WHITE");
+		
+			rb4_1.setVisible(true);
+			rb4_1.setDisable(false);
+			rb4_1.setSelected(false);
+			//bo4_1.setStyle("-fx-background-color: WHITE");
+			rb4_1.setStyle("-fx-color: WHITE");
+			rb4_2.setVisible(true);
+			rb4_2.setDisable(false);
+			rb4_2.setSelected(false);
+			//bo4_2.setStyle("-fx-background-color: WHITE");
+			rb4_2.setStyle("-fx-color: WHITE");
+			rb4_3.setVisible(true);
+			rb4_3.setDisable(false);
+			rb4_3.setSelected(false);
+			//bo4_3.setStyle("-fx-background-color: WHITE");
+			rb4_3.setStyle("-fx-color: WHITE");
+			rb4_4.setVisible(true);
+			rb4_4.setDisable(false);
+			rb4_4.setSelected(false);
+			//bo4_4.setStyle("-fx-background-color: WHITE");
+			rb4_4.setStyle("-fx-color: WHITE");
+			rb4_5.setVisible(true);
+			rb4_5.setDisable(false);
+			rb4_5.setSelected(false);
+			//bo4_5.setStyle("-fx-background-color: WHITE");
+			rb4_5.setStyle("-fx-color: WHITE");
+		
+			rb5_1.setVisible(true);
+			rb5_1.setDisable(false);
+			rb5_1.setSelected(false);
+			//bo5_1.setStyle("-fx-background-color: WHITE");
+			rb5_1.setStyle("-fx-color: WHITE");
+			rb5_2.setVisible(true);
+			rb5_2.setDisable(false);
+			rb5_2.setSelected(false);
+			//bo5_2.setStyle("-fx-background-color: WHITE");
+			rb5_2.setStyle("-fx-color: WHITE");
+			rb5_3.setVisible(true);
+			rb5_3.setDisable(false);
+			rb5_3.setSelected(false);
+			//bo5_3.setStyle("-fx-background-color: WHITE");
+			rb5_3.setStyle("-fx-color: WHITE");
+			rb5_4.setVisible(true);
+			rb5_4.setDisable(false);
+			rb5_4.setSelected(false);
+			//bo5_4.setStyle("-fx-background-color: WHITE");
+			rb5_4.setStyle("-fx-color: WHITE");
+			rb5_5.setVisible(true);
+			rb5_5.setDisable(false);
+			rb5_5.setSelected(false);
+			//bo5_5.setStyle("-fx-background-color: WHITE");
+			rb5_5.setStyle("-fx-color: WHITE");
+			
+			btRight.setVisible(true);
+			btRight.setDisable(false);
+			btLeft.setVisible(true);
+			btLeft.setDisable(false);
+		
 	}
+
+}
