@@ -1,4 +1,3 @@
-  
 //Author Jason Waters
 //Date 2/13/2020
 //CSCI_1110_Final_Project
@@ -10,7 +9,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -19,7 +17,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.geometry.Insets;
 
@@ -27,10 +29,10 @@ import javafx.geometry.Insets;
  * a great resource is http://tutorials.jenkov.com/javafx/vbox.html 
  * 
  * TO DO!
- * add method for naming players, 
+ *  
  	add method for changing turns, 
- 	add method for making the object
- 	add method for getting the score.
+ 
+ * finish method for getting the score. (score pane will be on a separate window?)
  * add TextFields for the player names. this will help keep score
  * 
  * finish the Status pane labels to the side for keeping track of  the score. 
@@ -39,9 +41,6 @@ import javafx.geometry.Insets;
  */
 
 public class Interface extends Application {
-		
-		private String PLayer1 = " ";
-		private String Player2 = " ";
 		
 		private RadioButton rb1_1 = new RadioButton("");
 		private RadioButton rb1_2 = new RadioButton("");
@@ -106,6 +105,7 @@ public class Interface extends Application {
 		Button btLeft = new Button("Confirm");
 		Button btRight = new Button("Decline");
 		Button btReStart = new Button("ReStart");
+		Button btScore = new Button("Score");
 		
 		public static void main(String[] args) {
 			launch(args);
@@ -162,6 +162,7 @@ public class Interface extends Application {
 			GridPane actpane = new GridPane();
 			GridPane boatpane = new GridPane();
 			HBox paneForButtons = new HBox(20);
+			/*
 			Label score = new Label("Score");
 			Label tscore = new Label("W/L");
 			Label name = new Label("Name");
@@ -172,11 +173,12 @@ public class Interface extends Application {
 			Label p1name = new Label("P1 name");
 			Label p2name = new Label("P2 name");
 			
-			
+			*/
 			
 			btLeft.setOnAction(e -> confirm());
 			btRight.setOnAction(e -> decline());
 			btReStart.setOnAction(e -> restart());
+			btScore.setOnAction(e -> score(null));
 			
 			//set actPane attributes
 			actpane.setStyle("-fx-border-color: black");
@@ -187,8 +189,8 @@ public class Interface extends Application {
 			
 			//boat pane labels
 			boatpane.add(scorepane,0,0);
-			boatpane.add(score,0,1);
-			boatpane.add(tscore,0,2);
+			//boatpane.add(score,0,1);
+			//boatpane.add(tscore,0,2);
 	/*		
 			actpane.add(p1name,0,1);
 			actpane.add(p2name,0,2);
@@ -198,7 +200,6 @@ public class Interface extends Application {
 			
 			actpane.add(p1tscore,6,1);
 			actpane.add(p2tscore,6,2);
-
 			*/
 			actpane.add(bo1_1,1,11);
 			actpane.add(bo1_2,2,11);
@@ -593,7 +594,7 @@ public class Interface extends Application {
 			boatpane.add(rb5_5,5,5);
 		
 			//set paneForButtons attributes
-			paneForButtons.getChildren().addAll(btLeft, btRight, btReStart); 
+			paneForButtons.getChildren().addAll(btLeft, btRight, btReStart, btScore); 
 			paneForButtons.setAlignment(Pos.CENTER);
 			paneForButtons.setStyle("-fx-border-color: black");
 				   
@@ -917,5 +918,68 @@ public class Interface extends Application {
 			btLeft.setDisable(false);
 		
 	}
-
+		
+		public void score(Stage scoreStage) {
+			
+			// Create a scene and place it in the stage
+			Stage scoreStage1 = new Stage();
+			Scene scoreboard = new Scene(Scores(), 500, 500);
+			scoreStage1.setTitle("Scoreboard!"); // Set the stage title
+			scoreStage1.setScene(scoreboard); // Place the scene in the stage
+			scoreStage1.show(); // Display the stage
+		}
+		public BorderPane Scores() {
+			
+			GameCounter player1;
+			player1 = new GameCounter(1,"Steve", 1,1,1);
+			GameCounter player2;
+			player2 = new GameCounter(2,"Bob", 2,2,2);
+			
+			BorderPane spane = new BorderPane();
+			TableView<GameCounter> tableView = new TableView<GameCounter>();
+			
+			TableColumn<GameCounter, ?> column1 = new TableColumn<>("Player Name");
+			TableColumn<GameCounter, ?> column2 = new TableColumn<>("Player Wins");
+			TableColumn<GameCounter, ?> column3 = new TableColumn<>("Player Loss");
+			TableColumn<GameCounter, ?> column4 = new TableColumn<>("Player Tie");
+			TableColumn<GameCounter, ?> column5 = new TableColumn<>("# of Games Played");
+			
+			column1.setCellValueFactory(new PropertyValueFactory<>(player1.getName()));
+			column2.setCellValueFactory(new PropertyValueFactory<>("player wins"));
+			column3.setCellValueFactory(new PropertyValueFactory<>("player loss"));
+			column4.setCellValueFactory(new PropertyValueFactory<>("player ties"));
+			column5.setCellValueFactory(new PropertyValueFactory<>("# games played"));
+			
+			
+			
+			System.out.println("Player Name " + player1.getName());
+			System.out.println("# of Ties for this player " + player1.getTie());
+			System.out.println("# of Wins for this player " + player1.getWin());
+			System.out.println("# of Loss for this player " + player1.getLoss());
+			System.out.println("Number of games Played by this player " + player1.getPlayerID());
+			System.out.println("Object at creation " + player1.toString());
+			System.out.println("Game Date " + player1.getDate());
+			
+			
+			tableView.getColumns().add(column1);
+			tableView.getColumns().add(column2);
+			tableView.getColumns().add(column3);
+			tableView.getColumns().add(column4);
+			tableView.getColumns().add(column5);
+			
+			tableView.getItems().add(player1);
+			tableView.getItems().add(player2);
+			
+			VBox vbox = new VBox(tableView);
+			
+			Scene scene = new Scene(vbox);
+			spane.setTop(tableView);
+			
+			//scoreStage.setScene(scene);
+			
+			
+			return spane;
+			
+		}
+		
 }
