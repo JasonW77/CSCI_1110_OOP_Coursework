@@ -46,7 +46,7 @@ import javafx.geometry.Insets;
  * 
  * Maybe? fix the counter for boats to remove them once hit.
  * 
- * 
+ * I also need to update the README file for the MANY changes.
  */
 
 public class Interface extends Application {
