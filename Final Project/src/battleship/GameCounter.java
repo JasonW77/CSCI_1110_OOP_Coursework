@@ -24,40 +24,57 @@ public class GameCounter extends Interface{
 	}
 	
 	//Object creation with specified settings
-	public GameCounter(int id, String P1Name, int win, int loss, int tie){
+	public GameCounter(int id, String Name, int win, int loss, int tie){
 		this.playerID = id;
-		this.Name = P1Name;
+		this.Name = Name;
 		this.win = win;
 		this.loss = loss;
 		this.tie = tie;
 		this.date = new java.util.Date();
 	}
 	
-	//method for current Game ID
+	//Player ID getter and setter
 	public int getPlayerID(){
 		return this.playerID;
 	}
-	
-	//method to return Player one Name
-	public String getName(){
-		return this.Name;
+	public void setPlayerID(int playerID){
+		this.playerID = playerID;
 	}
 	
-	//method for Game date
+	//method for Game Start date
 	public java.util.Date getDate(){
 		return this.date;
 	}
 	
-	//method for returning win or loss
+	//Player Name getter and setter
+	public String getName(){
+		return this.Name;
+	}
+	public void setName(String Name){
+		this.Name = Name;
+	}
+	
+	//Player Win getter and setter
 	public int getWin(){
 		return this.win;
 	}
-	//method for returning win or loss
+	public void setWin(){
+		this.win++;
+	}
+	
+	//Player loss getter and setter
 	public int getLoss(){
 		return this.loss;
 	}
-	//method for returning win or loss
+	public void setLoss(){
+		this.loss++;
+	}
+	
+	//Player Tie getter and setter
 	public int getTie(){
 		return this.tie;
+	}
+	public void setTie(){
+		this.tie++;
 	}
 }

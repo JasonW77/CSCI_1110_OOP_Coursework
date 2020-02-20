@@ -29,18 +29,48 @@ import javafx.geometry.Insets;
  * a great resource is http://tutorials.jenkov.com/javafx/vbox.html 
  * 
  * TO DO!
- *  
- 	add method for changing turns, 
- 
- * finish method for getting the score. (score pane will be on a separate window?)
- * add TextFields for the player names. this will help keep score
+ * add method for changing player turns, 
  * 
- * finish the Status pane labels to the side for keeping track of  the score. 
- * make each score board an object and have a second pane for keeping track of the score.
+ * finish method for getting the score. (score will be printed in the console)
+ * 
+ * finish the method for counting boats
+ * 
+ * add a counter and math for deciding how many bombs they get 
+ * 		the number of bombs should be a few more than there are ships
+ * 		the number of bombs needs to decrease with every bomb dropped
+ * 
+ * add the game over status to the game complete with status counters
+ * i.e. finish the object updating for the game changes
+ * 
+ * clean code by removing the excess code items and commented out items
+ * 
+ * Maybe? fix the counter for boats to remove them once hit.
+ * 
  * 
  */
 
 public class Interface extends Application {
+	
+		GameCounter player1;
+		GameCounter player2; 
+		
+		boolean player1turn;
+		
+		int hits = 0;
+		int miss = 0;
+		int boats = 0;
+		
+		private int gameID = 0;
+		
+		private String P1Name = "Bob";
+		private int P1Loss = 0;
+		private int P1Win = 0;
+		private int P1Tie = 0;
+		
+		private String P2Name = "Steve";
+		private int P2Loss = 0;
+		private int P2Win = 0;
+		private int P2Tie = 0;
 		
 		private RadioButton rb1_1 = new RadioButton("");
 		private RadioButton rb1_2 = new RadioButton("");
@@ -106,6 +136,7 @@ public class Interface extends Application {
 		Button btRight = new Button("Decline");
 		Button btReStart = new Button("ReStart");
 		Button btScore = new Button("Score");
+		Button P1UP = new Button("P1UP");
 		
 		public static void main(String[] args) {
 			launch(args);
@@ -155,6 +186,9 @@ public class Interface extends Application {
 		//Create the actPane, this pane is the pane for bomb drops and result of hit/miss
 		protected BorderPane actPane() {
 		
+			player1 = new GameCounter(gameID,P1Name,P1Win,P1Loss,P1Tie);
+			player2 = new GameCounter(gameID,P2Name,P2Win,P2Loss,P2Tie);
+			
 			//create panes and buttons for the actPane
 			BorderPane pane = new BorderPane();
 			HBox scorepane = new HBox(20);
@@ -162,9 +196,10 @@ public class Interface extends Application {
 			GridPane actpane = new GridPane();
 			GridPane boatpane = new GridPane();
 			HBox paneForButtons = new HBox(20);
+			
 			/*
 			Label score = new Label("Score");
-			Label tscore = new Label("W/L");
+			Label tScore = new Label("W/L");
 			Label name = new Label("Name");
 			Label p1score = new Label("Hits");
 			Label p2score = new Label("Miss");
@@ -178,7 +213,11 @@ public class Interface extends Application {
 			btLeft.setOnAction(e -> confirm());
 			btRight.setOnAction(e -> decline());
 			btReStart.setOnAction(e -> restart());
-			btScore.setOnAction(e -> score(null));
+			btScore.setOnAction(e -> score());
+			
+			//This is here to test the setter for wins
+			P1UP.setOnAction(e -> player1.setWin());
+			
 			
 			//set actPane attributes
 			actpane.setStyle("-fx-border-color: black");
@@ -189,9 +228,10 @@ public class Interface extends Application {
 			
 			//boat pane labels
 			boatpane.add(scorepane,0,0);
+			/*
 			//boatpane.add(score,0,1);
-			//boatpane.add(tscore,0,2);
-	/*		
+			//boatpane.add(tScore,0,2);
+			
 			actpane.add(p1name,0,1);
 			actpane.add(p2name,0,2);
 			
@@ -231,6 +271,17 @@ public class Interface extends Application {
 			actpane.add(bo5_4,4,15);
 			actpane.add(bo5_5,5,15);
 			
+			//Boat counter on actions!! repeat this for every button.
+			rb1_1.setOnAction(e -> {
+				if (rb1_1.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			//Bomb Drop Buttons
 			bo1_1.setOnAction(e -> {
 				if (rb1_1.isSelected()) {
 					//bo1_1.setStyle("-fx-background-color: RED");
@@ -649,7 +700,6 @@ public class Interface extends Application {
 		}
 		
 		public void confirm() {
-			System.out.println("Lets get to it then!");
 			
 			bo1_1.setDisable(false);
 			bo1_2.setDisable(false);
@@ -751,6 +801,8 @@ public class Interface extends Application {
 		}
 		
 		public void restart() {
+			
+			boats = 0;
 			
 			bo1_1.setDisable(true);
 			bo1_2.setDisable(true);
@@ -923,17 +975,15 @@ public class Interface extends Application {
 			
 			// Create a scene and place it in the stage
 			Stage scoreStage1 = new Stage();
-			Scene scoreboard = new Scene(Scores(), 500, 500);
+			Scene scoreboard = new Scene(ScoreTable(), 500, 500);
 			scoreStage1.setTitle("Scoreboard!"); // Set the stage title
 			scoreStage1.setScene(scoreboard); // Place the scene in the stage
 			scoreStage1.show(); // Display the stage
 		}
-		public BorderPane Scores() {
-			
-			GameCounter player1;
-			player1 = new GameCounter(1,"Steve", 1,1,1);
-			GameCounter player2;
-			player2 = new GameCounter(2,"Bob", 2,2,2);
+		
+		
+		//This method does not work yet
+		public BorderPane ScoreTable() {
 			
 			BorderPane spane = new BorderPane();
 			TableView<GameCounter> tableView = new TableView<GameCounter>();
@@ -951,16 +1001,6 @@ public class Interface extends Application {
 			column5.setCellValueFactory(new PropertyValueFactory<>("# games played"));
 			
 			
-			
-			System.out.println("Player Name " + player1.getName());
-			System.out.println("# of Ties for this player " + player1.getTie());
-			System.out.println("# of Wins for this player " + player1.getWin());
-			System.out.println("# of Loss for this player " + player1.getLoss());
-			System.out.println("Number of games Played by this player " + player1.getPlayerID());
-			System.out.println("Object at creation " + player1.toString());
-			System.out.println("Game Date " + player1.getDate());
-			
-			
 			tableView.getColumns().add(column1);
 			tableView.getColumns().add(column2);
 			tableView.getColumns().add(column3);
@@ -975,11 +1015,35 @@ public class Interface extends Application {
 			Scene scene = new Scene(vbox);
 			spane.setTop(tableView);
 			
-			//scoreStage.setScene(scene);
-			
-			
 			return spane;
 			
 		}
+		
+		public void score() {
+			
+			System.out.println();
+			
+			System.out.println("Player Name " + player1.getName());
+			System.out.println("# of Ties for this player " + player1.getTie());
+			System.out.println("# of Wins for this player " + player1.getWin());
+			System.out.println("# of Loss for this player " + player1.getLoss());
+			System.out.println("Number of games Played by this player " + player1.getPlayerID());
+			System.out.println("Object at creation " + player1.toString());
+			System.out.println("Game Date " + player1.getDate());
+			
+			System.out.println();
+			
+			System.out.println("Player Name " + player2.getName());
+			System.out.println("# of Ties for this player " + player2.getTie());
+			System.out.println("# of Wins for this player " + player2.getWin());
+			System.out.println("# of Loss for this player " + player2.getLoss());
+			System.out.println("Number of games Played by this player " + player2.getPlayerID());
+			System.out.println("Object at creation " + player2.toString());
+			System.out.println("Game Date " + player2.getDate());
+			
+			System.out.println("# of boats: " + boats);
+		}
+		
+
 		
 }
