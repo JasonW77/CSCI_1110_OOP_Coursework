@@ -33,16 +33,12 @@ import javafx.geometry.Insets;
  * 
  * finish method for getting the score. (score will be printed in the console)
  * 
- * finish the method for counting boats
- * 
  * add a counter and math for deciding how many bombs they get 
  * 		the number of bombs should be a few more than there are ships
  * 		the number of bombs needs to decrease with every bomb dropped
  * 
  * add the game over status to the game complete with status counters
  * i.e. finish the object updating for the game changes
- * 
- * clean code by removing the excess code items and commented out items
  * 
  * Maybe? fix the counter for boats to remove them once hit.
  * 
@@ -197,19 +193,6 @@ public class Interface extends Application {
 			GridPane boatpane = new GridPane();
 			HBox paneForButtons = new HBox(20);
 			
-			/*
-			Label score = new Label("Score");
-			Label tScore = new Label("W/L");
-			Label name = new Label("Name");
-			Label p1score = new Label("Hits");
-			Label p2score = new Label("Miss");
-			Label p1tscore = new Label("P1 W/L");
-			Label p2tscore = new Label("P2 W/L");
-			Label p1name = new Label("P1 name");
-			Label p2name = new Label("P2 name");
-			
-			*/
-			
 			btLeft.setOnAction(e -> confirm());
 			btRight.setOnAction(e -> decline());
 			btReStart.setOnAction(e -> restart());
@@ -217,7 +200,6 @@ public class Interface extends Application {
 			
 			//This is here to test the setter for wins
 			P1UP.setOnAction(e -> player1.setWin());
-			
 			
 			//set actPane attributes
 			actpane.setStyle("-fx-border-color: black");
@@ -228,19 +210,7 @@ public class Interface extends Application {
 			
 			//boat pane labels
 			boatpane.add(scorepane,0,0);
-			/*
-			//boatpane.add(score,0,1);
-			//boatpane.add(tScore,0,2);
 			
-			actpane.add(p1name,0,1);
-			actpane.add(p2name,0,2);
-			
-			actpane.add(p1score,3,1);
-			actpane.add(p2score,3,2);
-			
-			actpane.add(p1tscore,6,1);
-			actpane.add(p2tscore,6,2);
-			*/
 			actpane.add(bo1_1,1,11);
 			actpane.add(bo1_2,2,11);
 			actpane.add(bo1_3,3,11);
@@ -281,15 +251,229 @@ public class Interface extends Application {
 				}
 			});
 			
-			//Bomb Drop Buttons
+			rb1_2.setOnAction(e -> {
+				if (rb1_2.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb1_3.setOnAction(e -> {
+				if (rb1_3.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb1_4.setOnAction(e -> {
+				if (rb1_4.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb1_5.setOnAction(e -> {
+				if (rb1_5.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb2_1.setOnAction(e -> {
+				if (rb2_1.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb2_2.setOnAction(e -> {
+				if (rb2_2.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb2_3.setOnAction(e -> {
+				if (rb2_3.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb2_4.setOnAction(e -> {
+				if (rb2_4.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb2_5.setOnAction(e -> {
+				if (rb2_5.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb3_1.setOnAction(e -> {
+				if (rb3_1.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb3_2.setOnAction(e -> {
+				if (rb3_2.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb3_3.setOnAction(e -> {
+				if (rb3_3.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb3_4.setOnAction(e -> {
+				if (rb3_4.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb3_5.setOnAction(e -> {
+				if (rb3_5.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb4_1.setOnAction(e -> {
+				if (rb3_1.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb4_2.setOnAction(e -> {
+				if (rb3_2.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb4_3.setOnAction(e -> {
+				if (rb3_3.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb4_4.setOnAction(e -> {
+				if (rb3_4.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb4_5.setOnAction(e -> {
+				if (rb3_5.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb5_1.setOnAction(e -> {
+				if (rb3_1.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb5_2.setOnAction(e -> {
+				if (rb3_2.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb5_3.setOnAction(e -> {
+				if (rb3_3.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb5_4.setOnAction(e -> {
+				if (rb3_4.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			rb5_5.setOnAction(e -> {
+				if (rb3_5.isSelected()) {
+					boats++;
+				}
+				else {
+					boats--;
+				}
+			});
+			
+			//Bomb Drop Buttons setOnAction assignments
 			bo1_1.setOnAction(e -> {
 				if (rb1_1.isSelected()) {
-					//bo1_1.setStyle("-fx-background-color: RED");
 					rb1_1.setStyle("-fx-color: RED");
 					rb1_1.setVisible(true);
 				}
 				else {
-					//bo1_1.setStyle("-fx-background-color: LIGHTBLUE");
 					rb1_1.setStyle("-fx-color: LIGHTBLUE");
 					rb1_1.setVisible(true);
 				}
@@ -297,12 +481,10 @@ public class Interface extends Application {
 			
 			bo1_2.setOnAction(e -> {
 				if (rb1_2.isSelected()) {
-					//bo1_2.setStyle("-fx-background-color: RED");
 					rb1_2.setStyle("-fx-color: RED");
 					rb1_2.setVisible(true);
 				}
 				else {
-					//bo1_2.setStyle("-fx-background-color: LIGHTBLUE");
 					rb1_2.setStyle("-fx-color: LIGHTBLUE");
 					rb1_2.setVisible(true);
 				}
@@ -310,12 +492,10 @@ public class Interface extends Application {
 			
 			bo1_3.setOnAction(e -> {
 				if (rb1_3.isSelected()) {
-					//bo1_3.setStyle("-fx-background-color: RED");
 					rb1_3.setStyle("-fx-color: RED");
 					rb1_3.setVisible(true);
 				}
 				else {
-					//bo1_3.setStyle("-fx-background-color: LIGHTBLUE");
 					rb1_3.setStyle("-fx-color: LIGHTBLUE");
 					rb1_3.setVisible(true);
 				}
@@ -323,12 +503,10 @@ public class Interface extends Application {
 			
 			bo1_4.setOnAction(e -> {
 				if (rb1_4.isSelected()) {
-					//bo1_4.setStyle("-fx-background-color: RED");
 					rb1_4.setStyle("-fx-color: RED");
 					rb1_4.setVisible(true);
 				}
 				else {
-					//bo1_4.setStyle("-fx-background-color: LIGHTBLUE");
 					rb1_4.setStyle("-fx-color: LIGHTBLUE");
 					rb1_4.setVisible(true);
 				}
@@ -336,12 +514,10 @@ public class Interface extends Application {
 			
 			bo1_5.setOnAction(e -> {
 				if (rb1_5.isSelected()) {
-					//bo1_5.setStyle("-fx-background-color: RED");
 					rb1_5.setStyle("-fx-color: RED");
 					rb1_5.setVisible(true);
 				}
 				else {
-					//bo1_5.setStyle("-fx-background-color: LIGHTBLUE");
 					rb1_5.setStyle("-fx-color: LIGHTBLUE");
 					rb1_5.setVisible(true);
 				}
@@ -349,12 +525,10 @@ public class Interface extends Application {
 		      
 			bo2_1.setOnAction(e -> {
 				if (rb2_1.isSelected()) {
-					//bo2_1.setStyle("-fx-background-color: RED");
 					rb2_1.setStyle("-fx-color: RED");
 					rb2_1.setVisible(true);
 				}
 				else {
-					//bo2_1.setStyle("-fx-background-color: LIGHTBLUE");
 					rb2_1.setStyle("-fx-color: LIGHTBLUE");
 					rb2_1.setVisible(true);
 				}
@@ -362,12 +536,10 @@ public class Interface extends Application {
 			
 			bo2_2.setOnAction(e -> {
 				if (rb2_2.isSelected()) {
-					//bo2_2.setStyle("-fx-background-color: RED");
 					rb2_2.setStyle("-fx-color: RED");
 					rb2_2.setVisible(true);
 				}
 				else {
-					//bo2_2.setStyle("-fx-background-color: LIGHTBLUE");
 					rb2_2.setStyle("-fx-color: LIGHTBLUE");
 					rb2_2.setVisible(true);
 				}
@@ -375,12 +547,10 @@ public class Interface extends Application {
 			
 			bo2_3.setOnAction(e -> {
 				if (rb2_3.isSelected()) {
-					//bo2_3.setStyle("-fx-background-color: RED");
 					rb2_3.setStyle("-fx-color: RED");
 					rb2_3.setVisible(true);
 				}
 				else {
-					//bo2_3.setStyle("-fx-background-color: LIGHTBLUE");
 					rb2_3.setStyle("-fx-color: LIGHTBLUE");
 					rb2_3.setVisible(true);
 				}
@@ -388,12 +558,10 @@ public class Interface extends Application {
 			
 			bo2_4.setOnAction(e -> {
 				if (rb2_4.isSelected()) {
-					//bo2_4.setStyle("-fx-background-color: RED");
 					rb2_4.setStyle("-fx-color: RED");
 					rb2_4.setVisible(true);
 				}
 				else {
-					//bo2_4.setStyle("-fx-background-color: LIGHTBLUE");
 					rb2_4.setStyle("-fx-color: LIGHTBLUE");
 					rb2_4.setVisible(true);
 				}
@@ -401,12 +569,10 @@ public class Interface extends Application {
 			
 			bo2_5.setOnAction(e -> {
 				if (rb2_5.isSelected()) {
-					//bo2_5.setStyle("-fx-background-color: RED");
 					rb2_5.setStyle("-fx-color: RED");
 					rb2_5.setVisible(true);
 				}
 				else {
-					//bo2_5.setStyle("-fx-background-color: LIGHTBLUE");
 					rb2_5.setStyle("-fx-color: LIGHTBLUE");
 					rb2_5.setVisible(true);
 				}
@@ -414,12 +580,10 @@ public class Interface extends Application {
 		    
 			bo3_1.setOnAction(e -> {
 				if (rb3_1.isSelected()) {
-					//bo3_1.setStyle("-fx-background-color: RED");
 					rb3_1.setStyle("-fx-color: RED");
 					rb3_1.setVisible(true);
 				}
 				else {
-					//bo3_1.setStyle("-fx-background-color: LIGHTBLUE");
 					rb3_1.setStyle("-fx-color: LIGHTBLUE");
 					rb3_1.setVisible(true);
 				}
@@ -427,12 +591,10 @@ public class Interface extends Application {
 			
 			bo3_2.setOnAction(e -> {
 				if (rb3_2.isSelected()) {
-					//bo3_2.setStyle("-fx-background-color: RED");
 					rb3_2.setStyle("-fx-color: RED");
 					rb3_2.setVisible(true);
 				}
 				else {
-					//bo3_2.setStyle("-fx-background-color: LIGHTBLUE");
 					rb3_2.setStyle("-fx-color: LIGHTBLUE");
 					rb3_2.setVisible(true);
 				}
@@ -440,12 +602,10 @@ public class Interface extends Application {
 			
 			bo3_3.setOnAction(e -> { 
 				if (rb3_3.isSelected()) {
-					//bo3_3.setStyle("-fx-background-color: RED");
 					rb3_3.setStyle("-fx-color: RED");
 					rb3_3.setVisible(true);
 				}
 				else {
-					//bo3_3.setStyle("-fx-background-color: LIGHTBLUE");
 					rb3_3.setStyle("-fx-color: LIGHTBLUE");
 					rb3_3.setVisible(true);
 				}
@@ -453,12 +613,10 @@ public class Interface extends Application {
 			
 			bo3_4.setOnAction(e -> { 
 				if (rb3_4.isSelected()) {
-					//bo3_4.setStyle("-fx-background-color: RED");
 					rb3_4.setStyle("-fx-color: RED");
 					rb3_4.setVisible(true);
 				}
 				else {
-					//bo3_4.setStyle("-fx-background-color: LIGHTBLUE");
 					rb3_4.setStyle("-fx-color: LIGHTBLUE");
 					rb3_4.setVisible(true);
 				}
@@ -466,12 +624,11 @@ public class Interface extends Application {
 			
 			bo3_5.setOnAction(e -> { 
 				if (rb3_5.isSelected()) {
-					//bo3_5.setStyle("-fx-background-color: RED");
 					rb3_5.setStyle("-fx-color: RED");
 					rb3_5.setVisible(true);
 				}
 				else {
-					//bo3_5.setStyle("-fx-background-color: LIGHTBLUE");
+
 					rb3_5.setStyle("-fx-color: LIGHTBLUE");
 					rb3_5.setVisible(true);
 				}
@@ -479,12 +636,10 @@ public class Interface extends Application {
 			
 			bo4_1.setOnAction(e -> { 
 				if (rb4_1.isSelected()) {
-					//bo4_1.setStyle("-fx-background-color: RED");
 					rb4_1.setStyle("-fx-color: RED");
 					rb4_1.setVisible(true);
 				}
 				else {
-					//bo4_1.setStyle("-fx-background-color: LIGHTBLUE");
 					rb4_1.setStyle("-fx-color: LIGHTBLUE");
 					rb4_1.setVisible(true);
 				}
@@ -492,12 +647,10 @@ public class Interface extends Application {
 			
 			bo4_2.setOnAction(e -> {
 				if (rb4_2.isSelected()) {
-					//bo4_2.setStyle("-fx-background-color: RED");
 					rb4_2.setStyle("-fx-color: RED");
 					rb4_2.setVisible(true);
 				}
 				else {
-					//bo4_2.setStyle("-fx-background-color: LIGHTBLUE");
 					rb4_2.setStyle("-fx-color: LIGHTBLUE");
 					rb4_2.setVisible(true);
 				}
@@ -505,12 +658,10 @@ public class Interface extends Application {
 			
 			bo4_3.setOnAction(e -> { 
 				if (rb4_3.isSelected()) {
-					//bo4_3.setStyle("-fx-background-color: RED");
 					rb4_3.setStyle("-fx-color: RED");
 					rb4_3.setVisible(true);
 				}
 				else {
-					//bo4_3.setStyle("-fx-background-color: LIGHTBLUE");
 					rb4_3.setStyle("-fx-color: LIGHTBLUE");
 					rb4_3.setVisible(true);
 				}
@@ -518,12 +669,10 @@ public class Interface extends Application {
 			
 			bo4_4.setOnAction(e -> { 
 				if (rb4_4.isSelected()) {
-					//bo4_4.setStyle("-fx-background-color: RED");
 					rb4_4.setStyle("-fx-color: RED");
 					rb4_4.setVisible(true);
 				}
 				else {
-					//bo4_4.setStyle("-fx-background-color: LIGHTBLUE");
 					rb4_4.setStyle("-fx-color: LIGHTBLUE");
 					rb4_4.setVisible(true);
 				}
@@ -531,12 +680,10 @@ public class Interface extends Application {
 			
 			bo4_5.setOnAction(e -> {
 				if (rb4_5.isSelected()) {
-					//bo4_5.setStyle("-fx-background-color: RED");
 					rb4_5.setStyle("-fx-color: RED");
 					rb4_5.setVisible(true);
 				}
 				else {
-					//bo4_5.setStyle("-fx-background-color: LIGHTBLUE");
 					rb4_5.setStyle("-fx-color: LIGHTBLUE");
 					rb4_5.setVisible(true);
 				}
@@ -544,12 +691,10 @@ public class Interface extends Application {
 			
 			bo5_1.setOnAction(e -> { 
 				if (rb5_1.isSelected()) {
-					//bo5_1.setStyle("-fx-background-color: RED");
 					rb5_1.setStyle("-fx-color: RED");
 					rb5_1.setVisible(true);
 				}
 				else {
-					//bo5_1.setStyle("-fx-background-color: LIGHTBLUE");
 					rb5_1.setStyle("-fx-color: LIGHTBLUE");
 					rb5_1.setVisible(true);
 				}
@@ -557,12 +702,10 @@ public class Interface extends Application {
 			
 			bo5_2.setOnAction(e -> { 
 				if (rb5_2.isSelected()) {
-					//bo5_2.setStyle("-fx-background-color: RED");
 					rb5_2.setStyle("-fx-color: RED");
 					rb5_2.setVisible(true);
 				}
 				else {
-					//bo5_2.setStyle("-fx-background-color: LIGHTBLUE");
 					rb5_2.setStyle("-fx-color: LIGHTBLUE");
 					rb5_2.setVisible(true);
 				}
@@ -570,12 +713,10 @@ public class Interface extends Application {
 			
 			bo5_3.setOnAction(e -> { 
 				if (rb5_3.isSelected()) {
-					//bo5_3.setStyle("-fx-background-color: RED");
 					rb5_3.setStyle("-fx-color: RED");
 					rb5_3.setVisible(true);
 				}
 				else {
-					//bo5_3.setStyle("-fx-background-color: LIGHTBLUE");
 					rb5_3.setStyle("-fx-color: LIGHTBLUE");
 					rb5_3.setVisible(true);
 				}
@@ -583,12 +724,10 @@ public class Interface extends Application {
 			
 			bo5_4.setOnAction(e -> { 
 				if (rb5_4.isSelected()) {
-					//bo5_4.setStyle("-fx-background-color: RED");
 					rb5_4.setStyle("-fx-color: RED");
 					rb5_4.setVisible(true);
 				}
 				else {
-					//bo5_4.setStyle("-fx-background-color: LIGHTBLUE");
 					rb5_4.setStyle("-fx-color: LIGHTBLUE");
 					rb5_4.setVisible(true);
 				}
@@ -596,12 +735,10 @@ public class Interface extends Application {
 			
 			bo5_5.setOnAction(e -> { 
 				if (rb5_5.isSelected()) {
-					//bo5_5.setStyle("-fx-background-color: RED");
 					rb5_5.setStyle("-fx-color: RED");
 					rb5_5.setVisible(true);
 				}
 				else {
-					//bo5_5.setStyle("-fx-background-color: LIGHTBLUE");
 					rb5_5.setStyle("-fx-color: LIGHTBLUE");
 					rb5_5.setVisible(true);
 				}
@@ -648,7 +785,6 @@ public class Interface extends Application {
 			paneForButtons.getChildren().addAll(btLeft, btRight, btReStart, btScore); 
 			paneForButtons.setAlignment(Pos.CENTER);
 			paneForButtons.setStyle("-fx-border-color: black");
-				   
 			scorepane.setStyle("-fx-border-color: black");
 			totalscorepane.setStyle("-fx-border-color: black");
 			//set pane attributes
@@ -663,7 +799,6 @@ public class Interface extends Application {
 
 		//Resets the radio buttons
 		public void decline() {
-			System.out.println("Pick again!");
 			
 			rb1_1.setSelected(false);
 			rb1_2.setSelected(false);
@@ -694,7 +829,6 @@ public class Interface extends Application {
 			rb5_3.setSelected(false);
 			rb5_4.setSelected(false);
 			rb5_5.setSelected(false);
-			
 			
 			
 		}
@@ -730,20 +864,23 @@ public class Interface extends Application {
 			bo5_3.setDisable(false);
 			bo5_4.setDisable(false);
 			bo5_5.setDisable(false);
-
 			
 			rb1_1.setVisible(false);
 			rb1_1.setDisable(true);
 			bo1_1.setDisable(false);
+			
 			rb1_2.setVisible(false);
 			rb1_2.setDisable(true);
 			bo1_2.setDisable(false);
+			
 			rb1_3.setVisible(false);
 			rb1_3.setDisable(true);
 			bo1_3.setDisable(false);
+			
 			rb1_4.setVisible(false);
 			rb1_4.setDisable(true);
 			bo1_4.setDisable(false);
+			
 			rb1_5.setVisible(false);
 			rb1_5.setDisable(true);
 			bo1_5.setDisable(false);
@@ -837,131 +974,126 @@ public class Interface extends Application {
 			rb1_1.setVisible(true);
 			rb1_1.setDisable(false);
 			rb1_1.setSelected(false);
-		//	bo1_1.setStyle("-fx-background-color: GREY");
 			rb1_1.setStyle("-fx-color: WHITE");
+			
 			rb1_2.setVisible(true);
 			rb1_2.setDisable(false);
 			rb1_2.setSelected(false);
-		//	bo1_2.setStyle("-fx-background-color: WHITE");
 			rb1_2.setStyle("-fx-color: WHITE");
+			
 			rb1_3.setVisible(true);
 			rb1_3.setDisable(false);
 			rb1_3.setSelected(false);
-		//	bo1_3.setStyle("-fx-background-color: WHITE");
 			rb1_3.setStyle("-fx-color: WHITE");
+			
 			rb1_4.setVisible(true);
 			rb1_4.setDisable(false);
 			rb1_4.setSelected(false);
-			//bo1_4.setStyle("-fx-background-color: WHITE");
 			rb1_4.setStyle("-fx-color: WHITE");
+			
 			rb1_5.setVisible(true);
 			rb1_5.setDisable(false);
 			rb1_5.setSelected(false);
-			//bo1_5.setStyle("-fx-background-color: WHITE");
 			rb1_5.setStyle("-fx-color: WHITE");
 			
 			rb2_1.setVisible(true);
 			rb2_1.setDisable(false);
 			rb2_1.setSelected(false);
-			//bo2_1.setStyle("-fx-background-color: WHITE");
 			rb2_1.setStyle("-fx-color: WHITE");
+			
 			rb2_2.setVisible(true);
 			rb2_2.setDisable(false);
 			rb2_2.setSelected(false);
-			//bo2_2.setStyle("-fx-background-color: WHITE");
 			rb2_2.setStyle("-fx-color: WHITE");
+			
 			rb2_3.setVisible(true);
 			rb2_3.setDisable(false);
 			rb2_3.setSelected(false);
-			//bo2_3.setStyle("-fx-background-color: WHITE");
 			rb2_3.setStyle("-fx-color: WHITE");
+			
 			rb2_4.setVisible(true);
 			rb2_4.setDisable(false);
 			rb2_4.setSelected(false);
-			//bo2_4.setStyle("-fx-background-color: WHITE");
 			rb2_4.setStyle("-fx-color: WHITE");
+			
 			rb2_5.setVisible(true);
 			rb2_5.setDisable(false);
 			rb2_5.setSelected(false);
-			//bo2_5.setStyle("-fx-background-color: WHITE");
 			rb2_5.setStyle("-fx-color: WHITE");
 			
 			rb3_1.setVisible(true);
 			rb3_1.setDisable(false);
 			rb3_1.setSelected(false);
-			//bo3_1.setStyle("-fx-background-color: WHITE");
 			rb3_1.setStyle("-fx-color: WHITE");
+			
 			rb3_2.setVisible(true);
 			rb3_2.setDisable(false);
 			rb3_2.setSelected(false);
-			//bo3_2.setStyle("-fx-background-color: WHITE");
 			rb3_2.setStyle("-fx-color: WHITE");
+			
 			rb3_3.setVisible(true);
 			rb3_3.setDisable(false);
 			rb3_3.setSelected(false);
-			//bo3_3.setStyle("-fx-background-color: WHITE");
 			rb3_3.setStyle("-fx-color: WHITE");
+			
 			rb3_4.setVisible(true);
 			rb3_4.setDisable(false);
 			rb3_4.setSelected(false);
-			//bo3_4.setStyle("-fx-background-color: WHITE");
 			rb3_4.setStyle("-fx-color: WHITE");
+			
 			rb3_5.setVisible(true);
 			rb3_5.setDisable(false);
 			rb3_5.setSelected(false);
-			//bo3_5.setStyle("-fx-background-color: WHITE");
 			rb3_5.setStyle("-fx-color: WHITE");
-		
+			
 			rb4_1.setVisible(true);
 			rb4_1.setDisable(false);
 			rb4_1.setSelected(false);
-			//bo4_1.setStyle("-fx-background-color: WHITE");
 			rb4_1.setStyle("-fx-color: WHITE");
+			
 			rb4_2.setVisible(true);
 			rb4_2.setDisable(false);
 			rb4_2.setSelected(false);
-			//bo4_2.setStyle("-fx-background-color: WHITE");
 			rb4_2.setStyle("-fx-color: WHITE");
+			
 			rb4_3.setVisible(true);
 			rb4_3.setDisable(false);
 			rb4_3.setSelected(false);
-			//bo4_3.setStyle("-fx-background-color: WHITE");
 			rb4_3.setStyle("-fx-color: WHITE");
+			
 			rb4_4.setVisible(true);
 			rb4_4.setDisable(false);
 			rb4_4.setSelected(false);
-			//bo4_4.setStyle("-fx-background-color: WHITE");
 			rb4_4.setStyle("-fx-color: WHITE");
+			
 			rb4_5.setVisible(true);
 			rb4_5.setDisable(false);
 			rb4_5.setSelected(false);
-			//bo4_5.setStyle("-fx-background-color: WHITE");
 			rb4_5.setStyle("-fx-color: WHITE");
-		
+			
 			rb5_1.setVisible(true);
 			rb5_1.setDisable(false);
 			rb5_1.setSelected(false);
-			//bo5_1.setStyle("-fx-background-color: WHITE");
 			rb5_1.setStyle("-fx-color: WHITE");
+			
 			rb5_2.setVisible(true);
 			rb5_2.setDisable(false);
 			rb5_2.setSelected(false);
-			//bo5_2.setStyle("-fx-background-color: WHITE");
 			rb5_2.setStyle("-fx-color: WHITE");
+			
 			rb5_3.setVisible(true);
 			rb5_3.setDisable(false);
 			rb5_3.setSelected(false);
-			//bo5_3.setStyle("-fx-background-color: WHITE");
 			rb5_3.setStyle("-fx-color: WHITE");
+			
 			rb5_4.setVisible(true);
 			rb5_4.setDisable(false);
 			rb5_4.setSelected(false);
-			//bo5_4.setStyle("-fx-background-color: WHITE");
 			rb5_4.setStyle("-fx-color: WHITE");
+			
 			rb5_5.setVisible(true);
 			rb5_5.setDisable(false);
 			rb5_5.setSelected(false);
-			//bo5_5.setStyle("-fx-background-color: WHITE");
 			rb5_5.setStyle("-fx-color: WHITE");
 			
 			btRight.setVisible(true);
@@ -982,7 +1114,7 @@ public class Interface extends Application {
 		}
 		
 		
-		//This method does not work yet
+		//This method does not work yet, the method itself works but I need to figure out how to populate the table with object information
 		public BorderPane ScoreTable() {
 			
 			BorderPane spane = new BorderPane();
