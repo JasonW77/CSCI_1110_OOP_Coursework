@@ -35,20 +35,16 @@ import javafx.geometry.Insets;
  *
  * Add the game over status to the game complete with status counters
  * On game end start actpane() over again and flip player1turn boolean to set current turn.
- *		add a check for player1turn boolean so i know what object to update on game end.
+ *		add a check for player1turn boolean so I know what object to update on game end.
  *		add gameID++ at the begining of the actpane() 
  *		this will increase the game count everytime a new game is started
  * 
  * Create a method for setting the score on game over. 
  *		(score will be printed in the console when the score button is hit)
  * 
- * Add a counter and math for deciding how many bombs they get 
- * 		the number of bombs should be a few more than there are ships
- * 		the number of bombs needs to decrease with every bomb dropped
- * 
  * I.E. finish the object updating for the game changes
  * 
- * Maybe? fix the counter for boats to remove them once hit.
+ * ?Do this, Maybe? fix the counter for boats to remove them once hit.
  * 
  * I also need to update the README file for the MANY changes.
  */
@@ -66,6 +62,7 @@ public class Interface extends Application {
 		private int hits = 0;
 		private int miss = 0;
 		private int boats = 0;
+		private int bombs = 0;
 		private int gameID = 0;
 		
 		//player attributes (used to modify the objects on game end)
@@ -491,7 +488,7 @@ public class Interface extends Application {
 				}
 			});
 			
-			//Bomb Drop Buttons setOnAction assignments, changes color for hit or miss as well as counts the hit or miss counters
+			//Bomb Drop Buttons setOnAction assignments, changes color for hit/miss as well as counts the hit/miss counters and depletes bomb count
 			bo1_1.setOnAction(e -> {
 				if (rb1_1.isSelected()) {
 					rb1_1.setStyle("-fx-color: RED");
@@ -503,6 +500,7 @@ public class Interface extends Application {
 					rb1_1.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo1_2.setOnAction(e -> {
@@ -516,6 +514,7 @@ public class Interface extends Application {
 					rb1_2.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo1_3.setOnAction(e -> {
@@ -529,6 +528,7 @@ public class Interface extends Application {
 					rb1_3.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo1_4.setOnAction(e -> {
@@ -542,6 +542,7 @@ public class Interface extends Application {
 					rb1_4.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo1_5.setOnAction(e -> {
@@ -555,6 +556,7 @@ public class Interface extends Application {
 					rb1_5.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 		      
 			bo2_1.setOnAction(e -> {
@@ -568,6 +570,7 @@ public class Interface extends Application {
 					rb2_1.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo2_2.setOnAction(e -> {
@@ -581,6 +584,7 @@ public class Interface extends Application {
 					rb2_2.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo2_3.setOnAction(e -> {
@@ -594,6 +598,7 @@ public class Interface extends Application {
 					rb2_3.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo2_4.setOnAction(e -> {
@@ -607,6 +612,7 @@ public class Interface extends Application {
 					rb2_4.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo2_5.setOnAction(e -> {
@@ -620,6 +626,7 @@ public class Interface extends Application {
 					rb2_5.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 		    
 			bo3_1.setOnAction(e -> {
@@ -633,6 +640,7 @@ public class Interface extends Application {
 					rb3_1.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo3_2.setOnAction(e -> {
@@ -646,6 +654,7 @@ public class Interface extends Application {
 					rb3_2.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo3_3.setOnAction(e -> { 
@@ -659,6 +668,7 @@ public class Interface extends Application {
 					rb3_3.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo3_4.setOnAction(e -> { 
@@ -672,6 +682,7 @@ public class Interface extends Application {
 					rb3_4.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo3_5.setOnAction(e -> { 
@@ -686,6 +697,7 @@ public class Interface extends Application {
 					rb3_5.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo4_1.setOnAction(e -> { 
@@ -699,6 +711,7 @@ public class Interface extends Application {
 					rb4_1.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo4_2.setOnAction(e -> {
@@ -712,6 +725,7 @@ public class Interface extends Application {
 					rb4_2.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo4_3.setOnAction(e -> { 
@@ -725,6 +739,7 @@ public class Interface extends Application {
 					rb4_3.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo4_4.setOnAction(e -> { 
@@ -738,6 +753,7 @@ public class Interface extends Application {
 					rb4_4.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo4_5.setOnAction(e -> {
@@ -751,6 +767,7 @@ public class Interface extends Application {
 					rb4_5.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo5_1.setOnAction(e -> { 
@@ -764,6 +781,7 @@ public class Interface extends Application {
 					rb5_1.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo5_2.setOnAction(e -> { 
@@ -777,6 +795,7 @@ public class Interface extends Application {
 					rb5_2.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo5_3.setOnAction(e -> { 
@@ -790,6 +809,7 @@ public class Interface extends Application {
 					rb5_3.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo5_4.setOnAction(e -> { 
@@ -803,6 +823,7 @@ public class Interface extends Application {
 					rb5_4.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			bo5_5.setOnAction(e -> { 
@@ -816,6 +837,7 @@ public class Interface extends Application {
 					rb5_5.setVisible(true);
 					miss++;
 				}
+				bombs--;
 			});
 			
 			//set boatpane attributes
@@ -915,8 +937,11 @@ public class Interface extends Application {
 			
 		}
 		
-		//Confirm button method for use after all boats have been placed
+		//Confirm button method for use after all boats have been placed 
 		public void confirm() {
+			
+			//set number of bombs in inventory gives 3 more bombs than the number of boats placed.
+			bombs = (boats + 3);
 			
 			//enable bomb buttons after boats are set
 			bo1_1.setDisable(false);
