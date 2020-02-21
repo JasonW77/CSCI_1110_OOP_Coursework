@@ -34,15 +34,18 @@ import javafx.geometry.Insets;
  *		when the hits or misses are reached the game ends
  *
  * Add the game over status to the game complete with status counters
+ *		Add a For loop or a while loop to act as the game progression logic. 
+ *			(does this loop need to be inside the confirm method? 	
+ *			also does this require the onActions for the bomb buttons to be set inside the confirm method?)
+ *	
+ * Create a method for setting the score on game over. 
+ *		(score will be printed in the console when the score button is hit)
+ * 		I.E. finish the object updating for the game changes
+ 		
  * On game end start actpane() over again and flip player1turn boolean to set current turn.
  *		add a check for player1turn boolean so I know what object to update on game end.
  *		add gameID++ at the begining of the actpane() 
  *		this will increase the game count everytime a new game is started
- * 
- * Create a method for setting the score on game over. 
- *		(score will be printed in the console when the score button is hit)
- * 
- * I.E. finish the object updating for the game changes
  * 
  * ?Do this, Maybe? fix the counter for boats to remove them once hit.
  * 
@@ -1041,7 +1044,7 @@ public class Interface extends Application {
 		//Restart button method, used to restart the current game
 		public void restart() {
 		
-			//reset boat count on reset
+			//reset boat count on reset button activation
 			boats = 0;
 			
 			//Disable Bomb buttons on reset
