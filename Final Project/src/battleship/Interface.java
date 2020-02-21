@@ -472,10 +472,12 @@ public class Interface extends Application {
 				if (rb1_1.isSelected()) {
 					rb1_1.setStyle("-fx-color: RED");
 					rb1_1.setVisible(true);
+					hits++;
 				}
 				else {
 					rb1_1.setStyle("-fx-color: LIGHTBLUE");
 					rb1_1.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -483,10 +485,12 @@ public class Interface extends Application {
 				if (rb1_2.isSelected()) {
 					rb1_2.setStyle("-fx-color: RED");
 					rb1_2.setVisible(true);
+					hits++;
 				}
 				else {
 					rb1_2.setStyle("-fx-color: LIGHTBLUE");
 					rb1_2.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -494,10 +498,12 @@ public class Interface extends Application {
 				if (rb1_3.isSelected()) {
 					rb1_3.setStyle("-fx-color: RED");
 					rb1_3.setVisible(true);
+					hits++;
 				}
 				else {
 					rb1_3.setStyle("-fx-color: LIGHTBLUE");
 					rb1_3.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -505,10 +511,12 @@ public class Interface extends Application {
 				if (rb1_4.isSelected()) {
 					rb1_4.setStyle("-fx-color: RED");
 					rb1_4.setVisible(true);
+					hits++;
 				}
 				else {
 					rb1_4.setStyle("-fx-color: LIGHTBLUE");
 					rb1_4.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -516,10 +524,12 @@ public class Interface extends Application {
 				if (rb1_5.isSelected()) {
 					rb1_5.setStyle("-fx-color: RED");
 					rb1_5.setVisible(true);
+					hits++;
 				}
 				else {
 					rb1_5.setStyle("-fx-color: LIGHTBLUE");
 					rb1_5.setVisible(true);
+					miss++;
 				}
 			});
 		      
@@ -527,10 +537,12 @@ public class Interface extends Application {
 				if (rb2_1.isSelected()) {
 					rb2_1.setStyle("-fx-color: RED");
 					rb2_1.setVisible(true);
+					hits++;
 				}
 				else {
 					rb2_1.setStyle("-fx-color: LIGHTBLUE");
 					rb2_1.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -538,10 +550,12 @@ public class Interface extends Application {
 				if (rb2_2.isSelected()) {
 					rb2_2.setStyle("-fx-color: RED");
 					rb2_2.setVisible(true);
+					hits++;
 				}
 				else {
 					rb2_2.setStyle("-fx-color: LIGHTBLUE");
 					rb2_2.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -549,10 +563,12 @@ public class Interface extends Application {
 				if (rb2_3.isSelected()) {
 					rb2_3.setStyle("-fx-color: RED");
 					rb2_3.setVisible(true);
+					hits++;
 				}
 				else {
 					rb2_3.setStyle("-fx-color: LIGHTBLUE");
 					rb2_3.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -560,10 +576,12 @@ public class Interface extends Application {
 				if (rb2_4.isSelected()) {
 					rb2_4.setStyle("-fx-color: RED");
 					rb2_4.setVisible(true);
+					hits++;
 				}
 				else {
 					rb2_4.setStyle("-fx-color: LIGHTBLUE");
 					rb2_4.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -571,10 +589,12 @@ public class Interface extends Application {
 				if (rb2_5.isSelected()) {
 					rb2_5.setStyle("-fx-color: RED");
 					rb2_5.setVisible(true);
+					hits++;
 				}
 				else {
 					rb2_5.setStyle("-fx-color: LIGHTBLUE");
 					rb2_5.setVisible(true);
+					miss++;
 				}
 			});
 		    
@@ -582,10 +602,12 @@ public class Interface extends Application {
 				if (rb3_1.isSelected()) {
 					rb3_1.setStyle("-fx-color: RED");
 					rb3_1.setVisible(true);
+					hits++;
 				}
 				else {
 					rb3_1.setStyle("-fx-color: LIGHTBLUE");
 					rb3_1.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -593,10 +615,12 @@ public class Interface extends Application {
 				if (rb3_2.isSelected()) {
 					rb3_2.setStyle("-fx-color: RED");
 					rb3_2.setVisible(true);
+					hits++;
 				}
 				else {
 					rb3_2.setStyle("-fx-color: LIGHTBLUE");
 					rb3_2.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -604,10 +628,12 @@ public class Interface extends Application {
 				if (rb3_3.isSelected()) {
 					rb3_3.setStyle("-fx-color: RED");
 					rb3_3.setVisible(true);
+					hits++;
 				}
 				else {
 					rb3_3.setStyle("-fx-color: LIGHTBLUE");
 					rb3_3.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -615,10 +641,12 @@ public class Interface extends Application {
 				if (rb3_4.isSelected()) {
 					rb3_4.setStyle("-fx-color: RED");
 					rb3_4.setVisible(true);
+					hits++;
 				}
 				else {
 					rb3_4.setStyle("-fx-color: LIGHTBLUE");
 					rb3_4.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -626,11 +654,13 @@ public class Interface extends Application {
 				if (rb3_5.isSelected()) {
 					rb3_5.setStyle("-fx-color: RED");
 					rb3_5.setVisible(true);
+					hits++;
 				}
 				else {
 
 					rb3_5.setStyle("-fx-color: LIGHTBLUE");
 					rb3_5.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -638,10 +668,12 @@ public class Interface extends Application {
 				if (rb4_1.isSelected()) {
 					rb4_1.setStyle("-fx-color: RED");
 					rb4_1.setVisible(true);
+					hits++;
 				}
 				else {
 					rb4_1.setStyle("-fx-color: LIGHTBLUE");
 					rb4_1.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -649,10 +681,12 @@ public class Interface extends Application {
 				if (rb4_2.isSelected()) {
 					rb4_2.setStyle("-fx-color: RED");
 					rb4_2.setVisible(true);
+					hits++;
 				}
 				else {
 					rb4_2.setStyle("-fx-color: LIGHTBLUE");
 					rb4_2.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -660,10 +694,12 @@ public class Interface extends Application {
 				if (rb4_3.isSelected()) {
 					rb4_3.setStyle("-fx-color: RED");
 					rb4_3.setVisible(true);
+					hits++;
 				}
 				else {
 					rb4_3.setStyle("-fx-color: LIGHTBLUE");
 					rb4_3.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -671,10 +707,12 @@ public class Interface extends Application {
 				if (rb4_4.isSelected()) {
 					rb4_4.setStyle("-fx-color: RED");
 					rb4_4.setVisible(true);
+					hits++;
 				}
 				else {
 					rb4_4.setStyle("-fx-color: LIGHTBLUE");
 					rb4_4.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -682,10 +720,12 @@ public class Interface extends Application {
 				if (rb4_5.isSelected()) {
 					rb4_5.setStyle("-fx-color: RED");
 					rb4_5.setVisible(true);
+					hits++;
 				}
 				else {
 					rb4_5.setStyle("-fx-color: LIGHTBLUE");
 					rb4_5.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -693,10 +733,12 @@ public class Interface extends Application {
 				if (rb5_1.isSelected()) {
 					rb5_1.setStyle("-fx-color: RED");
 					rb5_1.setVisible(true);
+					hits++;
 				}
 				else {
 					rb5_1.setStyle("-fx-color: LIGHTBLUE");
 					rb5_1.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -704,10 +746,12 @@ public class Interface extends Application {
 				if (rb5_2.isSelected()) {
 					rb5_2.setStyle("-fx-color: RED");
 					rb5_2.setVisible(true);
+					hits++;
 				}
 				else {
 					rb5_2.setStyle("-fx-color: LIGHTBLUE");
 					rb5_2.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -715,10 +759,12 @@ public class Interface extends Application {
 				if (rb5_3.isSelected()) {
 					rb5_3.setStyle("-fx-color: RED");
 					rb5_3.setVisible(true);
+					hits++;
 				}
 				else {
 					rb5_3.setStyle("-fx-color: LIGHTBLUE");
 					rb5_3.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -726,10 +772,12 @@ public class Interface extends Application {
 				if (rb5_4.isSelected()) {
 					rb5_4.setStyle("-fx-color: RED");
 					rb5_4.setVisible(true);
+					hits++;
 				}
 				else {
 					rb5_4.setStyle("-fx-color: LIGHTBLUE");
 					rb5_4.setVisible(true);
+					miss++;
 				}
 			});
 			
@@ -737,10 +785,12 @@ public class Interface extends Application {
 				if (rb5_5.isSelected()) {
 					rb5_5.setStyle("-fx-color: RED");
 					rb5_5.setVisible(true);
+					hits++;
 				}
 				else {
 					rb5_5.setStyle("-fx-color: LIGHTBLUE");
 					rb5_5.setVisible(true);
+					miss++;
 				}
 			});
 			
