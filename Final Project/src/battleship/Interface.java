@@ -26,19 +26,27 @@ import javafx.scene.paint.Color;
 import javafx.geometry.Insets;
 
 /*   			~~~ NOTES!! ~~~
- * a great resource is http://tutorials.jenkov.com/javafx/vbox.html 
+ * A great resource is http://tutorials.jenkov.com/javafx/vbox.html 
  * 
  * TO DO!
- * add method for changing player turns, 
+ * Add method for changing player turns, 
+ *		perhaps I can do this with a while or a for statement
+ *		when the hits or misses are reached the game ends
+ *
+ * Add the game over status to the game complete with status counters
+ * On game end start actpane() over again and flip player1turn boolean to set current turn.
+ *		add a check for player1turn boolean so i know what object to update on game end.
+ *		add gameID++ at the begining of the actpane() 
+ *		this will increase the game count everytime a new game is started
  * 
- * finish method for getting the score. (score will be printed in the console)
+ * Create a method for setting the score on game over. 
+ *		(score will be printed in the console when the score button is hit)
  * 
- * add a counter and math for deciding how many bombs they get 
+ * Add a counter and math for deciding how many bombs they get 
  * 		the number of bombs should be a few more than there are ships
  * 		the number of bombs needs to decrease with every bomb dropped
  * 
- * add the game over status to the game complete with status counters
- * i.e. finish the object updating for the game changes
+ * I.E. finish the object updating for the game changes
  * 
  * Maybe? fix the counter for boats to remove them once hit.
  * 
@@ -46,18 +54,21 @@ import javafx.geometry.Insets;
  */
 
 public class Interface extends Application {
-	
+		
+		//creates objects on a global level
 		GameCounter player1;
 		GameCounter player2; 
 		
+		//player turn boolean (used to keep track of whos turn it is)
 		boolean player1turn;
 		
-		int hits = 0;
-		int miss = 0;
-		int boats = 0;
-		
+		//integers for game play stats
+		private int hits = 0;
+		private int miss = 0;
+		private int boats = 0;
 		private int gameID = 0;
 		
+		//player attributes (used to modify the objects on game end)
 		private String P1Name = "Bob";
 		private int P1Loss = 0;
 		private int P1Win = 0;
@@ -68,6 +79,7 @@ public class Interface extends Application {
 		private int P2Win = 0;
 		private int P2Tie = 0;
 		
+		//Radio buttons used for boat placment
 		private RadioButton rb1_1 = new RadioButton("");
 		private RadioButton rb1_2 = new RadioButton("");
 		private RadioButton rb1_3 = new RadioButton("");
@@ -98,6 +110,7 @@ public class Interface extends Application {
 		private RadioButton rb5_4 = new RadioButton("");
 		private RadioButton rb5_5 = new RadioButton("");
 		
+		//buttons used for bomb drop locations
 		private Button bo1_1 = new Button("");
 		private Button bo1_2 = new Button("");
 		private Button bo1_3 = new Button("");
@@ -128,10 +141,13 @@ public class Interface extends Application {
 		private Button bo5_4 = new Button("");
 		private Button bo5_5 = new Button("");
 		
+		//buttons for the game progress bar (Confirm, Decline, Restart, and Score buttons)
 		Button btLeft = new Button("Confirm");
 		Button btRight = new Button("Decline");
 		Button btReStart = new Button("ReStart");
 		Button btScore = new Button("Score");
+		
+		//this button is for testing purposes only
 		Button P1UP = new Button("P1UP");
 		
 		public static void main(String[] args) {
@@ -141,6 +157,7 @@ public class Interface extends Application {
 		@Override // Override the start method in the Application class
 		public void start(Stage primaryStage) {
 
+			//Disable the bomb buttons until it is bomb drop time
 			bo1_1.setDisable(true);
 			bo1_2.setDisable(true);
 			bo1_3.setDisable(true);
@@ -181,7 +198,8 @@ public class Interface extends Application {
 		
 		//Create the actPane, this pane is the pane for bomb drops and result of hit/miss
 		protected BorderPane actPane() {
-		
+			
+			//construct objects for the players using current game count status (status changes on game end)
 			player1 = new GameCounter(gameID,P1Name,P1Win,P1Loss,P1Tie);
 			player2 = new GameCounter(gameID,P2Name,P2Win,P2Loss,P2Tie);
 			
@@ -193,13 +211,16 @@ public class Interface extends Application {
 			GridPane boatpane = new GridPane();
 			HBox paneForButtons = new HBox(20);
 			
+			//button pane onAction assignments
 			btLeft.setOnAction(e -> confirm());
 			btRight.setOnAction(e -> decline());
 			btReStart.setOnAction(e -> restart());
 			btScore.setOnAction(e -> score());
 			
-			//This is here to test the setter for wins
+			/*
+			//This is here to for testing the setter for wins
 			P1UP.setOnAction(e -> player1.setWin());
+			*/
 			
 			//set actPane attributes
 			actpane.setStyle("-fx-border-color: black");
@@ -208,9 +229,12 @@ public class Interface extends Application {
 			actpane.setHgap(5);
 			actpane.setVgap(5);
 			
-			//boat pane labels
+			/*
+			//boat pane labels not sure if i will use this
 			boatpane.add(scorepane,0,0);
+			*/
 			
+			//Add the Bomb buttons to the actpane
 			actpane.add(bo1_1,1,11);
 			actpane.add(bo1_2,2,11);
 			actpane.add(bo1_3,3,11);
@@ -241,7 +265,7 @@ public class Interface extends Application {
 			actpane.add(bo5_4,4,15);
 			actpane.add(bo5_5,5,15);
 			
-			//Boat counter on actions!! repeat this for every button.
+			//Boat counter radio button onActions these keep track of the number of boats placed.
 			rb1_1.setOnAction(e -> {
 				if (rb1_1.isSelected()) {
 					boats++;
@@ -467,7 +491,7 @@ public class Interface extends Application {
 				}
 			});
 			
-			//Bomb Drop Buttons setOnAction assignments
+			//Bomb Drop Buttons setOnAction assignments, changes color for hit or miss as well as counts the hit or miss counters
 			bo1_1.setOnAction(e -> {
 				if (rb1_1.isSelected()) {
 					rb1_1.setStyle("-fx-color: RED");
@@ -800,7 +824,8 @@ public class Interface extends Application {
 			boatpane.setPadding(new Insets(5, 5, 5, 5));
 			boatpane.setHgap(30);
 			boatpane.setVgap(30);
-		
+			
+			//Add Radio buttons for boat selection to the boatpane
 			boatpane.add(rb1_1,1,1);
 			boatpane.add(rb1_2,2,1);
 			boatpane.add(rb1_3,3,1);
@@ -835,21 +860,28 @@ public class Interface extends Application {
 			paneForButtons.getChildren().addAll(btLeft, btRight, btReStart, btScore); 
 			paneForButtons.setAlignment(Pos.CENTER);
 			paneForButtons.setStyle("-fx-border-color: black");
+			
+			/* 
+			I dont know if im going to use these or not
+			
 			scorepane.setStyle("-fx-border-color: black");
 			totalscorepane.setStyle("-fx-border-color: black");
+			
+			*/
+			
 			//set pane attributes
 			pane.setTop(boatpane);
 			pane.setBottom(paneForButtons); 
 			pane.setCenter(actpane);
 
-				     
 			return pane; 
 		}
 
 
-		//Resets the radio buttons
+		//Decline button method for use to reset the boat choices if a mistake is made
 		public void decline() {
 			
+			//Reset the radio buttons to not selected
 			rb1_1.setSelected(false);
 			rb1_2.setSelected(false);
 			rb1_3.setSelected(false);
@@ -883,8 +915,10 @@ public class Interface extends Application {
 			
 		}
 		
+		//Confirm button method for use after all boats have been placed
 		public void confirm() {
 			
+			//enable bomb buttons after boats are set
 			bo1_1.setDisable(false);
 			bo1_2.setDisable(false);
 			bo1_3.setDisable(false);
@@ -915,25 +949,17 @@ public class Interface extends Application {
 			bo5_4.setDisable(false);
 			bo5_5.setDisable(false);
 			
+			//hide boat radio buttons and make them non interactable after boats are set
 			rb1_1.setVisible(false);
 			rb1_1.setDisable(true);
-			bo1_1.setDisable(false);
-			
 			rb1_2.setVisible(false);
 			rb1_2.setDisable(true);
-			bo1_2.setDisable(false);
-			
 			rb1_3.setVisible(false);
 			rb1_3.setDisable(true);
-			bo1_3.setDisable(false);
-			
 			rb1_4.setVisible(false);
 			rb1_4.setDisable(true);
-			bo1_4.setDisable(false);
-			
 			rb1_5.setVisible(false);
 			rb1_5.setDisable(true);
-			bo1_5.setDisable(false);
 			
 			rb2_1.setVisible(false);
 			rb2_1.setDisable(true);
@@ -979,18 +1005,21 @@ public class Interface extends Application {
 			rb5_5.setVisible(false);
 			rb5_5.setDisable(true);
 			
+			//hide and disable confirm and decline buttons after boats are set
 			btRight.setVisible(false);
 			btRight.setDisable(true);
 			btLeft.setVisible(false);
 			btLeft.setDisable(true);
 
-			
 		}
 		
+		//Restart button method, used to restart the current game
 		public void restart() {
-			
+		
+			//reset boat count on reset
 			boats = 0;
 			
+			//Disable Bomb buttons on reset
 			bo1_1.setDisable(true);
 			bo1_2.setDisable(true);
 			bo1_3.setDisable(true);
@@ -1021,6 +1050,7 @@ public class Interface extends Application {
 			bo5_4.setDisable(true);
 			bo5_5.setDisable(true);
 			
+			//Show and Enable boat radio buttons on reset
 			rb1_1.setVisible(true);
 			rb1_1.setDisable(false);
 			rb1_1.setSelected(false);
@@ -1146,25 +1176,26 @@ public class Interface extends Application {
 			rb5_5.setSelected(false);
 			rb5_5.setStyle("-fx-color: WHITE");
 			
+			//Show and Enable Confirm and Decline buttons on reset
 			btRight.setVisible(true);
 			btRight.setDisable(false);
 			btLeft.setVisible(true);
 			btLeft.setDisable(false);
 		
 	}
-		
+		// Create a new Stage and scene for use as the scoreboard
 		public void score(Stage scoreStage) {
 			
-			// Create a scene and place it in the stage
 			Stage scoreStage1 = new Stage();
 			Scene scoreboard = new Scene(ScoreTable(), 500, 500);
+			
 			scoreStage1.setTitle("Scoreboard!"); // Set the stage title
 			scoreStage1.setScene(scoreboard); // Place the scene in the stage
 			scoreStage1.show(); // Display the stage
 		}
 		
 		
-		//This method does not work yet, the method itself works but I need to figure out how to populate the table with object information
+		//This method does not work yet, the method itself works but I need to figure out how to populate the table with current object information
 		public BorderPane ScoreTable() {
 			
 			BorderPane spane = new BorderPane();
@@ -1181,7 +1212,6 @@ public class Interface extends Application {
 			column3.setCellValueFactory(new PropertyValueFactory<>("player loss"));
 			column4.setCellValueFactory(new PropertyValueFactory<>("player ties"));
 			column5.setCellValueFactory(new PropertyValueFactory<>("# games played"));
-			
 			
 			tableView.getColumns().add(column1);
 			tableView.getColumns().add(column2);
@@ -1201,6 +1231,7 @@ public class Interface extends Application {
 			
 		}
 		
+		// this method prints the object status in the console as a score keeping tool
 		public void score() {
 			
 			System.out.println();
