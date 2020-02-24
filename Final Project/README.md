@@ -17,11 +17,13 @@ and places them in a 5x5 grid, choosing the ship placement by clicking the radio
 
 After the boat player has chosen the boat positions, the player will then click the confirm button to pass the turn to the second player or the "Bombs" player.
 The bombs player will choose the placement of the bombs to try and sink the ships. the placement of bombs is done by clicking the button grid at the bottom section of the pane with the mouse.
+(https://github.com/JasonW77/CSCI_1110_OOP_Coursework/blob/master/Final%20Project/Bomb%20Player%20turn.png)(BombPlayerturn.png)
 the "Bomb" player will have 3 more bombs than the number of ships placed to try and sink the boat players ships.
 
-(https://github.com/JasonW77/CSCI_1110_OOP_Coursework/blob/master/Final%20Project/Bomb%20Player%20turn.png)
+after all boats have been sunk, or all bombs have been dropped and there are boats left the game is over.
+there will be a print out of the score in the console and the game will restart, this time the second player will be the boats and the first player will be dropping bombs.
 
-(BombPlayerturn.png)
+
 
 
 ## Code Example
