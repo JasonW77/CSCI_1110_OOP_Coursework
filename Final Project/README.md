@@ -19,7 +19,7 @@ the "Bomb" player will have 3 more bombs than the number of ships placed to try 
 
 after all boats have been sunk, or all bombs have been dropped and there are boats left the game is over.[Game Over Example](https://github.com/JasonW77/CSCI_1110_OOP_Coursework/blob/master/Final%20Project/Game%20end.png)
 there will be a print out of the score in the console and the game will restart.
-[print out example](https://github.com/JasonW77/CSCI_1110_OOP_Coursework/blob/master/Final%20Project/Score%20sheet.png), this time the second player will be placing the boats and the first player will be dropping bombs.
+[Score Sheet](https://github.com/JasonW77/CSCI_1110_OOP_Coursework/blob/master/Final%20Project/Score%20sheet.png), this time the second player will be placing the boats and the first player will be dropping bombs.
 
 
 
