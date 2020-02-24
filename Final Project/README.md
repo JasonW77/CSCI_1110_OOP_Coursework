@@ -21,7 +21,8 @@ The bombs player will choose the placement of the bombs to try and sink the ship
 the "Bomb" player will have 3 more bombs than the number of ships placed to try and sink the boat players ships.
 
 after all boats have been sunk, or all bombs have been dropped and there are boats left the game is over.
-there will be a print out of the score in the console and the game will restart, this time the second player will be the boats and the first player will be dropping bombs.
+there will be a print out of the score in the console and the game will restart.
+[print out example](https://github.com/JasonW77/CSCI_1110_OOP_Coursework/blob/master/Final%20Project/Score%20sheet.png), this time the second player will be the boats and the first player will be dropping bombs.
 
 
 
