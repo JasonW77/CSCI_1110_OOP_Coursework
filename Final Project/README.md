@@ -10,11 +10,11 @@ This is a program for the Object Oriented Programming CSCI-1110-OOP class at Sou
 ## How to Play
 This game is played using java.
 
-The game is played by the first player (the player owning the ships) picks the number of ships
-and places them in a 5x5 grid, choosing first an "x" axis and then a "y" axis.(0-4 respectively)
-
-The second player will choose the placement of the bombs or mines to try and sink the ships.
-they have 5 more bombs than ships placed to try and sink player one's ships.
+The game is played by the first player (the player owning the boats) picks the number of boats
+and places them in a 5x5 grid, choosing the ship placement by clicking the radio buttons at the top section of the pane with the mouse.
+After the player has chosen the boat positions, the player will then click the confirm button to pass the turn to the second player or the "Bombs" player.
+The second player will choose the placement of the bombs to try and sink the ships. the placement of bombs is done by clicking the button grid at the bottom section of the pane with the mouse.
+the "Bomb" player will have 3 more bombs than the number of ships placed to try and sink the boat players ships.
 
 [Caption of Image](Battleshipscreenshot.png)
 
