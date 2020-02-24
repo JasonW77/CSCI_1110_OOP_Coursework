@@ -1,7 +1,13 @@
-//Author Jason Waters
-//Date 2/20/2020
-//CSCI_1110_Final_Project
-
+/**
+ * <h1>JavaDoc<h1/>
+ * This is my Battleship game interface class.
+ * 	I created this program for the CSCI_1110_Final_Project
+ * 
+ * 
+	<p>Date created 2/24/2020 <p/>
+	
+	@author Jason Waters
+*/
 package battleship;
 
 import javafx.application.Application;
@@ -22,7 +28,6 @@ public class Interface extends Application {
 		GameCounter player1;
 		GameCounter player2; 
 		
-		
 		//player turn boolean (used to keep track of who's turn it is)
 		boolean player1turn = true;
 		
@@ -34,7 +39,6 @@ public class Interface extends Application {
 		private int bombs = 0;
 		private int gameID = 0;
 
-		
 		//player attributes (used to modify the objects on game end)
 		private String P1Name = "Bob";
 		private int P1Loss = 0;
@@ -121,7 +125,9 @@ public class Interface extends Application {
 		public static void main(String[] args) {
 			launch(args);
 		}
-
+		/**
+		 * 
+		 */
 		@Override // Override the start method in the Application class
 		public void start(Stage primaryStage) {
 
@@ -165,8 +171,10 @@ public class Interface extends Application {
 
 
 		}
-		
-		//Create the actPane, this pane is the pane for bomb drops and result of hit/miss
+		/**
+		 * Create the actPane, this pane is the pane for bomb drops and result of hit/miss
+		 * @return
+		 */
 		protected BorderPane actPane() {
 			
 			//construct objects for the players using current game count status (status changes on game end)
@@ -1060,8 +1068,10 @@ public class Interface extends Application {
 
 			return pane; 
 		}
-
-		//Decline button method for use to reset the boat choices if a mistake is made
+		
+		/**
+		 * //Decline button method for use to reset the boat choices if a mistake is made
+		 */
 		public void decline() {
 			
 			//Reset the radio buttons to not selected
@@ -1098,7 +1108,9 @@ public class Interface extends Application {
 			
 		}
 		
-		//Confirm button method for use after all boats have been placed 
+		/**
+		 * Confirm button method for use after all boats have been placed 
+		 */
 		public void confirm() {
 	
 				//set number of bombs in inventory gives 3 more bombs than the number of boats placed.
@@ -1199,7 +1211,9 @@ public class Interface extends Application {
 				btLeft.setDisable(true);
 			}
 		
-		//Restart button method, used to restart the current game
+		/**
+		 * //Restart button method, used to restart the current game
+		 */
 		public void restart() {
 		
 			//reset boat count on reset button activation
@@ -1375,7 +1389,9 @@ public class Interface extends Application {
 		
 	}
 		
-		//game over method
+		/**
+		 * //game over method for checking the end of game and keeping track of progression
+		 */
 		public void gameOver() {
 			
 			//loop to keep track of game play duration.
@@ -1564,7 +1580,9 @@ public class Interface extends Application {
 			score();
 		}
 			
-		// this method prints the object status in the console as a score keeping tool
+		/**
+		 * // this method prints the object status in the console as a score keeping tool
+		 */
 		public void score() {
 			
 			if (player1turn == true) {
