@@ -19,7 +19,9 @@ After the boat player has chosen the boat positions, the player will then click 
 The bombs player will choose the placement of the bombs to try and sink the ships. the placement of bombs is done by clicking the button grid at the bottom section of the pane with the mouse.
 the "Bomb" player will have 3 more bombs than the number of ships placed to try and sink the boat players ships.
 
-[https://github.com/JasonW77/CSCI_1110_OOP_Coursework/blob/master/Final%20Project/Bomb%20Player%20turn.png](BombPlayerturn.png)
+[https://github.com/JasonW77/CSCI_1110_OOP_Coursework/blob/master/Final%20Project/Bomb%20Player%20turn.png]
+
+(BombPlayerturn.png)
 
 
 ## Code Example
