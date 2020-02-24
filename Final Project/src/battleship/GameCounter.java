@@ -37,8 +37,8 @@ public class GameCounter extends Interface{
 	public int getPlayerID(){
 		return this.playerID;
 	}
-	public void setPlayerID(int playerID){
-		this.playerID = playerID;
+	public void setPlayerID(){
+		this.playerID++;
 	}
 	
 	//method for Game Start date
@@ -69,12 +69,13 @@ public class GameCounter extends Interface{
 	public void setLoss(){
 		this.loss++;
 	}
-	
-	//Player Tie getter and setter
+	 
+	//Player Tie getter and setter, even though A tie is not possible in this game...
 	public int getTie(){
 		return this.tie;
 	}
 	public void setTie(){
 		this.tie++;
 	}
+	
 }
