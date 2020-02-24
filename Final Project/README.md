@@ -42,5 +42,29 @@ here is a code example of player one placing thier ships.
 				}
 			});
 ```
+## Code Example
+here is a code example of player two dropping thier bombs.
+
+```
+//Bomb Drop Buttons setOnAction assignments, changes color for hit/miss as well as counts the hit/miss counters and depletes bomb count
+			bo1_1.setOnAction(e -> {
+				if (rb1_1.isSelected()) {
+					rb1_1.setStyle("-fx-color: RED");
+					rb1_1.setVisible(true);
+					bo1_1.setDisable(true);
+					hits++;
+					boatleft--;
+				}
+				else {
+					rb1_1.setStyle("-fx-color: LIGHTBLUE");
+					rb1_1.setVisible(true);
+					bo1_1.setDisable(true);
+					miss++;
+				}
+				bombs--;
+				gameOver();
+			});
+```
+
 ## Tests
 there are no value returning methods.
