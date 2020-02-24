@@ -1,14 +1,14 @@
-# **Java Battleship**
+# **Javafx Battleship**
 
 ## Synopsis
 This is a game of Battleship, it is a two player game where the first player picks the number of ships
 and places them in a grid. after which the second player tries to sink the ships.
 
 ## Motivation
-This is a program for the Object Oriented Programming CSCI-1110-OOP class at Southwest Tech. I created this program for my final project in that class.
+This is a program for the Object Oriented Programming CSCI-1110-OOP class at Southwest Tech. I created this program for my final project in that clas as it encompasses the requirements of the assignment.
 
 ## How to Play
-This game is played using java.
+This game is played using a javafx GUI.
 
 The game is played by the first player (the player owning the boats) picks the number of boats
 and places them in a 5x5 grid, choosing the ship placement by clicking the radio buttons at the top section of the pane with the mouse.[Boat PLacement.png](https://github.com/JasonW77/CSCI_1110_OOP_Coursework/blob/master/Final%20Project/Boat%20PLacement.png) 
