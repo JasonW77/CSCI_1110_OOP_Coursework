@@ -27,7 +27,7 @@ the "Bomb" player will have 3 more bombs than the number of ships placed to try 
 ## Code Example
 here is a code example of player one placing thier ships.
 
-'''
+```
 //Boat counter radio button onActions these keep track of the number of boats placed.
 			rb1_1.setOnAction(e -> {
 				if (rb1_1.isSelected()) {
@@ -41,6 +41,6 @@ here is a code example of player one placing thier ships.
 					}
 				}
 			});
-'''
+```
 ## Tests
 there are no value returning methods.
