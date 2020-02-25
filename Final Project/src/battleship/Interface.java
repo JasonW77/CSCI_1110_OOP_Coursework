@@ -2,7 +2,7 @@
  * <h1>JavaDoc<h1/>
  * This is my Battleship game interface class.
  * 	I created this program for the CSCI_1110_Final_Project
- * 
+ * 	http://tutorials.jenkov.com/javafx/vbox.html 
  * 
 	<p>Date created 2/24/2020 <p/>
 	
@@ -15,10 +15,13 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.geometry.Insets;
 
 
@@ -50,36 +53,46 @@ public class Interface extends Application {
 		private int P2Win = 0;
 		private int P2Tie = 0;
 		
+		private TextField textField1 = new TextField("Place Boats on the");
+		private TextField textField2 = new TextField("Playfield by clicking dots");
+		private TextField textField3 = new TextField("Confirm: Starts Players Turn");
+		private TextField textField4 = new TextField("Decline: resets boat field");
+		private TextField textField5 = new TextField("ReStart: starts/restarts game");
+		private TextField textField6 = new TextField();
+		private TextField textField7 = new TextField();
+		private TextField textField8= new TextField("Drop Bombs!");
+		
+		
 		//Radio buttons used for boat placement
 		private RadioButton rb1_1 = new RadioButton("");
 		private RadioButton rb1_2 = new RadioButton("");
 		private RadioButton rb1_3 = new RadioButton("");
 		private RadioButton rb1_4 = new RadioButton("");
-		private RadioButton rb1_5 = new RadioButton("");
+		private RadioButton rb1_5 = new RadioButton();
 
 		private RadioButton rb2_1 = new RadioButton("");
 		private RadioButton rb2_2 = new RadioButton("");
 		private RadioButton rb2_3 = new RadioButton("");
 		private RadioButton rb2_4 = new RadioButton("");
-		private RadioButton rb2_5 = new RadioButton("");
+		private RadioButton rb2_5 = new RadioButton();
 		
 		private RadioButton rb3_1 = new RadioButton("");
 		private RadioButton rb3_2 = new RadioButton("");
 		private RadioButton rb3_3 = new RadioButton("");
 		private RadioButton rb3_4 = new RadioButton("");
-		private RadioButton rb3_5 = new RadioButton("");
+		private RadioButton rb3_5 = new RadioButton();
 		
 		private RadioButton rb4_1 = new RadioButton("");
 		private RadioButton rb4_2 = new RadioButton("");
 		private RadioButton rb4_3 = new RadioButton("");
 		private RadioButton rb4_4 = new RadioButton("");
-		private RadioButton rb4_5 = new RadioButton("");
+		private RadioButton rb4_5 = new RadioButton();
 	
 		private RadioButton rb5_1 = new RadioButton("");
 		private RadioButton rb5_2 = new RadioButton("");
 		private RadioButton rb5_3 = new RadioButton("");
 		private RadioButton rb5_4 = new RadioButton("");
-		private RadioButton rb5_5 = new RadioButton("");
+		private RadioButton rb5_5 = new RadioButton();
 		
 		
 		//buttons used for bomb drop locations
@@ -112,6 +125,7 @@ public class Interface extends Application {
 		private Button bo5_3 = new Button("");
 		private Button bo5_4 = new Button("");
 		private Button bo5_5 = new Button("");
+		
 		
 		//buttons for the game progress bar (Confirm, Decline, Restart, and Score buttons)
 		Button btLeft = new Button("Confirm");
@@ -163,7 +177,7 @@ public class Interface extends Application {
 			bo5_5.setDisable(true);
 			
 			// Create a scene and place it in the stage
-			Scene scene = new Scene(actPane(), 500, 500);
+			Scene scene = new Scene(actPane(), 500, 480);
 			primaryStage.setTitle("BattleShip!"); // Set the stage title
 			primaryStage.setScene(scene); // Place the scene in the stage
 			primaryStage.show(); // Display the stage
@@ -181,6 +195,20 @@ public class Interface extends Application {
 			player1 = new GameCounter(gameID,P1Name,P1Win,P1Loss,P1Tie);
 			player2 = new GameCounter(gameID,P2Name,P2Win,P2Loss,P2Tie);
 			
+			ListView<String> listView = new ListView<String>();
+
+			VBox scorepane = new VBox(textField1,textField2,textField3,textField4,textField5,textField6,textField7);
+		
+			textField1.setDisable(true);
+			textField2.setDisable(true);
+			textField3.setDisable(true);
+			textField4.setDisable(true);
+			textField5.setDisable(true);
+			textField6.setDisable(true);
+			textField7.setDisable(true);
+			textField8.setDisable(true);
+			textField8.setVisible(false);
+		
 			//create panes and buttons for the actPane
 			BorderPane pane = new BorderPane();
 			GridPane actpane = new GridPane();
@@ -193,10 +221,12 @@ public class Interface extends Application {
 			btReStart.setOnAction(e -> restart());
 			btScore.setOnAction(e -> score());
 			btLeft.setDisable(true);
-			/*
-			//This is here to for testing the setter for wins
-			P1UP.setOnAction(e -> player1.setWin());
-			*/
+			
+			//set score pane attributes
+			scorepane.setStyle("-fx-border-color: black");
+			scorepane.setPadding(new Insets(5, 5, 5, 5));
+			
+			scorepane.getChildren().addAll(listView);
 			
 			//set actPane attributes
 			actpane.setStyle("-fx-border-color: black");
@@ -205,41 +235,88 @@ public class Interface extends Application {
 			actpane.setHgap(5);
 			actpane.setVgap(5);
 			
-			/*
-			//boat pane labels not sure if i will use this
-			boatpane.add(scorepane,0,0);
-			*/
+			//Add the Bomb buttons to the actPane
+			actpane.add(textField8,6, 0);
 			
-			//Add the Bomb buttons to the actpane
-			actpane.add(bo1_1,1,11);
-			actpane.add(bo1_2,2,11);
-			actpane.add(bo1_3,3,11);
-			actpane.add(bo1_4,4,11);
-			actpane.add(bo1_5,5,11);
+			actpane.add(bo1_1,1,1);
+			actpane.add(bo1_2,2,1);
+			actpane.add(bo1_3,3,1);
+			actpane.add(bo1_4,4,1);
+			actpane.add(bo1_5,5,1);
 			
-			actpane.add(bo2_1,1,12);
-			actpane.add(bo2_2,2,12);
-			actpane.add(bo2_3,3,12);
-			actpane.add(bo2_4,4,12);
-			actpane.add(bo2_5,5,12);
+			actpane.add(bo2_1,1,2);
+			actpane.add(bo2_2,2,2);
+			actpane.add(bo2_3,3,2);
+			actpane.add(bo2_4,4,2);
+			actpane.add(bo2_5,5,2);
 			
-			actpane.add(bo3_1,1,13);
-			actpane.add(bo3_2,2,13);
-			actpane.add(bo3_3,3,13);
-			actpane.add(bo3_4,4,13);
-			actpane.add(bo3_5,5,13);
+			actpane.add(bo3_1,1,3);
+			actpane.add(bo3_2,2,3);
+			actpane.add(bo3_3,3,3);
+			actpane.add(bo3_4,4,3);
+			actpane.add(bo3_5,5,3);
 			
-			actpane.add(bo4_1,1,14);
-			actpane.add(bo4_2,2,14);
-			actpane.add(bo4_3,3,14);
-			actpane.add(bo4_4,4,14);
-			actpane.add(bo4_5,5,14);
+			actpane.add(bo4_1,1,4);
+			actpane.add(bo4_2,2,4);
+			actpane.add(bo4_3,3,4);
+			actpane.add(bo4_4,4,4);
+			actpane.add(bo4_5,5,4);
 			
-			actpane.add(bo5_1,1,15);
-			actpane.add(bo5_2,2,15);
-			actpane.add(bo5_3,3,15);
-			actpane.add(bo5_4,4,15);
-			actpane.add(bo5_5,5,15);
+			actpane.add(bo5_1,1,5);
+			actpane.add(bo5_2,2,5);
+			actpane.add(bo5_3,3,5);
+			actpane.add(bo5_4,4,5);
+			actpane.add(bo5_5,5,5);
+			
+			//set boatPane attributes
+			boatpane.setStyle("-fx-background-color: ROYALBLUE");
+			boatpane.setAlignment(Pos.TOP_CENTER);
+			boatpane.setPadding(new Insets(5, 5, 5, 5));
+			boatpane.setHgap(30);
+			boatpane.setVgap(30);
+			
+			//Add Radio buttons for boat selection to the boatPane
+			
+			boatpane.add(rb1_1,1,1);
+			boatpane.add(rb1_2,2,1);
+			boatpane.add(rb1_3,3,1);
+			boatpane.add(rb1_4,4,1);
+			boatpane.add(rb1_5,5,1);
+			
+			boatpane.add(rb2_1,1,2);
+			boatpane.add(rb2_2,2,2);
+			boatpane.add(rb2_3,3,2);
+			boatpane.add(rb2_4,4,2);
+			boatpane.add(rb2_5,5,2);
+			
+			boatpane.add(rb3_1,1,3);
+			boatpane.add(rb3_2,2,3);
+			boatpane.add(rb3_3,3,3);
+			boatpane.add(rb3_4,4,3);
+			boatpane.add(rb3_5,5,3);
+			
+			boatpane.add(rb4_1,1,4);
+			boatpane.add(rb4_2,2,4);
+			boatpane.add(rb4_3,3,4);
+			boatpane.add(rb4_4,4,4);
+			boatpane.add(rb4_5,5,4);
+			
+			boatpane.add(rb5_1,1,5);
+			boatpane.add(rb5_2,2,5);
+			boatpane.add(rb5_3,3,5);
+			boatpane.add(rb5_4,4,5);
+			boatpane.add(rb5_5,5,5);
+		
+			//set paneForButtons attributes
+			paneForButtons.getChildren().addAll(btLeft, btRight, btReStart /*btScore*/); //removed button because it was unneeded it was originally used to update the score, but the program does this on its own now.
+			paneForButtons.setAlignment(Pos.CENTER);
+			paneForButtons.setStyle("-fx-border-color: black");
+			
+			//set pane attributes
+			pane.setTop(boatpane);
+			pane.setBottom(paneForButtons); 
+			pane.setCenter(actpane);
+			pane.setLeft(scorepane);
 			
 			//Boat counter radio button onActions these keep track of the number of boats placed.
 			rb1_1.setOnAction(e -> {
@@ -1017,54 +1094,7 @@ public class Interface extends Application {
 				bombs--;
 				gameOver();
 			});
-			
-			//set boatpane attributes
-			boatpane.setStyle("-fx-background-color: ROYALBLUE");
-			boatpane.setAlignment(Pos.TOP_CENTER);
-			boatpane.setPadding(new Insets(5, 5, 5, 5));
-			boatpane.setHgap(30);
-			boatpane.setVgap(30);
-			
-			//Add Radio buttons for boat selection to the boatpane
-			boatpane.add(rb1_1,1,1);
-			boatpane.add(rb1_2,2,1);
-			boatpane.add(rb1_3,3,1);
-			boatpane.add(rb1_4,4,1);
-			boatpane.add(rb1_5,5,1);
-			
-			boatpane.add(rb2_1,1,2);
-			boatpane.add(rb2_2,2,2);
-			boatpane.add(rb2_3,3,2);
-			boatpane.add(rb2_4,4,2);
-			boatpane.add(rb2_5,5,2);
-			
-			boatpane.add(rb3_1,1,3);
-			boatpane.add(rb3_2,2,3);
-			boatpane.add(rb3_3,3,3);
-			boatpane.add(rb3_4,4,3);
-			boatpane.add(rb3_5,5,3);
-			
-			boatpane.add(rb4_1,1,4);
-			boatpane.add(rb4_2,2,4);
-			boatpane.add(rb4_3,3,4);
-			boatpane.add(rb4_4,4,4);
-			boatpane.add(rb4_5,5,4);
-			
-			boatpane.add(rb5_1,1,5);
-			boatpane.add(rb5_2,2,5);
-			boatpane.add(rb5_3,3,5);
-			boatpane.add(rb5_4,4,5);
-			boatpane.add(rb5_5,5,5);
-		
-			//set paneForButtons attributes
-			paneForButtons.getChildren().addAll(btLeft, btRight, btReStart, btScore); 
-			paneForButtons.setAlignment(Pos.CENTER);
-			paneForButtons.setStyle("-fx-border-color: black");
-			
-			//set pane attributes
-			pane.setTop(boatpane);
-			pane.setBottom(paneForButtons); 
-			pane.setCenter(actpane);
+
 
 			return pane; 
 		}
@@ -1075,6 +1105,9 @@ public class Interface extends Application {
 		public void decline() {
 			
 			//Reset the radio buttons to not selected
+			
+			
+			
 			rb1_1.setSelected(false);
 			rb1_2.setSelected(false);
 			rb1_3.setSelected(false);
@@ -1117,6 +1150,7 @@ public class Interface extends Application {
 				bombs = (boats + 3);
 				boatleft = boats;
 				
+				
 				//enable bomb buttons after boats are set
 				bo1_1.setDisable(false);
 				bo1_2.setDisable(false);
@@ -1148,7 +1182,7 @@ public class Interface extends Application {
 				bo5_4.setDisable(false);
 				bo5_5.setDisable(false);
 				
-				//hide boat radio buttons and make them non interactable after boats are set
+				//hide boat radio buttons and make them non interact able after boats are set
 				rb1_1.setVisible(false);
 				rb1_1.setDisable(true);
 				rb1_2.setVisible(false);
@@ -1204,6 +1238,8 @@ public class Interface extends Application {
 				rb5_5.setVisible(false);
 				rb5_5.setDisable(true);
 				
+				textField8.setVisible(true);
+				
 				//hide and disable confirm and decline buttons after boats are set
 				btRight.setVisible(false);
 				btRight.setDisable(true);
@@ -1222,6 +1258,12 @@ public class Interface extends Application {
 			bombs = 0;
 			hits = 0;
 			miss = 0;
+			
+			textField1.setText("Place Boats on the");
+			textField2.setText("Playfield by clicking dots");
+			textField3.setText("Confirm: Starts Players Turn");
+			textField4.setText("Decline: resets boat field");
+			textField5.setText("ReStart: starts/restarts game");
 			
 			
 			//Disable Bomb buttons on reset
@@ -1254,6 +1296,8 @@ public class Interface extends Application {
 			bo5_3.setDisable(true);
 			bo5_4.setDisable(true);
 			bo5_5.setDisable(true);
+			
+			textField8.setVisible(false);
 			
 			//Show and Enable boat radio buttons on reset
 			rb1_1.setVisible(true);
@@ -1395,7 +1439,9 @@ public class Interface extends Application {
 		public void gameOver() {
 			
 			//loop to keep track of game play duration.
-			if (boats - hits >= 0) {
+			//if statement for game end based on boats sunk or the number of hits made
+			if (boats - hits <= 0 || bombs <= 0) {
+		
 					if (player1turn == true) {
 						if (hits >= boats) {
 							System.out.println(player1.getName() + " wins!");
@@ -1434,13 +1480,12 @@ public class Interface extends Application {
 							bo5_5.setDisable(true);
 							
 							player1turn = false;
-							//restart();
 							player1.setPlayerID();
 							player2.setPlayerID();
 							player1.setWin();
 							player2.setLoss();
 						}
-						else if (miss >= (boats + 3)) {
+						else if (bombs == 0) {
 							System.out.println(player2.getName() + " wins");
 							System.out.println("Hits/miss: " + hits + "/" +  miss);
 							btLeft.setDisable(true);
@@ -1477,7 +1522,6 @@ public class Interface extends Application {
 							bo5_5.setDisable(true);
 							
 							player1turn = false;
-							//restart();
 							player1.setPlayerID();
 							player2.setPlayerID();
 							player2.setWin();
@@ -1524,13 +1568,12 @@ public class Interface extends Application {
 							bo5_5.setDisable(true);
 							
 							player1turn = true;
-							//restart();
 							player1.setPlayerID();
 							player2.setPlayerID();
 							player2.setWin();
 							player1.setLoss();
 						}
-						else if (miss >= (boats + 3)) {
+						else if (bombs == 0) {
 							System.out.println(player1.getName() + " wins");
 							System.out.println("Hits/miss: " + hits + "/" +  miss);
 							btLeft.setDisable(true);
@@ -1567,7 +1610,6 @@ public class Interface extends Application {
 							bo5_5.setDisable(true);
 							
 							player1turn = true;
-							//restart();
 							player1.setPlayerID();
 							player2.setPlayerID();
 							player1.setWin();
@@ -1584,6 +1626,14 @@ public class Interface extends Application {
 		 * // this method prints the object status in the console as a score keeping tool
 		 */
 		public void score() {
+			
+			textField1.setText("This Game Hits: " + hits); //
+			textField2.setText("This Game Miss: " + miss); //
+			textField3.setText("This Game Bombs left: " + bombs);
+			textField4.setText("This Game Boats left: " + boats);
+			textField5.setText("");
+			textField6.setText("P1 " + player1.getName() + "    W/L:    " + player1.getWin() + "/" + player1.getLoss());
+			textField7.setText("P2 " + player2.getName() + "    W/L:    " + player2.getWin() + "/" + player2.getLoss() );
 			
 			if (player1turn == true) {
 				System.out.println();
@@ -1607,7 +1657,7 @@ public class Interface extends Application {
 				//System.out.println("Object at creation " + player2.toString());
 				//System.out.println("Game Date " + player2.getDate());
 			}
-			System.out.println();
+			System.out.println("here" + (boats - hits));
 			System.out.println("~~~~~This Game~~~~~");
 			System.out.println("# of boats placed on field: " + boats);
 			System.out.println("# of boats left on field: " + boatleft);
